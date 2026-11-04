@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Swetha Music Academy - professional music learning platform">
+<title>Home | Swetha Music Academy</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.realism-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.12);margin:0 5vw;padding:0;border-radius:18px;overflow:hidden}
+.realism-strip>div{background:#111;padding:28px 24px;min-height:105px;display:flex;flex-direction:column;justify-content:center}
+.realism-strip strong{font-size:.78rem;letter-spacing:.16em}
+.realism-strip span{margin-top:8px;color:#aaa;font-size:.9rem;line-height:1.5}
+.f-photo-frame,.f-collage-main,.f-collage-side>div:first-child,.f-stage-image{overflow:hidden}
+.f-photo-frame img,.f-collage-main img,.f-collage-side img,.f-stage-image img{transition:transform .7s ease,filter .7s ease}
+.f-photo-frame:hover img,.f-collage-main:hover img,.f-collage-side>div:first-child:hover img,.f-stage-image:hover img{transform:scale(1.045);filter:saturate(1.08) contrast(1.03)}
+@media(max-width:800px){.realism-strip{grid-template-columns:1fr;margin:0 6vw}.realism-strip>div{min-height:auto}}
+</style></head>
+<body>
+<header class="navbar">
+<a class="brand" href="index.html"><span class="brand-mark">SM</span><span>SWETHA<small>MUSIC ACADEMY</small></span></a>
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+<nav id="nav">
+<a class="active" href="index.html">Home</a><a class="" href="courses.html">Courses</a>
+<a class="" href="mentors.html">Mentors</a><a class="" href="gallery.html">Gallery</a>
+<a class="" href="about.html">About</a><a class="" href="contact.html">Contact</a>
+<button class="theme-btn" onclick="toggleTheme()">◐</button>
+</nav></header>
+
+<main class="f-home">
+<section class="f-hero cinematic-hero">
+  <div class="cinematic-bg"></div>
+  <div class="hero-orb orb-one"></div><div class="hero-orb orb-two"></div>
+  <div class="hero-note note-one">♪</div><div class="hero-note note-two">♫</div>
+  <div class="f-hero-content reveal">
+    <div class="f-kicker"><span class="live-dot"></span> SWETHA MUSIC ACADEMY · EST. 2026</div>
+    <h1>Turn your<br><i>sound</i> into a story.</h1>
+    <p class="f-lead">A modern space to learn music, find your voice and build the confidence to perform.</p>
+    <div class="f-actions"><a class="f-btn" href="courses.html">Explore courses <b>↗</b></a><a class="f-ghost" href="contact.html">Start your journey</a></div>
+    <div class="f-proof"><span><b>8+</b> learning paths</span><span><b>4</b> specialist mentors</span><span><b>∞</b> room to create</span></div>
+  </div>
+  <div class="hero-showcase reveal">
+    <div class="showcase-image"><img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=1800&q=95" alt="Piano in a music studio"><div class="image-shade"></div><div class="showcase-label"><span>01 / STUDIO SESSION</span><b>PLAY · PRACTICE · PERFORM</b></div></div>
+    <div class="hero-glass-card"><span class="eyebrow">TODAY'S SESSION</span><strong>Piano Foundations</strong><small>Studio 03 · 06:30 PM</small><div class="mini-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="session-bottom"><span>Mentor guided</span><button onclick="playInstrument('piano',this)">▶ Preview</button></div></div>
+    <div class="floating-pill"><span>✦</span> Learn. Create. Perform.</div>
+  </div>
+</section>
+<div class="f-marquee"><div>PIANO <span>✦</span> GUITAR <span>✦</span> VOCALS <span>✦</span> DRUMS <span>✦</span> VIOLIN <span>✦</span> FLUTE <span>✦</span> LIVE PERFORMANCE <span>✦</span> </div><div>PIANO <span>✦</span> GUITAR <span>✦</span> VOCALS <span>✦</span> DRUMS <span>✦</span> VIOLIN <span>✦</span> FLUTE <span>✦</span> LIVE PERFORMANCE <span>✦</span> </div></div>
+<section class="realism-strip reveal">
+  <div><strong>PERSONAL COACHING</strong><span>Small-batch sessions with mentor feedback</span></div>
+  <div><strong>PROFESSIONAL STUDIOS</strong><span>Practice spaces designed for focused learning</span></div>
+  <div><strong>STAGE READY</strong><span>Performance opportunities that build confidence</span></div>
+</section>
+<section class="f-intro reveal"><div><span class="eyebrow">01 / THE EXPERIENCE</span><h2>Not another<br><i>music class.</i></h2></div><div class="f-intro-copy"><p>Walk into a real learning environment where every session has a purpose. Choose an instrument, work with a mentor, build your repertoire and eventually step onto the stage.</p><a href="about.html">Discover our approach <span>→</span></a></div></section>
+<section class="f-collage reveal"><div class="f-collage-main"><img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1400&q=95" alt="Guitar lesson"><span>02 / GUITAR LAB</span></div><div class="f-collage-side"><div><img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1100&q=95" alt="Vocal performance"><b>VOICE / PERFORMANCE</b></div><div class="f-note"><span>“</span><p>Music becomes yours when practice turns into expression.</p><small>SWETHA MUSIC ACADEMY</small></div></div></section>
+<section class="f-tracks reveal"><div class="f-section-top"><div><span class="eyebrow">03 / YOUR NEXT MOVE</span><h2>Find your <i>track.</i></h2></div><a href="courses.html">View all courses ↗</a></div><div class="f-track-grid"><a href="courses.html" class="f-track"><span>01</span><div><small>KEYS</small><h3>Piano & Keyboard</h3><p>Technique · chords · repertoire</p></div><b>↗</b></a><a href="courses.html" class="f-track"><span>02</span><div><small>STRINGS</small><h3>Guitar Studio</h3><p>Rhythm · fingerstyle · songs</p></div><b>↗</b></a><a href="courses.html" class="f-track"><span>03</span><div><small>VOICE</small><h3>Vocal Performance</h3><p>Pitch · breath · stage presence</p></div><b>↗</b></a><a href="courses.html" class="f-track"><span>04</span><div><small>RHYTHM</small><h3>Drums & Percussion</h3><p>Groove · timing · ensemble</p></div><b>↗</b></a></div></section>
+<section class="f-stage reveal"><div class="f-stage-image"><img src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1500&q=90" alt="Live music performance"><div class="f-stage-label">LIVE SESSION / 2026</div></div><div class="f-stage-copy"><span class="eyebrow gold">04 / PERFORMANCE</span><h2>From practice room<br>to <i>the stage.</i></h2><p>Showcases, studio sessions and live events give students a reason to keep improving—and a place to share what they have built.</p><div class="f-stats"><div><b>24</b><span>Live sessions</span></div><div><b>12</b><span>Showcase dates</span></div><div><b>01</b><span>Creative community</span></div></div><a class="f-btn light" href="events.html">See upcoming events ↗</a></div></section>
+<section class="f-final reveal"><span class="eyebrow gold">05 / BEGIN HERE</span><h2>One note can<br>change the <i>whole song.</i></h2><p>Choose your instrument. Meet your mentor. Start your first session.</p><a class="f-btn" href="contact.html">Book a trial class ↗</a></section>
+</main>
+<footer><div class="brand"><span class="brand-mark">SM</span><span>SWETHA<small>MUSIC ACADEMY</small></span></div><p>Learn · Practice · Perform</p><small>© 2026 Swetha Music Academy</small></footer>
+<div id="toast" class="toast"></div><script src="js/script.js"></script>
+</body></html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Founding Maestros | Dhanu Music Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .maestro-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 20px;
+        }
+
+        .maestro-card {
+            background: #1c1832;
+            border: 1px solid rgba(246,201,156,0.35);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .maestro-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6), 0 0 25px rgba(229,152,155,0.2);
+        }
+
+        .maestro-img-box {
+            width: 100%;
+            height: 420px;
+            overflow: hidden;
+            background: #0f0c1e;
+        }
+
+        /* DHANUSHA - moved UP to 5% */
+        .img-dhanusha {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 5%;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        /* MEGHANA - moved UP to 3% */
+        .img-meghana {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 0%;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        /* SONY - moved UP to 2% */
+        .img-sony {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 0%;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .maestro-card:hover .img-dhanusha,
+        .maestro-card:hover .img-meghana,
+        .maestro-card:hover .img-sony {
+            transform: scale(1.04);
+        }
+
+        .maestro-info {
+            padding: 20px 22px 24px;
+            border-top: 1px solid rgba(246,201,156,0.2);
+        }
+
+        .maestro-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .maestro-role {
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #fceade, #e5989b, #b56576);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .maestro-bio {
+            font-size: 0.88rem;
+            color: #b8b8cc;
+            line-height: 1.65;
+        }
+
+        @media (max-width: 900px) {
+            .maestro-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER WITH ROYAL D LOGO -->
+    <header class="royal-header">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon-royal">
+                    <span class="logo-d-letter">D</span>
+                    <i class="fa-solid fa-music logo-note-mini"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">DHANU <span class="gold-text">MUSIC ACADEMY</span></span>
+                    <span class="logo-subtitle">ROYAL CONSERVATORY</span>
+                </div>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="courses.html" class="nav-link">Courses</a></li>
+                    <li><a href="piano.html" class="nav-link">Virtual Piano 🎹</a></li>
+                    <li><a href="performances.html" class="nav-link">Performances</a></li>
+                    <li><a href="faculty.html" class="nav-link active">Maestros</a></li>
+                    <li><a href="admissions.html" class="nav-link">Admissions & Fees</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="admissions.html" class="btn-royal-gold">
+                    <span>Book Audition</span>
+                    <i class="fa-solid fa-crown"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PAGE TITLE BANNER -->
+    <section class="page-banner">
+        <div class="container text-center">
+            <div class="section-badge">
+                <i class="fa-solid fa-crown"></i> ACADEMY DIRECTORS
+            </div>
+            <h1 class="page-title">Meet Our Founding <span class="gold-text">Maestros</span></h1>
+            <p class="page-subtitle">Guiding the next generation of musical prodigies with royal conservatory passion.</p>
+        </div>
+    </section>
+
+    <!-- 3 MAESTROS GRID -->
+    <section style="padding: 55px 0 100px;">
+        <div class="container">
+            <div class="maestro-grid">
+
+                <!-- PROF. DHANUSHA -->
+                <div class="maestro-card">
+                    <div class="maestro-img-box">
+                        <img src="images/pravallika-maestro.jpg"
+                             alt="Prof. Dhanusha"
+                             class="img-dhanusha">
+                    </div>
+                    <div class="maestro-info">
+                        <p class="maestro-name">Prof. Dhanusha</p>
+                        <span class="maestro-role">Founder & Principal Vocal Director</span>
+                        <p class="maestro-bio">Master of Classical & Contemporary Vocals, Stage Presence, and Diaphragmatic Breath Control.</p>
+                    </div>
+                </div>
+
+                <!-- PROF. MEGHANA -->
+                <div class="maestro-card">
+                    <div class="maestro-img-box">
+                        <img src="images/meghana-maestro.jpg"
+                             alt="Prof. Meghana"
+                             class="img-meghana">
+                    </div>
+                    <div class="maestro-info">
+                        <p class="maestro-name">Prof. Meghana</p>
+                        <span class="maestro-role">Director of Acoustic Guitar Arts</span>
+                        <p class="maestro-bio">Acoustic fingerstyle virtuoso, Spanish chord progressions, and rhythm orchestration.</p>
+                    </div>
+                </div>
+
+                <!-- PROF. SONY -->
+                <div class="maestro-card">
+                    <div class="maestro-img-box">
+                        <img src="images/sony-maestro.jpg"
+                             alt="Prof. Sony"
+                             class="img-sony">
+                    </div>
+                    <div class="maestro-info">
+                        <p class="maestro-name">Prof. Sony</p>
+                        <span class="maestro-role">Master of Grand Piano, Keys & Lead Fusion</span>
+                        <p class="maestro-bio">Concert grand pianist and modern keys specialist, mastering classical harmony and high-energy stage solos.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="royal-footer">
+        <div class="container">
+            <p>© 2026 Dhanu Music Academy. Created with 💖 by <strong>Dhanusha</strong>.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING AUDIO PLAYER -->
+    <div class="floating-audio-player">
+        <div class="player-content">
+            <div class="track-info">
+                <img src="images/dhanusha-maestro.jpg" alt="Cover" class="track-art">
+                <div>
+                    <span class="track-title" id="playerTrackTitle">Telugu Melody Track</span>
+                    <span class="track-artist" id="playerTrackArtist">Dhanu Music Academy Band</span>
+                </div>
+            </div>
+            <div class="player-controls">
+                <button class="play-main-btn" id="playPauseBtn">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+            </div>
+            <div class="audio-visualizer-wave" id="visualizerWave">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.7">
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Campus | Dhanu Music Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="royal-header">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon"><i class="fa-solid fa-music"></i></div>
+                <div class="logo-text"><span class="logo-title">DHANU <span class="gold-text">MUSIC ACADEMY</span></span></div>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="courses.html" class="nav-link">Courses</a></li>
+                    <li><a href="piano.html" class="nav-link">Virtual Piano 🎹</a></li>
+                    <li><a href="performances.html" class="nav-link">Performances</a></li>
+                    <li><a href="faculty.html" class="nav-link">Maestros</a></li>
+                    <li><a href="admissions.html" class="nav-link">Admissions & Fees</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container text-center">
+            <div class="section-badge"><i class="fa-solid fa-location-dot"></i> CAMPUS & TOURS</div>
+            <h1 class="page-title">Connect with <span class="gold-text">Dhanu Academy</span></h1>
+            <p class="page-subtitle">Schedule a private campus tour or consult with our admissions team.</p>
+        </div>
+    </section>
+
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <div class="calc-box">
+                <div>
+                    <h2 style="font-size:1.8rem; margin-bottom:15px;">Send Us an Inquiry</h2>
+                    <form class="royal-form" onsubmit="event.preventDefault(); alert('Thank you! Our admissions coordinator will contact you shortly.'); this.reset();">
+                        <div style="display:flex; flex-direction:column; gap:14px;">
+                            <div>
+                                <label>Your Name</label>
+                                <input type="text" placeholder="Dhanusha" required>
+                            </div>
+                            <div>
+                                <label>Email Address</label>
+                                <input type="email" placeholder="student@example.com" required>
+                            </div>
+                            <div>
+                                <label>Message / Question</label>
+                                <textarea rows="4" placeholder="How can we assist your musical journey?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn-royal-gold" style="width:100%;">
+                                <span>Submit Message</span> <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="summary-card" style="text-align:left; align-items:flex-start; gap:20px;">
+                    <div>
+                        <small style="color:var(--gold-light); font-weight:700;">CONSERVATORY LOCATION</small>
+                        <p style="color:#fff; margin-top:4px;">Royal Symphony Boulevard, Jubilee Hills, Hyderabad</p>
+                    </div>
+                    <div>
+                        <small style="color:var(--gold-light); font-weight:700;">DIRECT CONTACT</small>
+                        <p style="color:#fff; margin-top:4px;">admissions@dhanumusic.edu<br>+91 98765 43210</p>
+                    </div>
+                    <div>
+                        <small style="color:var(--gold-light); font-weight:700;">HOURS</small>
+                        <p style="color:#fff; margin-top:4px;">Monday – Saturday: 9:00 AM – 7:00 PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="royal-footer">
+        <div class="container"><p>© 2026 Dhanu Music Academy. Created with 💖 by <strong>Dhanusha</strong>.</p></div>
+    </footer>
+
+    <!-- FLOATING AUDIO PLAYER -->
+    <div class="floating-audio-player">
+        <div class="player-content">
+            <div class="track-info">
+                <img src="assets/dhanusha-maestro.jpg" onerror="this.src='assets/Dhanusha.jpg';" alt="Cover" class="track-art">
+                <div>
+                    <span class="track-title" id="playerTrackTitle">Telugu Melody Track</span>
+                    <span class="track-artist" id="playerTrackArtist">Dhanu Music Academy Band</span>
+                </div>
+            </div>
+            <div class="player-controls">
+                <button class="play-main-btn" id="playPauseBtn"><i class="fa-solid fa-play"></i></button>
+            </div>
+            <div class="audio-visualizer-wave" id="visualizerWave"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.7">
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

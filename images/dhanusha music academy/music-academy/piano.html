@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Virtual Piano Studio | Dhanu Music Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .piano-box-3d {
+            background: linear-gradient(180deg, #1f1a30, #0f0c1b);
+            border: 2px solid var(--border-gold);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 35px var(--gold-glow);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .piano-keys-container {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            height: 250px;
+            padding: 10px 0;
+            user-select: none;
+        }
+        .p-key {
+            cursor: pointer;
+            transition: all 0.1s ease;
+            position: relative;
+            border-radius: 0 0 6px 6px;
+        }
+        .p-key.white-key {
+            width: 58px;
+            height: 230px;
+            background: linear-gradient(180deg, #ffffff 0%, #f6f3fc 85%, #d9d1e8 100%);
+            border: 1px solid #1a1628;
+            border-top: none;
+            z-index: 1;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 15px;
+            box-shadow: inset 0 -3px 5px rgba(0,0,0,0.2), 0 5px 8px rgba(0,0,0,0.4);
+        }
+        .p-key.black-key {
+            width: 36px;
+            height: 145px;
+            background: linear-gradient(180deg, #2b223d 0%, #150f24 75%, #0a0614 100%);
+            border: 1px solid #000;
+            margin-left: -18px;
+            margin-right: -18px;
+            z-index: 2;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 12px;
+            box-shadow: inset 0 -2px 4px rgba(255,255,255,0.15), 0 6px 12px rgba(0,0,0,0.6);
+        }
+        .p-key.white-key span {
+            color: #2b2344;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .p-key.black-key span {
+            color: #f6c99c;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.2;
+        }
+        .p-key.white-key:active, .p-key.white-key.active {
+            background: #f7d6d8;
+            transform: translateY(4px);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .p-key.black-key:active, .p-key.black-key.active {
+            background: #87365f;
+            transform: translateY(4px);
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION HEADER WITH ROYAL 'D' LOGO -->
+    <header class="royal-header">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon-royal">
+                    <span class="logo-d-letter">D</span>
+                    <i class="fa-solid fa-music logo-note-mini"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">DHANU <span class="gold-text">MUSIC ACADEMY</span></span>
+                    <span class="logo-subtitle">ROYAL CONSERVATORY</span>
+                </div>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="courses.html" class="nav-link">Courses</a></li>
+                    <li><a href="piano.html" class="nav-link active">Virtual Piano 🎹</a></li>
+                    <li><a href="performances.html" class="nav-link">Performances</a></li>
+                    <li><a href="faculty.html" class="nav-link">Maestros</a></li>
+                    <li><a href="admissions.html" class="nav-link">Admissions & Fees</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="admissions.html" class="btn-royal-gold">
+                    <span>Book Audition</span>
+                    <i class="fa-solid fa-crown"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container text-center">
+            <div class="section-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> CONCERT SOUND ENGINE</div>
+            <h1 class="page-title">Interactive <span class="gold-text">Grand Piano Studio</span></h1>
+            <p class="page-subtitle">Play notes directly with your mouse or keyboard keys (A, W, S, E, D, F, T, G, Y, H, U, J, K, O, L)!</p>
+        </div>
+    </section>
+
+    <!-- INTERACTIVE 3D PIANO STUDIO -->
+    <section style="padding: 60px 0 90px;">
+        <div class="container">
+            <div class="piano-box-3d">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 15px;">
+                    <div>
+                        <span class="royal-badge" style="margin: 0;"><i class="fa-solid fa-crown"></i> STEINWAY CONCERT MODE</span>
+                    </div>
+                    <div style="color: var(--gold-light); font-size: 0.85rem;">
+                        <i class="fa-solid fa-keyboard"></i> Keyboard Input Active
+                    </div>
+                </div>
+
+                <!-- 3D KEYBOARD KEYS -->
+                <div class="piano-keys-container">
+                    <div class="p-key white-key" data-note="C4"><span>C<br><small>A</small></span></div>
+                    <div class="p-key black-key" data-note="C#4"><span>C#<br><small>W</small></span></div>
+                    <div class="p-key white-key" data-note="D4"><span>D<br><small>S</small></span></div>
+                    <div class="p-key black-key" data-note="D#4"><span>D#<br><small>E</small></span></div>
+                    <div class="p-key white-key" data-note="E4"><span>E<br><small>D</small></span></div>
+                    <div class="p-key white-key" data-note="F4"><span>F<br><small>F</small></span></div>
+                    <div class="p-key black-key" data-note="F#4"><span>F#<br><small>T</small></span></div>
+                    <div class="p-key white-key" data-note="G4"><span>G<br><small>G</small></span></div>
+                    <div class="p-key black-key" data-note="G#4"><span>G#<br><small>Y</small></span></div>
+                    <div class="p-key white-key" data-note="A4"><span>A<br><small>H</small></span></div>
+                    <div class="p-key black-key" data-note="A#4"><span>A#<br><small>U</small></span></div>
+                    <div class="p-key white-key" data-note="B4"><span>B<br><small>J</small></span></div>
+                    <div class="p-key white-key" data-note="C5"><span>C<br><small>K</small></span></div>
+                    <div class="p-key black-key" data-note="C#5"><span>C#<br><small>O</small></span></div>
+                    <div class="p-key white-key" data-note="D5"><span>D<br><small>L</small></span></div>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px; color: var(--text-muted); font-size: 0.9rem;">
+                    💡 <strong>Pro Tip:</strong> Press keys <code>A, S, D, F, G, H, J, K, L</code> on your computer keyboard to play musical scales!
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="royal-footer">
+        <div class="container"><p>© 2026 Dhanu Music Academy. Created with 💖 by <strong>Dhanusha</strong>.</p></div>
+    </footer>
+
+    <!-- FLOATING AUDIO PLAYER -->
+    <div class="floating-audio-player">
+        <div class="player-content">
+            <div class="track-info">
+                <img src="images/dhanusha-maestro.jpg" alt="Cover" class="track-art">
+                <div>
+                    <span class="track-title" id="playerTrackTitle">Telugu Melody Track</span>
+                    <span class="track-artist" id="playerTrackArtist">Dhanu Music Academy Band</span>
+                </div>
+            </div>
+            <div class="player-controls">
+                <button class="play-main-btn" id="playPauseBtn"><i class="fa-solid fa-play"></i></button>
+            </div>
+            <div class="audio-visualizer-wave" id="visualizerWave"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.7">
+        </div>
+    </div>
+
+    <!-- Web Audio Synthesizer Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            let audioCtx = null;
+
+            function initAudio() {
+                if (!audioCtx) audioCtx = new AudioContext();
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+            }
+
+            const freqs = {
+                'C4': 261.63, 'C#4': 277.18, 'D4': 293.66, 'D#4': 311.13,
+                'E4': 329.63, 'F4': 349.23, 'F#4': 369.99, 'G4': 392.00,
+                'G#4': 415.30, 'A4': 440.00, 'A#4': 466.16, 'B4': 493.88,
+                'C5': 523.25, 'C#5': 554.37, 'D5': 587.33
+            };
+
+            function playNote(note) {
+                initAudio();
+                const f = freqs[note];
+                if (!f) return;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = 'triangle';
+                gain.gain.setValueAtTime(0.6, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.8);
+                osc.frequency.setValueAtTime(f, audioCtx.currentTime);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 2.0);
+            }
+
+            document.querySelectorAll('.p-key').forEach(k => {
+                k.addEventListener('mousedown', () => {
+                    playNote(k.dataset.note);
+                    k.classList.add('active');
+                });
+                k.addEventListener('mouseup', () => k.classList.remove('active'));
+                k.addEventListener('mouseleave', () => k.classList.remove('active'));
+            });
+
+            const keys = { 'a': 'C4', 'w': 'C#4', 's': 'D4', 'e': 'D#4', 'd': 'E4', 'f': 'F4', 't': 'F#4', 'g': 'G4', 'y': 'G#4', 'h': 'A4', 'u': 'A#4', 'j': 'B4', 'k': 'C5', 'o': 'C#5', 'l': 'D5' };
+            window.addEventListener('keydown', (e) => {
+                const n = keys[e.key.toLowerCase()];
+                if (n) {
+                    const el = document.querySelector(`.p-key[data-note="${n}"]`);
+                    if (el && !el.classList.contains('active')) {
+                        playNote(n);
+                        el.classList.add('active');
+                    }
+                }
+            });
+            window.addEventListener('keyup', (e) => {
+                const n = keys[e.key.toLowerCase()];
+                if (n) {
+                    const el = document.querySelector(`.p-key[data-note="${n}"]`);
+                    if (el) el.classList.remove('active');
+                }
+            });
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>

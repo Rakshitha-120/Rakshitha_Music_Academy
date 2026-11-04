@@ -1,0 +1,3533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Courses | Rakshitha Music Academy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ==================================================
+   RESET
+================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#09050e;
+    color:#fff;
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+}
+
+body.modal-open{
+    overflow:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+
+/* ==================================================
+   VARIABLES
+================================================== */
+
+:root{
+
+    --bg:#09050e;
+    --bg2:#110819;
+
+    --purple:#2b123d;
+    --purple2:#452060;
+
+    --gold:#d8b66e;
+    --gold-light:#efd493;
+
+    --white:#fff;
+
+    --text:#ddd5e3;
+    --muted:#9b90a3;
+
+    --border:rgba(216,182,110,.18);
+}
+
+
+/* ==================================================
+   CONTAINER
+================================================== */
+
+.container{
+    width:min(1180px,90%);
+    margin:auto;
+}
+
+
+/* ==================================================
+   FLOATING MUSIC
+================================================== */
+
+.music-layer{
+
+    position:fixed;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+    overflow:hidden;
+
+    z-index:2;
+}
+
+.music-note{
+
+    position:absolute;
+    bottom:-70px;
+
+    color:rgba(216,182,110,.20);
+
+    font-family:Georgia,serif;
+
+    animation-name:musicFloat;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+
+    text-shadow:
+        0 0 10px rgba(216,182,110,.12);
+}
+
+@keyframes musicFloat{
+
+    0%{
+        transform:
+            translate3d(0,0,0)
+            rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:.15;
+    }
+
+    30%{
+        opacity:.35;
+    }
+
+    70%{
+        opacity:.25;
+    }
+
+    100%{
+
+        transform:
+            translate3d(
+                var(--drift),
+                -115vh,
+                0
+            )
+            rotate(25deg);
+
+        opacity:0;
+    }
+}
+
+
+/* ==================================================
+   NAVBAR
+================================================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:82px;
+
+    z-index:1000;
+
+    background:rgba(9,5,14,.94);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid
+        rgba(216,182,110,.12);
+}
+
+.nav-inner{
+
+    height:100%;
+
+    width:min(1280px,92%);
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+
+/* ==================================================
+   SAME LOGO AS ABOUT.HTML
+================================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    flex-shrink:0;
+}
+
+.music-logo{
+
+    width:58px;
+    height:50px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.4s;
+}
+
+.music-logo svg{
+
+    width:58px;
+    height:50px;
+
+    overflow:visible;
+}
+
+.logo-note{
+
+    fill:var(--gold);
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(216,182,110,.28)
+        );
+}
+
+.logo-line{
+
+    fill:none;
+
+    stroke:var(--gold);
+
+    stroke-width:1.4;
+
+    opacity:.72;
+}
+
+.logo-line-soft{
+
+    fill:none;
+
+    stroke:#8f6e3d;
+
+    stroke-width:1;
+
+    opacity:.45;
+}
+
+.logo-wave{
+
+    fill:none;
+
+    stroke:var(--gold-light);
+
+    stroke-width:1.5;
+
+    stroke-linecap:round;
+
+    opacity:.8;
+}
+
+.logo:hover .music-logo{
+
+    transform:
+        translateY(-2px)
+        scale(1.06);
+}
+
+.logo:hover .logo-note{
+
+    filter:
+        drop-shadow(
+            0 0 13px
+            rgba(216,182,110,.55)
+        );
+}
+
+.logo-text{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.logo-main{
+
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:23px;
+
+    font-weight:600;
+
+    line-height:1;
+}
+
+.logo-sub{
+
+    color:#a79cac;
+
+    font-size:7px;
+
+    letter-spacing:3.5px;
+
+    margin-top:7px;
+}
+
+
+/* ==================================================
+   NAV MENU
+================================================== */
+
+.nav-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.nav-menu a{
+
+    color:#d0c7d6;
+
+    font-size:11px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+    white-space:nowrap;
+
+    cursor:pointer;
+}
+
+.nav-menu a:hover{
+
+    color:var(--gold);
+}
+
+.login-link{
+
+    padding:11px 20px !important;
+
+    border:
+        1px solid
+        rgba(216,182,110,.55);
+
+    border-radius:50px;
+
+    color:var(--gold) !important;
+
+    transition:.35s;
+}
+
+.login-link:hover{
+
+    background:var(--gold);
+
+    color:#15091d !important;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(216,182,110,.18);
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.courses-hero{
+
+    min-height:70vh;
+
+    position:relative;
+
+    z-index:5;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:
+        145px 0
+        80px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(92,44,126,.34),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(68,26,92,.20),
+            transparent 32%
+        );
+}
+
+.hero-content{
+
+    max-width:850px;
+
+    position:relative;
+
+    z-index:10;
+}
+
+.hero-kicker{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    color:var(--gold);
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    font-weight:600;
+
+    margin-bottom:24px;
+}
+
+.hero-kicker::before,
+.hero-kicker::after{
+
+    content:"";
+
+    width:42px;
+
+    height:1px;
+
+    background:var(--gold);
+}
+
+.hero-content h1{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:
+        clamp(
+            50px,
+            7vw,
+            80px
+        );
+
+    line-height:1.05;
+
+    font-weight:600;
+
+    letter-spacing:-1.5px;
+}
+
+.hero-content h1 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.hero-description{
+
+    max-width:650px;
+
+    margin:28px auto 0;
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    line-height:1.9;
+}
+
+
+/* ==================================================
+   COURSE SECTION
+================================================== */
+
+.courses-section{
+
+    position:relative;
+
+    z-index:5;
+
+    padding:90px 0 110px;
+
+    background:#0d0613;
+}
+
+.section-heading{
+
+    text-align:center;
+
+    max-width:700px;
+
+    margin:0 auto 55px;
+}
+
+.section-label{
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+}
+
+.section-heading h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:48px;
+
+    line-height:1.15;
+
+    font-weight:600;
+}
+
+.section-heading h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.section-heading p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    margin-top:17px;
+}
+
+
+/* ==================================================
+   COURSE GRID
+================================================== */
+
+.course-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:24px;
+}
+
+
+/* ==================================================
+   COURSE CARD
+================================================== */
+
+.course-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1a0b25,
+            #100719
+        );
+
+    border:
+        1px solid
+        rgba(216,182,110,.15);
+
+    border-radius:22px;
+
+    transition:
+        transform .4s ease,
+        border-color .4s ease,
+        box-shadow .4s ease;
+}
+
+.course-card:hover{
+
+    transform:translateY(-9px);
+
+    border-color:
+        rgba(216,182,110,.45);
+
+    box-shadow:
+        0 25px 55px
+        rgba(0,0,0,.45);
+}
+
+
+/* ==================================================
+   COURSE IMAGE
+================================================== */
+
+.course-image{
+
+    width:100%;
+
+    height:235px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    background:#160a1e;
+}
+
+.course-image img{
+
+    width:100%;
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    object-position:center;
+
+    transition:
+        transform .6s ease,
+        filter .5s ease;
+}
+
+.course-card:hover .course-image img{
+
+    transform:scale(1.07);
+
+    filter:
+        brightness(1.04)
+        saturate(1.05);
+}
+
+.course-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(9,5,14,.65),
+            transparent 55%
+        );
+
+    pointer-events:none;
+}
+
+
+/* ==================================================
+   COURSE BADGE
+================================================== */
+
+.course-badge{
+
+    position:absolute;
+
+    top:16px;
+    left:16px;
+
+    z-index:5;
+
+    padding:7px 12px;
+
+    border-radius:50px;
+
+    background:
+        rgba(9,5,14,.82);
+
+    border:
+        1px solid
+        rgba(216,182,110,.35);
+
+    color:var(--gold);
+
+    font-size:8px;
+
+    letter-spacing:1.5px;
+
+    font-weight:700;
+}
+
+
+/* ==================================================
+   COURSE CONTENT
+================================================== */
+
+.course-content{
+
+    padding:25px;
+}
+
+.course-content h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:27px;
+
+    margin-bottom:10px;
+}
+
+.course-content p{
+
+    color:#95899d;
+
+    font-size:12px;
+
+    line-height:1.8;
+
+    min-height:66px;
+}
+
+
+/* ==================================================
+   COURSE META
+================================================== */
+
+.course-meta{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:22px;
+
+    padding-top:18px;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.06);
+}
+
+.course-duration{
+
+    color:#8f8497;
+
+    font-size:10px;
+}
+
+.course-duration strong{
+
+    display:block;
+
+    color:#d2c7d7;
+
+    font-size:11px;
+
+    margin-top:4px;
+}
+
+.course-price{
+
+    text-align:right;
+}
+
+.course-price small{
+
+    display:block;
+
+    color:#8e8295;
+
+    font-size:8px;
+
+    letter-spacing:1px;
+}
+
+.course-price strong{
+
+    display:block;
+
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:23px;
+
+    margin-top:2px;
+}
+
+
+/* ==================================================
+   EXPLORE BUTTON
+================================================== */
+
+.explore-btn{
+
+    width:100%;
+
+    margin-top:20px;
+
+    padding:13px 20px;
+
+    border:
+        1px solid
+        rgba(216,182,110,.3);
+
+    border-radius:50px;
+
+    background:
+        rgba(216,182,110,.045);
+
+    color:var(--gold);
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.explore-btn:hover{
+
+    background:var(--gold);
+
+    color:#16091d;
+
+    transform:translateY(-2px);
+}
+
+
+/* ==================================================
+   COURSE INFO
+================================================== */
+
+.course-info{
+
+    padding:90px 0;
+
+    background:#09050e;
+}
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.info-card{
+
+    padding:35px 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1a0b25,
+            #100719
+        );
+
+    border:
+        1px solid
+        rgba(216,182,110,.13);
+
+    transition:.35s;
+}
+
+.info-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:
+        rgba(216,182,110,.4);
+}
+
+.info-number{
+
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:28px;
+
+    margin-bottom:20px;
+}
+
+.info-card h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:23px;
+
+    margin-bottom:10px;
+}
+
+.info-card p{
+
+    color:#918699;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+
+/* ==================================================
+   CTA
+================================================== */
+
+.cta{
+
+    padding:100px 0;
+
+    text-align:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(94,43,125,.38),
+            transparent 60%
+        ),
+
+        #170a20;
+}
+
+.cta h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:52px;
+
+    max-width:720px;
+
+    margin:auto;
+
+    line-height:1.15;
+}
+
+.cta h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.cta p{
+
+    max-width:600px;
+
+    margin:20px auto 30px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+/* ==================================================
+   BUTTON
+================================================== */
+
+.primary-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:15px 27px;
+
+    border-radius:50px;
+
+    color:#12091a;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-light)
+        );
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+    transition:.35s;
+
+    box-shadow:
+        0 10px 30px
+        rgba(216,182,110,.12);
+
+    border:none;
+
+    cursor:pointer;
+}
+
+.primary-btn:hover{
+
+    transform:
+        translateY(-3px)
+        scale(1.02);
+
+    box-shadow:
+        0 15px 35px
+        rgba(216,182,110,.25);
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer{
+
+    position:relative;
+
+    z-index:5;
+
+    padding:55px 0 30px;
+
+    background:#07030b;
+
+    border-top:
+        1px solid
+        rgba(216,182,110,.12);
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr;
+
+    gap:50px;
+
+    padding-bottom:40px;
+}
+
+.footer-brand h2{
+
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:25px;
+}
+
+.footer-brand p{
+
+    color:#817687;
+
+    font-size:11px;
+
+    line-height:1.8;
+
+    max-width:320px;
+
+    margin-top:14px;
+}
+
+.footer-column h3{
+
+    font-size:11px;
+
+    color:#eee7f0;
+
+    letter-spacing:1px;
+
+    margin-bottom:18px;
+}
+
+.footer-column a{
+
+    display:block;
+
+    color:#817687;
+
+    font-size:11px;
+
+    margin-bottom:11px;
+
+    transition:.3s;
+}
+
+.footer-column a:hover{
+
+    color:var(--gold);
+}
+
+.footer-bottom{
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.05);
+
+    padding-top:22px;
+
+    text-align:center;
+
+    color:#655c6c;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+}
+
+
+/* ==================================================
+   MODAL
+================================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:5000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:25px;
+
+    background:
+        rgba(4,2,8,.78);
+
+    backdrop-filter:blur(14px);
+}
+
+.modal.active{
+
+    display:flex;
+
+    animation:modalFade .25s ease;
+}
+
+@keyframes modalFade{
+
+    from{
+        opacity:0;
+    }
+
+    to{
+        opacity:1;
+    }
+}
+
+.modal-box{
+
+    width:min(520px,100%);
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    position:relative;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #21102d,
+            #0e0615
+        );
+
+    border:
+        1px solid
+        rgba(216,182,110,.35);
+
+    box-shadow:
+        0 35px 100px
+        rgba(0,0,0,.7);
+}
+
+.close-modal{
+
+    position:absolute;
+
+    top:15px;
+    right:18px;
+
+    width:35px;
+    height:35px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(216,182,110,.3);
+
+    background:rgba(216,182,110,.06);
+
+    color:var(--gold);
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.close-modal:hover{
+
+    background:var(--gold);
+
+    color:#16091d;
+
+    transform:rotate(90deg);
+}
+
+.form-kicker{
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+}
+
+.modal-box h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:34px;
+
+    margin-bottom:8px;
+}
+
+.modal-box h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.form-description{
+
+    color:#978b9f;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+}
+
+.form-group{
+
+    margin-bottom:16px;
+}
+
+.form-group label{
+
+    display:block;
+
+    color:#cfc5d4;
+
+    font-size:11px;
+
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+
+    width:100%;
+
+    padding:13px 15px;
+
+    border-radius:12px;
+
+    border:
+        1px solid
+        rgba(216,182,110,.20);
+
+    outline:none;
+
+    background:
+        rgba(255,255,255,.045);
+
+    color:#fff;
+
+    font-size:12px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+
+    color:#74697b;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+
+    border-color:var(--gold);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(216,182,110,.06);
+}
+
+.form-group textarea{
+
+    min-height:90px;
+
+    resize:vertical;
+}
+
+.form-group select option{
+
+    background:#170b20;
+
+    color:#fff;
+}
+
+.form-submit{
+
+    width:100%;
+
+    margin-top:7px;
+}
+
+.form-switch{
+
+    text-align:center;
+
+    color:#8d8194;
+
+    font-size:11px;
+
+    margin-top:18px;
+}
+
+.form-switch button{
+
+    border:none;
+
+    background:none;
+
+    color:var(--gold);
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    margin-left:4px;
+}
+
+.success-message{
+
+    display:none;
+
+    text-align:center;
+
+    padding:30px 10px;
+}
+
+.success-icon{
+
+    width:65px;
+    height:65px;
+
+    margin:0 auto 18px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        var(--gold);
+
+    color:var(--gold);
+
+    font-size:28px;
+}
+
+.success-message h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:28px;
+
+    margin-bottom:10px;
+}
+
+.success-message p{
+
+    color:#968a9e;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media(max-width:1050px){
+
+    .nav-menu{
+        gap:11px;
+    }
+
+    .nav-menu a{
+        font-size:9px;
+    }
+
+    .course-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+
+@media(max-width:900px){
+
+    .nav-menu{
+        display:none;
+    }
+
+    .courses-hero{
+        min-height:65vh;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+
+@media(max-width:600px){
+
+    .container{
+        width:90%;
+    }
+
+    .navbar{
+        height:72px;
+    }
+
+    .nav-inner{
+        width:90%;
+    }
+
+    .music-logo{
+        width:48px;
+        height:43px;
+    }
+
+    .music-logo svg{
+        width:48px;
+        height:43px;
+    }
+
+    .logo-main{
+        font-size:20px;
+    }
+
+    .logo-sub{
+        font-size:6px;
+        letter-spacing:2.8px;
+    }
+
+    .courses-hero{
+        padding-top:120px;
+    }
+
+    .hero-content h1{
+        font-size:48px;
+    }
+
+    .hero-description{
+        font-size:13px;
+    }
+
+    .course-grid{
+        grid-template-columns:1fr;
+    }
+
+    .course-image{
+        height:230px;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .section-heading h2{
+        font-size:38px;
+    }
+
+    .cta h2{
+        font-size:39px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .modal{
+        padding:15px;
+    }
+
+    .modal-box{
+        padding:28px 20px;
+    }
+
+    .modal-box h2{
+        font-size:29px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     FLOATING MUSIC
+================================================== -->
+
+<div class="music-layer" id="musicLayer"></div>
+
+
+<!-- ==================================================
+     NAVBAR
+================================================== -->
+
+<header class="navbar">
+
+<div class="nav-inner">
+
+
+<a href="index.html" class="logo">
+
+<div class="music-logo">
+
+<svg viewBox="0 0 100 80"
+xmlns="http://www.w3.org/2000/svg">
+
+<path
+class="logo-line-soft"
+d="M5 27 C30 20,70 34,95 25"/>
+
+<path
+class="logo-line"
+d="M5 34 C30 27,70 41,95 32"/>
+
+<path
+class="logo-line-soft"
+d="M5 41 C30 34,70 48,95 39"/>
+
+<path
+class="logo-note"
+d="
+M64 17
+L75 14
+L75 46
+C75 53 69 58 62 58
+C56 58 52 55 52 51
+C52 46 57 42 63 42
+C65 42 67 42 69 43
+L69 23
+L64 24
+Z
+"/>
+
+<path
+class="logo-note"
+d="
+M34 31
+L43 29
+L43 51
+C43 56 39 59 34 59
+C30 59 27 56 27 53
+C27 49 31 46 35 46
+C37 46 38 46 39 47
+L39 35
+L34 36
+Z
+"/>
+
+<path
+class="logo-wave"
+d="M9 55
+C18 48,25 65,34 57
+C43 49,51 66,60 58
+C69 50,77 65,91 54"/>
+
+</svg>
+
+</div>
+
+
+<div class="logo-text">
+
+<div class="logo-main">
+Rakshitha
+</div>
+
+<span class="logo-sub">
+MUSIC ACADEMY
+</span>
+
+</div>
+
+</a>
+
+
+<nav class="nav-menu">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="courses.html">
+Courses
+</a>
+
+<a href="events.html">
+Events
+</a>
+
+<a href="instructions.html">
+Instructions
+</a>
+
+<a href="admissions.html">
+Admissions
+</a>
+
+<a href="gallery.html">
+Gallery
+</a>
+
+<a href="index.html#contact">
+Contact
+</a>
+
+<a
+href="javascript:void(0)"
+class="login-link"
+onclick="openModal('loginModal')">
+
+Student Login
+
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="courses-hero">
+
+<div class="hero-content">
+
+<div class="hero-kicker">
+EXPLORE OUR COURSES
+</div>
+
+<h1>
+
+Discover Your
+
+<span>
+Musical Voice.
+</span>
+
+</h1>
+
+<p class="hero-description">
+
+From your first note to confident performances,
+our courses are designed to help you learn,
+practice and grow with passion.
+
+Choose the instrument or skill you love
+and begin your musical journey.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     COURSES
+================================================== -->
+
+<section class="courses-section">
+
+<div class="container">
+
+
+<div class="section-heading">
+
+<div class="section-label">
+OUR MUSIC PROGRAMS
+</div>
+
+<h2>
+
+Learn.
+
+<span>
+Create. Perform.
+</span>
+
+</h2>
+
+<p>
+
+Choose from our carefully designed music
+courses with practical learning, guided
+practice and performance opportunities.
+
+</p>
+
+</div>
+
+
+<div class="course-grid">
+
+
+<!-- ==================================================
+     01 VOCAL
+================================================== -->
+
+<div class="course-card">
+
+<div class="course-image">
+
+<span class="course-badge">
+POPULAR
+</span>
+
+<img
+src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1000&q=85"
+alt="Vocal Singing Course">
+
+</div>
+
+<div class="course-content">
+
+<h3>
+Vocal & Singing
+</h3>
+
+<p>
+
+Learn vocal techniques, breathing,
+pitch, rhythm and expressive singing
+with guided practical sessions.
+
+</p>
+
+<div class="course-meta">
+
+<div class="course-duration">
+
+Duration
+
+<strong>
+6 Months
+</strong>
+
+</div>
+
+<div class="course-price">
+
+<small>
+COURSE FEE
+</small>
+
+<strong>
+₹8,999
+</strong>
+
+</div>
+
+</div>
+
+<button
+class="explore-btn"
+onclick="openCourse('Vocal & Singing')">
+
+Explore Course →
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     02 GUITAR
+================================================== -->
+
+<div class="course-card">
+
+<div class="course-image">
+
+<span class="course-badge">
+INSTRUMENT
+</span>
+
+<img
+src="https://images.unsplash.com/photo-1525201548942-d8732f6617a0?auto=format&fit=crop&w=1000&q=85"
+alt="Guitar Course">
+
+</div>
+
+<div class="course-content">
+
+<h3>
+Guitar
+</h3>
+
+<p>
+
+Start from the basics and learn chords,
+strumming, rhythm, finger techniques
+and popular songs.
+
+</p>
+
+<div class="course-meta">
+
+<div class="course-duration">
+
+Duration
+
+<strong>
+6 Months
+</strong>
+
+</div>
+
+<div class="course-price">
+
+<small>
+COURSE FEE
+</small>
+
+<strong>
+₹9,999
+</strong>
+
+</div>
+
+</div>
+
+<button
+class="explore-btn"
+onclick="openCourse('Guitar')">
+
+Explore Course →
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     03 PIANO
+================================================== -->
+
+<div class="course-card">
+
+<div class="course-image">
+
+<span class="course-badge">
+INSTRUMENT
+</span>
+
+<img
+src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=1000&q=85"
+alt="Piano Course">
+
+</div>
+
+<div class="course-content">
+
+<h3>
+Piano
+</h3>
+
+<p>
+
+Build a strong foundation in piano,
+learn scales, chords, melodies,
+sight reading and musical expression.
+
+</p>
+
+<div class="course-meta">
+
+<div class="course-duration">
+
+Duration
+
+<strong>
+6 Months
+</strong>
+
+</div>
+
+<div class="course-price">
+
+<small>
+COURSE FEE
+</small>
+
+<strong>
+₹10,999
+</strong>
+
+</div>
+
+</div>
+
+<button
+class="explore-btn"
+onclick="openCourse('Piano')">
+
+Explore Course →
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     04 DRUMS
+================================================== -->
+
+<div class="course-card">
+
+<div class="course-image">
+
+<span class="course-badge">
+INSTRUMENT
+</span>
+
+<img
+src="https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=1000&q=85"
+alt="Drums Course">
+
+</div>
+
+<div class="course-content">
+
+<h3>
+Drums
+</h3>
+
+<p>
+
+Learn rhythm, beats, coordination,
+basic drum patterns and performance
+techniques through practical sessions.
+
+</p>
+
+<div class="course-meta">
+
+<div class="course-duration">
+
+Duration
+
+<strong>
+6 Months
+</strong>
+
+</div>
+
+<div class="course-price">
+
+<small>
+COURSE FEE
+</small>
+
+<strong>
+₹9,499
+</strong>
+
+</div>
+
+</div>
+
+<button
+class="explore-btn"
+onclick="openCourse('Drums')">
+
+Explore Course →
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     05 VIOLIN
+================================================== -->
+
+<div class="course-card">
+
+<div class="course-image">
+
+<span class="course-badge">
+CLASSICAL
+</span>
+
+<img
+src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?auto=format&fit=crop&w=1000&q=85"
+alt="Violin Course">
+
+</div>
+
+<div class="course-content">
+
+<h3>
+Violin
+</h3>
+
+<p>
+
+Discover violin fundamentals including
+bowing, finger placement, scales,
+melodies and classical techniques.
+
+</p>
+
+<div class="course-meta">
+
+<div class="course-duration">
+
+Duration
+
+<strong>
+6 Months
+</strong>
+
+</div>
+
+<div class="course-price">
+
+<small>
+COURSE FEE
+</small>
+
+<strong>
+₹10,499
+</strong>
+
+</div>
+
+</div>
+
+<button
+class="explore-btn"
+onclick="openCourse('Violin')">
+
+Explore Course →
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     06 KEYBOARD
+================================================== -->
+
+<div class="course-card">
+
+<div class="course-image">
+
+<span class="course-badge">
+BEGINNER FRIENDLY
+</span>
+
+<img
+src="https://images.unsplash.com/photo-1552422535-c45813c61732?auto=format&fit=crop&w=1000&q=85"
+alt="Keyboard Course">
+
+</div>
+
+<div class="course-content">
+
+<h3>
+Keyboard
+</h3>
+
+<p>
+
+Learn keyboard basics, chords,
+melodies, rhythm patterns and
+accompaniment techniques.
+
+</p>
+
+<div class="course-meta">
+
+<div class="course-duration">
+
+Duration
+
+<strong>
+6 Months
+</strong>
+
+</div>
+
+<div class="course-price">
+
+<small>
+COURSE FEE
+</small>
+
+<strong>
+₹8,499
+</strong>
+
+</div>
+
+</div>
+
+<button
+class="explore-btn"
+onclick="openCourse('Keyboard')">
+
+Explore Course →
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     07 MUSIC PRODUCTION
+================================================== -->
+
+<div class="course-card">
+
+<div class="course-image">
+
+<span class="course-badge">
+CREATIVE
+</span>
+
+<img
+src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1000&q=85"
+alt="Music Production Course">
+
+</div>
+
+<div class="course-content">
+
+<h3>
+Music Production
+</h3>
+
+<p>
+
+Learn recording, beat making,
+arrangement, mixing and the basics
+of modern music production.
+
+</p>
+
+<div class="course-meta">
+
+<div class="course-duration">
+
+Duration
+
+<strong>
+4 Months
+</strong>
+
+</div>
+
+<div class="course-price">
+
+<small>
+COURSE FEE
+</small>
+
+<strong>
+₹12,999
+</strong>
+
+</div>
+
+</div>
+
+<button
+class="explore-btn"
+onclick="openCourse('Music Production')">
+
+Explore Course →
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     08 MUSIC THEORY
+================================================== -->
+
+<div class="course-card">
+
+<div class="course-image">
+
+<span class="course-badge">
+FOUNDATION
+</span>
+
+<img
+src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1000&q=85"
+alt="Music Theory Course">
+
+</div>
+
+<div class="course-content">
+
+<h3>
+Music Theory
+</h3>
+
+<p>
+
+Understand notes, scales, chords,
+rhythm, notation and the fundamentals
+behind music.
+
+</p>
+
+<div class="course-meta">
+
+<div class="course-duration">
+
+Duration
+
+<strong>
+3 Months
+</strong>
+
+</div>
+
+<div class="course-price">
+
+<small>
+COURSE FEE
+</small>
+
+<strong>
+₹5,999
+</strong>
+
+</div>
+
+</div>
+
+<button
+class="explore-btn"
+onclick="openCourse('Music Theory')">
+
+Explore Course →
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     09 MUSIC PERFORMANCE
+================================================== -->
+
+<div class="course-card">
+
+<div class="course-image">
+
+<span class="course-badge">
+ADVANCED
+</span>
+
+<img
+src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1000&q=85"
+alt="Music Performance Course">
+
+</div>
+
+<div class="course-content">
+
+<h3>
+Music Performance
+</h3>
+
+<p>
+
+Build stage confidence, performance
+skills, expression and audience
+connection through practical training.
+
+</p>
+
+<div class="course-meta">
+
+<div class="course-duration">
+
+Duration
+
+<strong>
+4 Months
+</strong>
+
+</div>
+
+<div class="course-price">
+
+<small>
+COURSE FEE
+</small>
+
+<strong>
+₹7,999
+</strong>
+
+</div>
+
+</div>
+
+<button
+class="explore-btn"
+onclick="openCourse('Music Performance')">
+
+Explore Course →
+
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     WHY LEARN
+================================================== -->
+
+<section class="course-info">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="section-label">
+WHY CHOOSE US
+</div>
+
+<h2>
+
+Learn Music With
+
+<span>
+Confidence.
+</span>
+
+</h2>
+
+<p>
+
+Our approach combines structured learning
+with creativity and practical experience.
+
+</p>
+
+</div>
+
+
+<div class="info-grid">
+
+
+<div class="info-card">
+
+<div class="info-number">
+01
+</div>
+
+<h3>
+Expert Guidance
+</h3>
+
+<p>
+
+Learn with structured guidance and
+practical instruction designed to help
+you progress step by step.
+
+</p>
+
+</div>
+
+
+<div class="info-card">
+
+<div class="info-number">
+02
+</div>
+
+<h3>
+Practical Learning
+</h3>
+
+<p>
+
+Spend more time learning by doing,
+practising instruments and developing
+real musical skills.
+
+</p>
+
+</div>
+
+
+<div class="info-card">
+
+<div class="info-number">
+03
+</div>
+
+<h3>
+Performance
+</h3>
+
+<p>
+
+Build confidence through opportunities
+to showcase your skills and express
+your musical creativity.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     CTA
+================================================== -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+
+Start Your
+
+<span>
+Musical Journey.
+</span>
+
+</h2>
+
+<p>
+
+Choose the course that inspires you
+and take your first step towards becoming
+a confident musician.
+
+</p>
+
+<button
+class="primary-btn"
+onclick="openModal('admissionModal')">
+
+Start Your Journey →
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div class="footer-brand">
+
+<h2>
+Rakshitha
+</h2>
+
+<p>
+
+A creative music academy dedicated
+to helping students discover their
+musical voice.
+
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+ACADEMY
+</h3>
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="courses.html">
+Courses
+</a>
+
+<a href="events.html">
+Events
+</a>
+
+<a href="gallery.html">
+Gallery
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+SUPPORT
+</h3>
+
+<a href="instructions.html">
+Instructions
+</a>
+
+<a href="admissions.html">
+Admissions
+</a>
+
+<a href="index.html#contact">
+Contact
+</a>
+
+<a
+href="javascript:void(0)"
+onclick="openModal('loginModal')">
+
+Student Login
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 Rakshitha Music Academy.
+All Rights Reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- ==================================================
+     COURSE DETAILS MODAL
+================================================== -->
+
+<div class="modal" id="courseModal">
+
+<div class="modal-box">
+
+<button
+class="close-modal"
+onclick="closeModal('courseModal')">
+
+×
+
+</button>
+
+<div class="form-kicker">
+COURSE INFORMATION
+</div>
+
+<h2>
+Explore <span id="courseTitle">Course</span>
+</h2>
+
+<p class="form-description" id="courseDescription">
+
+Explore the course details and begin
+your learning journey.
+
+</p>
+
+<button
+class="primary-btn form-submit"
+onclick="switchModal('courseModal','admissionModal')">
+
+Apply For Admission →
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     ADMISSION MODAL
+================================================== -->
+
+<div class="modal" id="admissionModal">
+
+<div class="modal-box">
+
+<button
+class="close-modal"
+onclick="closeModal('admissionModal')">
+
+×
+
+</button>
+
+<div class="form-kicker">
+ACADEMY ADMISSION
+</div>
+
+<h2>
+Join <span>The Academy</span>
+</h2>
+
+<p class="form-description">
+
+Fill in your details to begin your
+musical learning journey with us.
+
+</p>
+
+<form
+id="admissionForm"
+onsubmit="submitForm(event,'admissionForm','admissionSuccess')">
+
+<div class="form-group">
+
+<label>
+Student Name
+</label>
+
+<input
+type="text"
+placeholder="Enter student name"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+Parent / Guardian Name
+</label>
+
+<input
+type="text"
+placeholder="Enter parent or guardian name"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+Email Address
+</label>
+
+<input
+type="email"
+placeholder="Enter email address"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+Phone Number
+</label>
+
+<input
+type="tel"
+placeholder="Enter phone number"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+Select Course
+</label>
+
+<select required>
+
+<option value="">
+Choose your course
+</option>
+
+<option>Vocal / Singing</option>
+<option>Guitar</option>
+<option>Piano</option>
+<option>Drums</option>
+<option>Violin</option>
+<option>Keyboard</option>
+<option>Music Production</option>
+<option>Music Theory</option>
+<option>Music Performance</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>
+Message
+</label>
+
+<textarea
+placeholder="Tell us about your musical interests"></textarea>
+
+</div>
+
+<button
+type="submit"
+class="primary-btn form-submit">
+
+Submit Admission →
+
+</button>
+
+</form>
+
+
+<div
+class="success-message"
+id="admissionSuccess">
+
+<div class="success-icon">
+✓
+</div>
+
+<h3>
+Application Received!
+</h3>
+
+<p>
+Your admission request has been submitted
+successfully. We will contact you soon.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     STUDENT LOGIN MODAL
+================================================== -->
+
+<div class="modal" id="loginModal">
+
+<div class="modal-box">
+
+<button
+class="close-modal"
+onclick="closeModal('loginModal')">
+
+×
+
+</button>
+
+<div class="form-kicker">
+STUDENT PORTAL
+</div>
+
+<h2>
+Student <span>Login</span>
+</h2>
+
+<p class="form-description">
+
+Login to access your student dashboard,
+courses and academy updates.
+
+</p>
+
+<form
+id="loginForm"
+onsubmit="loginStudent(event)">
+
+<div class="form-group">
+
+<label>
+Email / Student ID
+</label>
+
+<input
+type="text"
+id="loginUser"
+placeholder="Enter email or student ID"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+Password
+</label>
+
+<input
+type="password"
+id="loginPassword"
+placeholder="Enter password"
+required>
+
+</div>
+
+<button
+type="submit"
+class="primary-btn form-submit">
+
+Login →
+
+</button>
+
+</form>
+
+
+<div class="form-switch">
+
+Don't have an account?
+
+<button
+onclick="switchModal('loginModal','registerModal')">
+
+Register Now
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     REGISTRATION MODAL
+================================================== -->
+
+<div class="modal" id="registerModal">
+
+<div class="modal-box">
+
+<button
+class="close-modal"
+onclick="closeModal('registerModal')">
+
+×
+
+</button>
+
+<div class="form-kicker">
+STUDENT REGISTRATION
+</div>
+
+<h2>
+Create <span>Account</span>
+</h2>
+
+<p class="form-description">
+
+Register as a student of
+Rakshitha Music Academy.
+
+</p>
+
+<form
+id="registerForm"
+onsubmit="registerStudent(event)">
+
+<div class="form-group">
+
+<label>
+Full Name
+</label>
+
+<input
+type="text"
+placeholder="Enter your full name"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+Email Address
+</label>
+
+<input
+type="email"
+placeholder="Enter your email"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+Phone Number
+</label>
+
+<input
+type="tel"
+placeholder="Enter phone number"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+Choose Course
+</label>
+
+<select required>
+
+<option value="">
+Select course
+</option>
+
+<option>Vocal / Singing</option>
+<option>Guitar</option>
+<option>Piano</option>
+<option>Drums</option>
+<option>Violin</option>
+<option>Keyboard</option>
+<option>Music Production</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>
+Create Password
+</label>
+
+<input
+type="password"
+id="registerPassword"
+placeholder="Create password"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+Confirm Password
+</label>
+
+<input
+type="password"
+id="confirmPassword"
+placeholder="Confirm password"
+required>
+
+</div>
+
+<button
+type="submit"
+class="primary-btn form-submit">
+
+Create Account →
+
+</button>
+
+</form>
+
+
+<div
+class="success-message"
+id="registerSuccess">
+
+<div class="success-icon">
+✓
+</div>
+
+<h3>
+Registration Complete!
+</h3>
+
+<p>
+Your student registration has been submitted
+successfully.
+</p>
+
+</div>
+
+
+<div class="form-switch">
+
+Already have an account?
+
+<button
+onclick="switchModal('registerModal','loginModal')">
+
+Student Login
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+
+/* ==================================================
+   FLOATING MUSIC
+================================================== */
+
+const musicLayer =
+document.getElementById("musicLayer");
+
+const symbols = [
+    "♪",
+    "♫",
+    "♬",
+    "♩",
+    "𝄞"
+];
+
+function createMusicNote(){
+
+    const note =
+        document.createElement("span");
+
+    note.className =
+        "music-note";
+
+    note.textContent =
+        symbols[
+            Math.floor(
+                Math.random() *
+                symbols.length
+            )
+        ];
+
+    note.style.left =
+        Math.random() * 100 + "vw";
+
+    note.style.fontSize =
+        (16 + Math.random() * 24) + "px";
+
+    const duration =
+        8 + Math.random() * 8;
+
+    note.style.animationDuration =
+        duration + "s";
+
+    note.style.setProperty(
+        "--drift",
+        (Math.random() * 160 - 80) + "px"
+    );
+
+    musicLayer.appendChild(note);
+
+    setTimeout(
+        function(){
+            note.remove();
+        },
+        duration * 1000
+    );
+}
+
+for(let i = 0; i < 15; i++){
+
+    setTimeout(
+        createMusicNote,
+        i * 400
+    );
+}
+
+setInterval(
+    createMusicNote,
+    900
+);
+
+
+/* ==================================================
+   OPEN MODAL
+================================================== */
+
+function openModal(id){
+
+    const modal =
+        document.getElementById(id);
+
+    if(!modal) return;
+
+    modal.classList.add("active");
+
+    document.body.classList.add("modal-open");
+}
+
+
+/* ==================================================
+   CLOSE MODAL
+================================================== */
+
+function closeModal(id){
+
+    const modal =
+        document.getElementById(id);
+
+    if(!modal) return;
+
+    modal.classList.remove("active");
+
+    document.body.classList.remove("modal-open");
+}
+
+
+/* ==================================================
+   SWITCH MODALS
+================================================== */
+
+function switchModal(closeId,openId){
+
+    closeModal(closeId);
+
+    setTimeout(
+        function(){
+            openModal(openId);
+        },
+        150
+    );
+}
+
+
+/* ==================================================
+   COURSE DETAILS
+================================================== */
+
+function openCourse(course){
+
+    const title =
+        document.getElementById("courseTitle");
+
+    const description =
+        document.getElementById("courseDescription");
+
+    title.textContent = course;
+
+    const descriptions = {
+
+        "Vocal & Singing":
+        "Learn breathing, pitch, rhythm, vocal control and expressive singing through guided practical sessions.",
+
+        "Guitar":
+        "Learn chords, strumming, finger techniques, rhythm and songs from beginner to intermediate level.",
+
+        "Piano":
+        "Develop piano fundamentals through scales, chords, melodies, sight reading and musical expression.",
+
+        "Drums":
+        "Build rhythm, coordination and timing through practical drum patterns and performance exercises.",
+
+        "Violin":
+        "Learn bowing, finger placement, scales, melodies and classical violin techniques.",
+
+        "Keyboard":
+        "Learn keyboard fundamentals, chords, melodies, rhythm patterns and accompaniment.",
+
+        "Music Production":
+        "Learn recording, beat making, arrangement, mixing and modern music production techniques.",
+
+        "Music Theory":
+        "Understand notes, scales, chords, rhythm, notation and the fundamentals of music.",
+
+        "Music Performance":
+        "Develop stage confidence, performance skills, expression and audience connection."
+    };
+
+    description.textContent =
+        descriptions[course] ||
+        "Explore this course and begin your musical journey.";
+
+    openModal("courseModal");
+}
+
+
+/* ==================================================
+   CLOSE OUTSIDE MODAL
+================================================== */
+
+document.querySelectorAll(".modal").forEach(
+    function(modal){
+
+        modal.addEventListener(
+            "click",
+            function(event){
+
+                if(event.target === modal){
+
+                    modal.classList.remove("active");
+
+                    document.body.classList.remove(
+                        "modal-open"
+                    );
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* ==================================================
+   ESCAPE
+================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            document.querySelectorAll(".modal.active")
+            .forEach(
+                function(modal){
+
+                    modal.classList.remove("active");
+
+                }
+            );
+
+            document.body.classList.remove(
+                "modal-open"
+            );
+        }
+
+    }
+);
+
+
+/* ==================================================
+   FORM SUBMIT
+================================================== */
+
+function submitForm(
+    event,
+    formId,
+    successId
+){
+
+    event.preventDefault();
+
+    const form =
+        document.getElementById(formId);
+
+    const success =
+        document.getElementById(successId);
+
+    if(!form || !success) return;
+
+    form.style.display = "none";
+
+    const description =
+        form.parentElement.querySelector(
+            ".form-description"
+        );
+
+    if(description){
+
+        description.style.display =
+            "none";
+    }
+
+    success.style.display =
+        "block";
+}
+
+
+/* ==================================================
+   REGISTER
+================================================== */
+
+function registerStudent(event){
+
+    event.preventDefault();
+
+    const password =
+        document.getElementById(
+            "registerPassword"
+        ).value;
+
+    const confirmPassword =
+        document.getElementById(
+            "confirmPassword"
+        ).value;
+
+    if(password !== confirmPassword){
+
+        alert(
+            "Passwords do not match. Please try again."
+        );
+
+        return;
+    }
+
+    submitForm(
+        event,
+        "registerForm",
+        "registerSuccess"
+    );
+}
+
+
+/* ==================================================
+   LOGIN
+================================================== */
+
+function loginStudent(event){
+
+    event.preventDefault();
+
+    const username =
+        document.getElementById(
+            "loginUser"
+        ).value;
+
+    const password =
+        document.getElementById(
+            "loginPassword"
+        ).value;
+
+    if(
+        username.trim() === "" ||
+        password.trim() === ""
+    ){
+
+        alert(
+            "Please enter your login details."
+        );
+
+        return;
+    }
+
+    alert(
+        "Student login submitted successfully!"
+    );
+}
+
+</script>
+
+</body>
+
+</html>

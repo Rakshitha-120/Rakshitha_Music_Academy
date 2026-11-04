@@ -1,0 +1,3266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Events | Rakshitha Music Academy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#09050e;
+    color:#fff;
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+
+/* =====================================================
+   VARIABLES
+===================================================== */
+
+:root{
+
+    --bg:#09050e;
+    --bg2:#110819;
+
+    --purple:#2b123d;
+    --purple2:#452060;
+
+    --gold:#d8b66e;
+    --gold-light:#efd493;
+
+    --white:#fff;
+
+    --text:#ddd5e3;
+    --muted:#9b90a3;
+
+    --border:rgba(216,182,110,.18);
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
+
+.container{
+    width:min(1180px,90%);
+    margin:auto;
+}
+
+
+/* =====================================================
+   FLOATING MUSIC NOTES
+===================================================== */
+
+.music-layer{
+
+    position:fixed;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+
+    overflow:hidden;
+
+    z-index:2;
+}
+
+.music-note{
+
+    position:absolute;
+
+    bottom:-70px;
+
+    color:rgba(216,182,110,.18);
+
+    font-family:Georgia,serif;
+
+    animation:
+        musicFloat
+        linear
+        forwards;
+
+    text-shadow:
+        0 0 12px rgba(216,182,110,.15);
+}
+
+@keyframes musicFloat{
+
+    0%{
+        transform:
+            translate3d(0,0,0)
+            rotate(0deg);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:.15;
+    }
+
+    35%{
+        opacity:.35;
+    }
+
+    70%{
+        opacity:.20;
+    }
+
+    100%{
+
+        transform:
+            translate3d(
+                var(--drift),
+                -115vh,
+                0
+            )
+            rotate(25deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:82px;
+
+    z-index:1000;
+
+    background:
+        rgba(9,5,14,.95);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid
+        rgba(216,182,110,.12);
+}
+
+.nav-inner{
+
+    height:100%;
+
+    width:min(1280px,92%);
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+
+/* =====================================================
+   MUSIC LOGO
+===================================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    flex-shrink:0;
+}
+
+.music-logo{
+
+    width:58px;
+    height:50px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.4s;
+}
+
+.music-logo svg{
+
+    width:58px;
+    height:50px;
+
+    overflow:visible;
+}
+
+.logo-note{
+
+    fill:var(--gold);
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(216,182,110,.28)
+        );
+}
+
+.logo-line{
+
+    fill:none;
+
+    stroke:var(--gold);
+
+    stroke-width:1.4;
+
+    opacity:.72;
+}
+
+.logo-line-soft{
+
+    fill:none;
+
+    stroke:#8f6e3d;
+
+    stroke-width:1;
+
+    opacity:.45;
+}
+
+.logo-wave{
+
+    fill:none;
+
+    stroke:var(--gold-light);
+
+    stroke-width:1.5;
+
+    stroke-linecap:round;
+
+    opacity:.8;
+}
+
+.logo:hover .music-logo{
+
+    transform:
+        translateY(-2px)
+        scale(1.06);
+}
+
+.logo:hover .logo-note{
+
+    filter:
+        drop-shadow(
+            0 0 13px
+            rgba(216,182,110,.55)
+        );
+}
+
+.logo-text{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.logo-main{
+
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:23px;
+
+    font-weight:600;
+
+    line-height:1;
+}
+
+.logo-sub{
+
+    color:#a79cac;
+
+    font-size:7px;
+
+    letter-spacing:3.5px;
+
+    margin-top:7px;
+}
+
+
+/* =====================================================
+   NAVIGATION
+===================================================== */
+
+.nav-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.nav-menu a{
+
+    color:#d0c7d6;
+
+    font-size:11px;
+
+    font-weight:500;
+
+    white-space:nowrap;
+
+    transition:.3s;
+}
+
+.nav-menu a:hover{
+
+    color:var(--gold);
+}
+
+.login-link{
+
+    padding:11px 20px !important;
+
+    border:
+        1px solid
+        rgba(216,182,110,.55);
+
+    border-radius:50px;
+
+    color:var(--gold) !important;
+}
+
+.login-link:hover{
+
+    background:var(--gold);
+
+    color:#15091d !important;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.events-hero{
+
+    min-height:75vh;
+
+    padding:
+        160px 0
+        90px;
+
+    position:relative;
+
+    z-index:5;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(96,47,130,.38),
+            transparent 45%
+        ),
+
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(61,25,85,.25),
+            transparent 35%
+        );
+}
+
+.events-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(216,182,110,.08);
+
+    animation:
+        heroPulse
+        8s
+        ease-in-out
+        infinite;
+}
+
+@keyframes heroPulse{
+
+    0%,100%{
+        transform:scale(.9);
+        opacity:.3;
+    }
+
+    50%{
+        transform:scale(1.1);
+        opacity:.7;
+    }
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:10;
+
+    max-width:850px;
+}
+
+.hero-kicker{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    color:var(--gold);
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    font-weight:600;
+
+    margin-bottom:25px;
+}
+
+.hero-kicker::before,
+.hero-kicker::after{
+
+    content:"";
+
+    width:42px;
+
+    height:1px;
+
+    background:var(--gold);
+}
+
+.hero-content h1{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:
+        clamp(
+            52px,
+            7vw,
+            82px
+        );
+
+    line-height:1.04;
+
+    font-weight:600;
+}
+
+.hero-content h1 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.hero-description{
+
+    max-width:680px;
+
+    margin:28px auto 0;
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    line-height:1.9;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro{
+
+    position:relative;
+
+    z-index:5;
+
+    padding:100px 0 60px;
+
+    background:#0d0613;
+
+    text-align:center;
+}
+
+.section-label{
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    font-weight:600;
+
+    margin-bottom:14px;
+}
+
+.intro h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:48px;
+
+    line-height:1.15;
+}
+
+.intro h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.intro p{
+
+    max-width:680px;
+
+    margin:20px auto 0;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.9;
+}
+
+
+/* =====================================================
+   FEATURE EVENT
+===================================================== */
+
+.feature-section{
+
+    position:relative;
+
+    z-index:5;
+
+    padding:60px 0 100px;
+
+    background:#0d0613;
+}
+
+.feature-card{
+
+    display:grid;
+
+    grid-template-columns:
+        1.15fr
+        1fr;
+
+    min-height:520px;
+
+    overflow:hidden;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #21102d,
+            #0d0613
+        );
+
+    border:
+        1px solid
+        rgba(216,182,110,.22);
+
+    box-shadow:
+        0 35px 90px
+        rgba(0,0,0,.35);
+}
+
+.feature-image{
+
+    min-height:520px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.feature-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform
+        .7s
+        ease;
+}
+
+.feature-card:hover
+.feature-image img{
+
+    transform:scale(1.06);
+}
+
+.image-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(15,5,22,.45)
+        );
+}
+
+.feature-content{
+
+    padding:55px 48px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+}
+
+.event-tag{
+
+    display:inline-flex;
+
+    width:max-content;
+
+    padding:7px 13px;
+
+    border-radius:50px;
+
+    border:
+        1px solid
+        rgba(216,182,110,.35);
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:1.5px;
+
+    margin-bottom:20px;
+}
+
+.feature-content h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:43px;
+
+    line-height:1.15;
+
+    margin-bottom:18px;
+}
+
+.feature-content h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.feature-content p{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    line-height:1.9;
+
+    margin-bottom:25px;
+}
+
+.event-meta{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:12px;
+
+    margin-bottom:28px;
+}
+
+.meta-box{
+
+    padding:14px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    border:
+        1px solid
+        rgba(216,182,110,.10);
+
+    border-radius:12px;
+}
+
+.meta-box small{
+
+    display:block;
+
+    color:#766b7e;
+
+    font-size:8px;
+
+    letter-spacing:1px;
+
+    margin-bottom:5px;
+}
+
+.meta-box strong{
+
+    color:#ddd5e3;
+
+    font-size:11px;
+}
+
+.primary-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:max-content;
+
+    padding:14px 25px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-light)
+        );
+
+    color:#12091a;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:.6px;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 14px 30px
+        rgba(216,182,110,.22);
+}
+
+
+/* =====================================================
+   EVENTS GRID
+===================================================== */
+
+.events-section{
+
+    position:relative;
+
+    z-index:5;
+
+    padding:100px 0;
+
+    background:#09050e;
+}
+
+.section-heading{
+
+    text-align:center;
+
+    max-width:720px;
+
+    margin:
+        0 auto
+        55px;
+}
+
+.section-heading h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:48px;
+
+    line-height:1.15;
+}
+
+.section-heading h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.section-heading p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    margin-top:17px;
+}
+
+.events-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+}
+
+.event-card{
+
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1a0b25,
+            #0f0617
+        );
+
+    border:
+        1px solid
+        rgba(216,182,110,.13);
+
+    border-radius:20px;
+
+    transition:
+        transform
+        .4s,
+        border-color
+        .4s,
+        box-shadow
+        .4s;
+}
+
+.event-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:
+        rgba(216,182,110,.38);
+
+    box-shadow:
+        0 25px 55px
+        rgba(0,0,0,.35);
+}
+
+.event-image{
+
+    height:230px;
+
+    overflow:hidden;
+
+    position:relative;
+}
+
+.event-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:
+        transform
+        .6s;
+}
+
+.event-card:hover
+.event-image img{
+
+    transform:scale(1.08);
+}
+
+.event-date{
+
+    position:absolute;
+
+    top:15px;
+    left:15px;
+
+    padding:8px 11px;
+
+    background:
+        rgba(9,5,14,.85);
+
+    backdrop-filter:blur(10px);
+
+    border:
+        1px solid
+        rgba(216,182,110,.35);
+
+    border-radius:10px;
+
+    text-align:center;
+}
+
+.event-date strong{
+
+    display:block;
+
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:18px;
+
+    line-height:1;
+}
+
+.event-date span{
+
+    display:block;
+
+    color:#b7adbd;
+
+    font-size:7px;
+
+    letter-spacing:1px;
+
+    margin-top:3px;
+}
+
+.event-info{
+
+    padding:25px;
+}
+
+.event-info .category{
+
+    color:var(--gold);
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    margin-bottom:10px;
+}
+
+.event-info h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:24px;
+
+    line-height:1.2;
+
+    margin-bottom:11px;
+}
+
+.event-info p{
+
+    color:#918699;
+
+    font-size:11px;
+
+    line-height:1.75;
+
+    margin-bottom:18px;
+}
+
+.event-link{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    color:var(--gold);
+
+    font-size:10px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.event-link:hover{
+
+    gap:12px;
+}
+
+
+/* =====================================================
+   EVENT HIGHLIGHTS
+===================================================== */
+
+.highlights{
+
+    position:relative;
+
+    z-index:5;
+
+    padding:100px 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            #0d0613,
+            #13081b
+        );
+}
+
+.highlight-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+.highlight{
+
+    text-align:center;
+
+    padding:32px 20px;
+
+    border:
+        1px solid
+        rgba(216,182,110,.12);
+
+    background:
+        rgba(255,255,255,.025);
+
+    border-radius:18px;
+
+    transition:.35s;
+}
+
+.highlight:hover{
+
+    transform:translateY(-6px);
+
+    border-color:
+        rgba(216,182,110,.35);
+}
+
+.highlight-icon{
+
+    width:55px;
+    height:55px;
+
+    margin:
+        0 auto
+        18px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(216,182,110,.3);
+
+    color:var(--gold);
+
+    font-size:22px;
+}
+
+.highlight h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:19px;
+
+    margin-bottom:8px;
+}
+
+.highlight p{
+
+    color:#8f8498;
+
+    font-size:10px;
+
+    line-height:1.7;
+}
+
+
+/* =====================================================
+   CTA
+===================================================== */
+
+.cta{
+
+    position:relative;
+
+    z-index:5;
+
+    padding:105px 0;
+
+    text-align:center;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(93,43,125,.38),
+            transparent 60%
+        ),
+
+        #170a20;
+}
+
+.cta h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:52px;
+
+    line-height:1.15;
+}
+
+.cta h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.cta p{
+
+    max-width:600px;
+
+    margin:20px auto 30px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer{
+
+    position:relative;
+
+    z-index:5;
+
+    padding:55px 0 30px;
+
+    background:#07030b;
+
+    border-top:
+        1px solid
+        rgba(216,182,110,.12);
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1fr;
+
+    gap:50px;
+
+    padding-bottom:40px;
+}
+
+.footer-brand h2{
+
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:25px;
+}
+
+.footer-brand p{
+
+    color:#817687;
+
+    font-size:11px;
+
+    line-height:1.8;
+
+    max-width:320px;
+
+    margin-top:14px;
+}
+
+.footer-column h3{
+
+    color:#eee7f0;
+
+    font-size:11px;
+
+    letter-spacing:1px;
+
+    margin-bottom:18px;
+}
+
+.footer-column a{
+
+    display:block;
+
+    color:#817687;
+
+    font-size:11px;
+
+    margin-bottom:11px;
+
+    transition:.3s;
+}
+
+.footer-column a:hover{
+
+    color:var(--gold);
+}
+
+.footer-bottom{
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.05);
+
+    padding-top:22px;
+
+    text-align:center;
+
+    color:#655c6c;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+}
+
+
+/* =====================================================
+   EVENT MODAL
+===================================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:5000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(4,2,8,.80);
+
+    backdrop-filter:blur(14px);
+}
+
+.modal.active{
+
+    display:flex;
+}
+
+.modal-box{
+
+    width:min(520px,100%);
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    padding:35px;
+
+    position:relative;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #21102d,
+            #0e0615
+        );
+
+    border:
+        1px solid
+        rgba(216,182,110,.35);
+
+    box-shadow:
+        0 35px 100px
+        rgba(0,0,0,.7);
+}
+
+.close-modal{
+
+    position:absolute;
+
+    top:15px;
+    right:18px;
+
+    width:35px;
+    height:35px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(216,182,110,.3);
+
+    background:
+        rgba(216,182,110,.06);
+
+    color:var(--gold);
+
+    font-size:20px;
+
+    cursor:pointer;
+}
+
+.modal-box h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:32px;
+
+    margin-bottom:8px;
+}
+
+.modal-box h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.modal-description{
+
+    color:#968a9e;
+
+    font-size:11px;
+
+    line-height:1.7;
+
+    margin-bottom:22px;
+}
+
+.form-group{
+
+    margin-bottom:15px;
+}
+
+.form-group label{
+
+    display:block;
+
+    color:#cfc5d4;
+
+    font-size:10px;
+
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+
+    width:100%;
+
+    padding:13px 14px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    border:
+        1px solid
+        rgba(216,182,110,.20);
+
+    border-radius:11px;
+
+    outline:none;
+
+    color:#fff;
+
+    font-size:11px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+
+    border-color:var(--gold);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(216,182,110,.06);
+}
+
+.form-group textarea{
+
+    min-height:90px;
+
+    resize:vertical;
+}
+
+.form-group select option{
+
+    background:#170b20;
+
+    color:#fff;
+}
+
+.modal .primary-btn{
+
+    width:100%;
+
+    margin-top:5px;
+}
+
+
+/* =====================================================
+   SUCCESS MESSAGE
+===================================================== */
+
+.success-box{
+
+    display:none;
+
+    text-align:center;
+
+    padding:25px 5px;
+}
+
+.success-icon{
+
+    width:65px;
+    height:65px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    margin:
+        0 auto
+        18px;
+
+    border:
+        1px solid
+        var(--gold);
+
+    border-radius:50%;
+
+    color:var(--gold);
+
+    font-size:28px;
+}
+
+.success-box h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:28px;
+
+    margin-bottom:10px;
+}
+
+.success-box p{
+
+    color:#968a9e;
+
+    font-size:11px;
+
+    line-height:1.8;
+}
+
+
+/* =====================================================
+   LOGIN MODAL
+===================================================== */
+
+.login-title{
+
+    margin-bottom:18px;
+}
+
+.login-form input{
+
+    margin-bottom:14px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:1050px){
+
+    .nav-menu{
+        gap:11px;
+    }
+
+    .nav-menu a{
+        font-size:9px;
+    }
+
+    .events-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .highlight-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+
+@media(max-width:900px){
+
+    .nav-menu{
+        display:none;
+    }
+
+    .feature-card{
+        grid-template-columns:1fr;
+    }
+
+    .feature-image{
+        min-height:400px;
+    }
+}
+
+
+@media(max-width:600px){
+
+    .container{
+        width:90%;
+    }
+
+    .navbar{
+        height:72px;
+    }
+
+    .nav-inner{
+        width:90%;
+    }
+
+    .music-logo{
+        width:48px;
+        height:43px;
+    }
+
+    .music-logo svg{
+        width:48px;
+        height:43px;
+    }
+
+    .logo-main{
+        font-size:20px;
+    }
+
+    .logo-sub{
+        font-size:6px;
+        letter-spacing:2.8px;
+    }
+
+    .events-hero{
+        padding-top:125px;
+        min-height:68vh;
+    }
+
+    .hero-content h1{
+        font-size:47px;
+    }
+
+    .hero-description{
+        font-size:13px;
+    }
+
+    .intro h2,
+    .section-heading h2{
+        font-size:38px;
+    }
+
+    .feature-image{
+        min-height:300px;
+    }
+
+    .feature-content{
+        padding:35px 25px;
+    }
+
+    .feature-content h2{
+        font-size:34px;
+    }
+
+    .event-meta{
+        grid-template-columns:1fr;
+    }
+
+    .events-grid{
+        grid-template-columns:1fr;
+    }
+
+    .highlight-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cta h2{
+        font-size:39px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .modal-box{
+        padding:27px 20px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     FLOATING MUSIC
+===================================================== -->
+
+<div class="music-layer" id="musicLayer"></div>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+<div class="nav-inner">
+
+
+<a href="index.html" class="logo">
+
+<div class="music-logo">
+
+<svg viewBox="0 0 100 80"
+xmlns="http://www.w3.org/2000/svg">
+
+<path
+class="logo-line-soft"
+d="M5 27 C30 20,70 34,95 25"/>
+
+<path
+class="logo-line"
+d="M5 34 C30 27,70 41,95 32"/>
+
+<path
+class="logo-line-soft"
+d="M5 41 C30 34,70 48,95 39"/>
+
+<path
+class="logo-note"
+d="
+M64 17
+L75 14
+L75 46
+C75 53 69 58 62 58
+C56 58 52 55 52 51
+C52 46 57 42 63 42
+C65 42 67 42 69 43
+L69 23
+L64 24
+Z
+"/>
+
+<path
+class="logo-note"
+d="
+M34 31
+L43 29
+L43 51
+C43 56 39 59 34 59
+C30 59 27 56 27 53
+C27 49 31 46 35 46
+C37 46 38 46 39 47
+L39 35
+L34 36
+Z
+"/>
+
+<path
+class="logo-wave"
+d="
+M9 55
+C18 48,25 65,34 57
+C43 49,51 66,60 58
+C69 50,77 65,91 54
+"/>
+
+</svg>
+
+</div>
+
+
+<div class="logo-text">
+
+<div class="logo-main">
+Rakshitha
+</div>
+
+<span class="logo-sub">
+MUSIC ACADEMY
+</span>
+
+</div>
+
+</a>
+
+
+<nav class="nav-menu">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="courses.html">
+Courses
+</a>
+
+<a href="events.html">
+Events
+</a>
+
+<a href="instructions.html">
+Instructions
+</a>
+
+<a href="admissions.html">
+Admissions
+</a>
+
+<a href="gallery.html">
+Gallery
+</a>
+
+<a href="index.html#contact">
+Contact
+</a>
+
+<a
+href="javascript:void(0)"
+class="login-link"
+onclick="openModal('loginModal')">
+
+Student Login
+
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="events-hero">
+
+<div class="hero-content">
+
+<div class="hero-kicker">
+EXPERIENCE THE MUSIC
+</div>
+
+<h1>
+
+Where Music
+
+<span>
+Comes Alive.
+</span>
+
+</h1>
+
+<p class="hero-description">
+
+From intimate student showcases to exciting live
+performances, Rakshitha Music Academy creates
+beautiful opportunities to learn, perform and
+celebrate the power of music together.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
+<div class="container">
+
+<div class="section-label">
+OUR EVENTS
+</div>
+
+<h2>
+
+Moments Made
+
+<span>
+Through Music.
+</span>
+
+</h2>
+
+<p>
+
+Every event at Rakshitha Music Academy is designed
+to give students confidence, experience and a stage
+to express their creativity.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FEATURE EVENT
+===================================================== -->
+
+<section class="feature-section">
+
+<div class="container">
+
+<div class="feature-card">
+
+
+<div class="feature-image">
+
+<img
+src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=85"
+alt="Live music performance">
+
+<div class="image-overlay"></div>
+
+</div>
+
+
+<div class="feature-content">
+
+<div class="event-tag">
+FEATURED EVENT
+</div>
+
+<h2>
+
+Annual
+
+<span>
+Music Showcase.
+</span>
+
+</h2>
+
+<p>
+
+A special evening where our students step onto
+the stage and share their musical journey with
+friends, family and fellow music lovers.
+
+</p>
+
+
+<div class="event-meta">
+
+<div class="meta-box">
+
+<small>
+DATE
+</small>
+
+<strong>
+December 20, 2026
+</strong>
+
+</div>
+
+
+<div class="meta-box">
+
+<small>
+EVENT TYPE
+</small>
+
+<strong>
+Live Performance
+</strong>
+
+</div>
+
+</div>
+
+
+<button
+class="primary-btn"
+onclick="openEventForm('Annual Music Showcase')">
+
+Reserve Your Spot →
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     EVENTS
+===================================================== -->
+
+<section class="events-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="section-label">
+UPCOMING EXPERIENCES
+</div>
+
+<h2>
+
+Discover Our
+
+<span>
+Music Events.
+</span>
+
+</h2>
+
+<p>
+
+Explore concerts, workshops, open stages and
+student performances created to make every
+musical moment memorable.
+
+</p>
+
+</div>
+
+
+<div class="events-grid">
+
+
+<!-- EVENT 1 -->
+
+<div class="event-card">
+
+<div class="event-image">
+
+<img
+src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=900&q=85"
+alt="Guitar performance">
+
+<div class="event-date">
+
+<strong>
+12
+</strong>
+
+<span>
+SEP
+</span>
+
+</div>
+
+</div>
+
+
+<div class="event-info">
+
+<div class="category">
+LIVE PERFORMANCE
+</div>
+
+<h3>
+Acoustic Evening
+</h3>
+
+<p>
+
+An intimate evening filled with acoustic guitar,
+vocals and beautiful musical performances.
+
+</p>
+
+<span
+class="event-link"
+onclick="openEventForm('Acoustic Evening')">
+
+Join Event →
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- EVENT 2 -->
+
+<div class="event-card">
+
+<div class="event-image">
+
+<img
+src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=900&q=85"
+alt="Piano music performance">
+
+<div class="event-date">
+
+<strong>
+27
+</strong>
+
+<span>
+SEP
+</span>
+
+</div>
+
+</div>
+
+
+<div class="event-info">
+
+<div class="category">
+PIANO SESSION
+</div>
+
+<h3>
+Piano Performance Night
+</h3>
+
+<p>
+
+Experience an elegant evening featuring
+classical, contemporary and cinematic piano music.
+
+</p>
+
+<span
+class="event-link"
+onclick="openEventForm('Piano Performance Night')">
+
+Join Event →
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- EVENT 3 -->
+
+<div class="event-card">
+
+<div class="event-image">
+
+<img
+src="https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=85"
+alt="Music concert stage">
+
+<div class="event-date">
+
+<strong>
+10
+</strong>
+
+<span>
+OCT
+</span>
+
+</div>
+
+</div>
+
+
+<div class="event-info">
+
+<div class="category">
+MUSIC FESTIVAL
+</div>
+
+<h3>
+Rhythm & Harmony
+</h3>
+
+<p>
+
+A vibrant celebration of rhythm, instruments,
+performances and the creative spirit of music.
+
+</p>
+
+<span
+class="event-link"
+onclick="openEventForm('Rhythm & Harmony')">
+
+Join Event →
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- EVENT 4 -->
+
+<div class="event-card">
+
+<div class="event-image">
+
+<img
+src="https://images.unsplash.com/photo-1524650359799-842906ca1c06?auto=format&fit=crop&w=900&q=85"
+alt="Band performing live">
+
+<div class="event-date">
+
+<strong>
+24
+</strong>
+
+<span>
+OCT
+</span>
+
+</div>
+
+</div>
+
+
+<div class="event-info">
+
+<div class="category">
+STUDENT SHOWCASE
+</div>
+
+<h3>
+Young Artists Live
+</h3>
+
+<p>
+
+A platform for our young musicians to perform
+their favourite songs and showcase their progress.
+
+</p>
+
+<span
+class="event-link"
+onclick="openEventForm('Young Artists Live')">
+
+Join Event →
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- EVENT 5 -->
+
+<div class="event-card">
+
+<div class="event-image">
+
+<img
+src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=900&q=85"
+alt="Concert lights and audience">
+
+<div class="event-date">
+
+<strong>
+08
+</strong>
+
+<span>
+NOV
+</span>
+
+</div>
+
+</div>
+
+
+<div class="event-info">
+
+<div class="category">
+LIVE CONCERT
+</div>
+
+<h3>
+Sounds of the Stage
+</h3>
+
+<p>
+
+A high-energy live concert bringing together
+students, performers and music enthusiasts.
+
+</p>
+
+<span
+class="event-link"
+onclick="openEventForm('Sounds of the Stage')">
+
+Join Event →
+
+</span>
+
+</div>
+
+</div>
+
+
+<!-- EVENT 6 -->
+
+<div class="event-card">
+
+<div class="event-image">
+
+<img
+src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=900&q=85"
+alt="Music studio workshop">
+
+<div class="event-date">
+
+<strong>
+21
+</strong>
+
+<span>
+NOV
+</span>
+
+</div>
+
+</div>
+
+
+<div class="event-info">
+
+<div class="category">
+WORKSHOP
+</div>
+
+<h3>
+Music Creation Lab
+</h3>
+
+<p>
+
+Discover songwriting, recording and music production
+through a creative hands-on learning experience.
+
+</p>
+
+<span
+class="event-link"
+onclick="openEventForm('Music Creation Lab')">
+
+Join Event →
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     HIGHLIGHTS
+===================================================== -->
+
+<section class="highlights">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="section-label">
+WHY OUR EVENTS MATTER
+</div>
+
+<h2>
+
+More Than
+
+<span>
+A Performance.
+</span>
+
+</h2>
+
+<p>
+
+Our events help students turn practice into
+confidence and learning into unforgettable memories.
+
+</p>
+
+</div>
+
+
+<div class="highlight-grid">
+
+
+<div class="highlight">
+
+<div class="highlight-icon">
+♪ 
+</div>
+
+<h3>
+Perform
+</h3>
+
+<p>
+Gain real stage experience and express your musical talent.
+</p>
+
+</div>
+
+
+<div class="highlight">
+
+<div class="highlight-icon">
+♫
+</div>
+
+<h3>
+Connect
+</h3>
+
+<p>
+Meet fellow learners and become part of a creative community.
+</p>
+
+</div>
+
+
+<div class="highlight">
+
+<div class="highlight-icon">
+♬
+</div>
+
+<h3>
+Learn
+</h3>
+
+<p>
+Learn from performances, workshops and musical experiences.
+</p>
+
+</div>
+
+
+<div class="highlight">
+
+<div class="highlight-icon">
+𝄞
+</div>
+
+<h3>
+Celebrate
+</h3>
+
+<p>
+Celebrate every milestone and musical achievement together.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+
+Be Part of the
+
+<span>
+Next Event.
+</span>
+
+</h2>
+
+<p>
+
+Whether you are performing, learning or simply
+enjoying the music, there is always a place for
+you at Rakshitha Music Academy.
+
+</p>
+
+<button
+class="primary-btn"
+onclick="openEventForm('Upcoming Academy Event')">
+
+Join Our Event →
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div class="footer-brand">
+
+<h2>
+Rakshitha
+</h2>
+
+<p>
+
+A creative music academy dedicated
+to helping students discover their
+musical voice.
+
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+ACADEMY
+</h3>
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="courses.html">
+Courses
+</a>
+
+<a href="events.html">
+Events
+</a>
+
+<a href="gallery.html">
+Gallery
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+SUPPORT
+</h3>
+
+<a href="instructions.html">
+Instructions
+</a>
+
+<a href="admissions.html">
+Admissions
+</a>
+
+<a href="index.html#contact">
+Contact
+</a>
+
+<a
+href="javascript:void(0)"
+onclick="openModal('loginModal')">
+
+Student Login
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 Rakshitha Music Academy.
+All Rights Reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- =====================================================
+     EVENT REGISTRATION MODAL
+===================================================== -->
+
+<div
+class="modal"
+id="eventModal">
+
+<div class="modal-box">
+
+<button
+class="close-modal"
+onclick="closeModal('eventModal')">
+
+×
+
+</button>
+
+
+<div id="eventFormContainer">
+
+<div class="section-label">
+EVENT REGISTRATION
+</div>
+
+<h2>
+
+Join
+
+<span>
+The Music.
+</span>
+
+</h2>
+
+<p class="modal-description">
+
+Reserve your place for the selected academy
+event. Fill in your details and our team will
+contact you with the event information.
+
+</p>
+
+
+<form
+id="eventForm"
+onsubmit="submitEvent(event)">
+
+
+<div class="form-group">
+
+<label>
+Selected Event
+</label>
+
+<input
+type="text"
+id="selectedEvent"
+readonly>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Your Name
+</label>
+
+<input
+type="text"
+id="eventName"
+placeholder="Enter your name"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Email Address
+</label>
+
+<input
+type="email"
+id="eventEmail"
+placeholder="Enter email address"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Phone Number
+</label>
+
+<input
+type="tel"
+id="eventPhone"
+placeholder="Enter phone number"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Number of Guests
+</label>
+
+<select
+id="guestCount"
+required>
+
+<option value="">
+Select number of guests
+</option>
+
+<option>1</option>
+<option>2</option>
+<option>3</option>
+<option>4</option>
+<option>5+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Message
+
+</label>
+
+<textarea
+id="eventMessage"
+placeholder="Any message for the academy?"></textarea>
+
+</div>
+
+
+<button
+type="submit"
+class="primary-btn">
+
+Submit Registration →
+
+</button>
+
+</form>
+
+</div>
+
+
+<div
+class="success-box"
+id="eventSuccess">
+
+<div class="success-icon">
+✓
+</div>
+
+<h3>
+Registration Received!
+</h3>
+
+<p>
+
+Thank you for joining Rakshitha Music Academy.
+Your event registration has been submitted
+successfully. We will contact you soon with
+the event details.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     STUDENT LOGIN MODAL
+===================================================== -->
+
+<div
+class="modal"
+id="loginModal">
+
+<div class="modal-box">
+
+<button
+class="close-modal"
+onclick="closeModal('loginModal')">
+
+×
+
+</button>
+
+
+<div id="loginContainer">
+
+<div class="section-label">
+STUDENT PORTAL
+</div>
+
+<h2 class="login-title">
+
+Student
+
+<span>
+Login.
+</span>
+
+</h2>
+
+<p class="modal-description">
+
+Login to access your student dashboard,
+courses and academy updates.
+
+</p>
+
+
+<form
+id="loginForm"
+onsubmit="loginStudent(event)">
+
+
+<div class="form-group">
+
+<label>
+Email / Student ID
+</label>
+
+<input
+type="text"
+id="loginUser"
+placeholder="Enter email or student ID"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Password
+</label>
+
+<input
+type="password"
+id="loginPassword"
+placeholder="Enter password"
+required>
+
+</div>
+
+
+<button
+type="submit"
+class="primary-btn">
+
+Login →
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script>
+
+
+/* =====================================================
+   FLOATING MUSIC NOTES
+===================================================== */
+
+const musicLayer =
+document.getElementById("musicLayer");
+
+const symbols = [
+    "♪",
+    "♫",
+    "♬",
+    "♩",
+    "𝄞"
+];
+
+
+function createMusicNote(){
+
+    const note =
+        document.createElement("span");
+
+    note.className =
+        "music-note";
+
+    note.textContent =
+        symbols[
+            Math.floor(
+                Math.random() *
+                symbols.length
+            )
+        ];
+
+    note.style.left =
+        Math.random() * 100 + "vw";
+
+    note.style.fontSize =
+        (16 + Math.random() * 24) + "px";
+
+    const duration =
+        8 + Math.random() * 8;
+
+    note.style.animationDuration =
+        duration + "s";
+
+    note.style.setProperty(
+        "--drift",
+        (Math.random() * 160 - 80) + "px"
+    );
+
+    musicLayer.appendChild(note);
+
+    setTimeout(
+        function(){
+
+            note.remove();
+
+        },
+        duration * 1000
+    );
+}
+
+
+for(let i = 0; i < 15; i++){
+
+    setTimeout(
+        createMusicNote,
+        i * 400
+    );
+
+}
+
+
+setInterval(
+    createMusicNote,
+    900
+);
+
+
+/* =====================================================
+   OPEN EVENT FORM
+===================================================== */
+
+function openEventForm(eventName){
+
+    const modal =
+        document.getElementById(
+            "eventModal"
+        );
+
+    const selected =
+        document.getElementById(
+            "selectedEvent"
+        );
+
+    const formContainer =
+        document.getElementById(
+            "eventFormContainer"
+        );
+
+    const success =
+        document.getElementById(
+            "eventSuccess"
+        );
+
+    if(!modal) return;
+
+    selected.value =
+        eventName;
+
+    formContainer.style.display =
+        "block";
+
+    success.style.display =
+        "none";
+
+    modal.classList.add("active");
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+
+/* =====================================================
+   SUBMIT EVENT
+===================================================== */
+
+function submitEvent(event){
+
+    event.preventDefault();
+
+    const form =
+        document.getElementById(
+            "eventForm"
+        );
+
+    const formContainer =
+        document.getElementById(
+            "eventFormContainer"
+        );
+
+    const success =
+        document.getElementById(
+            "eventSuccess"
+        );
+
+    if(!form) return;
+
+    form.style.display =
+        "none";
+
+    const description =
+        document.querySelector(
+            "#eventFormContainer .modal-description"
+        );
+
+    if(description){
+
+        description.style.display =
+            "none";
+    }
+
+    success.style.display =
+        "block";
+}
+
+
+/* =====================================================
+   LOGIN MODAL
+===================================================== */
+
+function openModal(id){
+
+    const modal =
+        document.getElementById(id);
+
+    if(!modal) return;
+
+    modal.classList.add("active");
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
+
+function closeModal(id){
+
+    const modal =
+        document.getElementById(id);
+
+    if(!modal) return;
+
+    modal.classList.remove("active");
+
+    document.body.style.overflow =
+        "";
+}
+
+
+/* =====================================================
+   STUDENT LOGIN
+===================================================== */
+
+function loginStudent(event){
+
+    event.preventDefault();
+
+    const username =
+        document.getElementById(
+            "loginUser"
+        ).value.trim();
+
+    const password =
+        document.getElementById(
+            "loginPassword"
+        ).value.trim();
+
+    if(
+        username === "" ||
+        password === ""
+    ){
+
+        alert(
+            "Please enter your login details."
+        );
+
+        return;
+    }
+
+    alert(
+        "Student login submitted successfully!"
+    );
+}
+
+
+/* =====================================================
+   CLICK OUTSIDE MODAL
+===================================================== */
+
+document
+.querySelectorAll(".modal")
+.forEach(function(modal){
+
+    modal.addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target === modal
+            ){
+
+                closeModal(
+                    modal.id
+                );
+
+            }
+
+        }
+    );
+
+});
+
+
+/* =====================================================
+   ESC KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            document
+            .querySelectorAll(
+                ".modal.active"
+            )
+            .forEach(
+                function(modal){
+
+                    closeModal(
+                        modal.id
+                    );
+
+                }
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

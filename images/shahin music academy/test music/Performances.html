@@ -1,0 +1,2256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Performances | Shahin Music Academy</title>
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+    font-family:
+        "Poppins",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8fd,
+            #f5eaff,
+            #fff0f8
+        );
+
+    color: #4a3154;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+header {
+    text-align: center;
+
+    padding:
+        55px 20px 30px;
+}
+
+header h1 {
+    font-family: Georgia, serif;
+
+    font-size: 50px;
+
+    color: #783d88;
+
+    margin-bottom: 12px;
+}
+
+header h1 span {
+    color: #c45bbd;
+}
+
+header p {
+    max-width: 800px;
+
+    margin: auto;
+
+    color: #765d7d;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   MUSIC DECORATION
+========================================================= */
+
+.music-decoration {
+    font-size: 30px;
+
+    color: #d98adf;
+
+    margin: 15px 0;
+}
+
+.music-line {
+    width: 90px;
+
+    height: 3px;
+
+    margin: 15px auto;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            to right,
+            #d98adf,
+            #8e5aa9
+        );
+}
+
+
+/* =========================================================
+   FEATURED PERFORMANCE CARD
+========================================================= */
+
+.performance-card {
+    width: 90%;
+
+    max-width: 1200px;
+
+    margin:
+        35px auto 70px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    background:
+        rgba(255,255,255,0.96);
+
+    border-radius: 30px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 50px
+        rgba(126,72,145,0.18);
+}
+
+
+/* =========================================================
+   FEATURED PHOTO
+========================================================= */
+
+.performance-photo {
+    position: relative;
+
+    min-height: 680px;
+
+    overflow: hidden;
+
+    background: #f9e6f5;
+}
+
+.performance-photo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    display: block;
+
+    transition:
+        transform 0.6s ease;
+}
+
+.performance-card:hover
+.performance-photo img {
+    transform:
+        scale(1.03);
+}
+
+
+/* =========================================================
+   PHOTO LABEL
+========================================================= */
+
+.photo-label {
+    position: absolute;
+
+    left: 25px;
+
+    bottom: 25px;
+
+    padding:
+        13px 20px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(255,255,255,0.90);
+
+    backdrop-filter:
+        blur(8px);
+
+    color: #783d88;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 5px 20px
+        rgba(80,40,90,0.15);
+}
+
+
+/* =========================================================
+   PERFORMANCE CONTENT
+========================================================= */
+
+.performance-content {
+    padding:
+        55px 50px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #fff5fc,
+            #f8efff
+        );
+}
+
+.small-heading {
+    color: #b05bbd;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 12px;
+}
+
+.performance-content h2 {
+    font-family: Georgia, serif;
+
+    font-size: 40px;
+
+    color: #70347f;
+
+    line-height: 1.25;
+
+    margin-bottom: 12px;
+}
+
+.performance-content h2 span {
+    color: #c45bbd;
+}
+
+.role {
+    display: inline-block;
+
+    width: fit-content;
+
+    padding:
+        8px 17px;
+
+    margin-bottom: 25px;
+
+    border-radius: 20px;
+
+    background: #fbeafa;
+
+    color: #91459e;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.performance-content p {
+    color: #6d5a72;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+    margin-bottom: 16px;
+}
+
+.highlight-text {
+    color: #843e91;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   SPECIALIZATION
+========================================================= */
+
+.specialization {
+    margin:
+        12px 0 22px;
+
+    padding: 20px;
+
+    background: #fff1fb;
+
+    border-left:
+        4px solid
+        #c878c9;
+
+    border-radius: 14px;
+}
+
+.specialization h3 {
+    font-family: Georgia, serif;
+
+    color: #783d88;
+
+    font-size: 21px;
+
+    margin-bottom: 8px;
+}
+
+.specialization p {
+    margin: 0;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skills {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-bottom: 25px;
+}
+
+.skill {
+    padding:
+        8px 14px;
+
+    border-radius: 20px;
+
+    background: #f7e7fb;
+
+    color: #843e91;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   FEATURED AUDIO
+========================================================= */
+
+.audio-box {
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fbeafa,
+            #f2e5ff
+        );
+
+    box-shadow:
+        inset 0 0 0 1px
+        rgba(160,90,170,0.08);
+}
+
+.audio-box h3 {
+    color: #783d88;
+
+    font-family: Georgia, serif;
+
+    font-size: 20px;
+
+    margin-bottom: 6px;
+}
+
+.audio-box p {
+    font-size: 13px;
+
+    line-height: 1.6;
+
+    margin-bottom: 12px;
+}
+
+.audio-box audio {
+    width: 100%;
+
+    height: 42px;
+}
+
+
+/* =========================================================
+   ARTISTS SECTION
+========================================================= */
+
+.artists-grid {
+    width: 92%;
+
+    max-width: 1250px;
+
+    margin:
+        45px auto 70px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 25px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   ARTIST CARD
+========================================================= */
+
+.artist-card {
+    background:
+        rgba(255,255,255,0.97);
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 10px 30px
+        rgba(126,72,145,0.14);
+
+    transition:
+        0.3s ease;
+}
+
+.artist-card:hover {
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(126,72,145,0.22);
+}
+
+
+/* =========================================================
+   ARTIST PHOTO
+========================================================= */
+
+.artist-photo {
+    width: 100%;
+
+    height: 260px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fbeafa,
+            #f5e8ff,
+            #fff0f8
+        );
+}
+
+.artist-photo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position:
+        center top;
+
+    display: block;
+
+    transition:
+        transform 0.5s ease;
+}
+
+.artist-card:hover
+.artist-photo img {
+    transform:
+        scale(1.03);
+}
+
+
+/* =========================================================
+   HASEENA PHOTO
+========================================================= */
+
+.artist-photo img[alt*="Haseena"] {
+    object-position:
+        center 25%;
+}
+
+
+/* =========================================================
+   TEENA / FLUTE PHOTO
+========================================================= */
+
+.artist-photo.teena-photo {
+    height: 260px;
+
+    overflow: hidden;
+}
+
+.artist-photo.teena-photo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position:
+        center 12%;
+
+    display: block;
+}
+
+
+/* =========================================================
+   SWETHA - PIANO PHOTO
+========================================================= */
+
+.artist-photo.swetha-photo {
+    width: 100%;
+
+    height: 260px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 8px;
+}
+
+.artist-photo.swetha-photo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    display: block;
+
+    transition:
+        transform 0.5s ease;
+}
+
+.artist-card:hover
+.artist-photo.swetha-photo img {
+    transform:
+        scale(1.03);
+}
+
+
+/* =========================================================
+   DANUSHA - VEENA PHOTO
+========================================================= */
+
+.artist-photo.danusha-veena-photo {
+    width: 100%;
+
+    height: 260px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 8px;
+}
+
+.artist-photo.danusha-veena-photo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    display: block;
+
+    transition:
+        transform 0.5s ease;
+}
+
+.artist-card:hover
+.artist-photo.danusha-veena-photo img {
+    transform:
+        scale(1.03);
+}
+
+
+/* =========================================================
+   MOUKTHIKA - KEYBOARD PHOTO
+========================================================= */
+
+.artist-photo.keyboard-photo {
+    width: 100%;
+
+    height: 260px;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 8px;
+}
+
+.artist-photo.keyboard-photo img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    display: block;
+
+    transition:
+        transform 0.5s ease;
+}
+
+.artist-card:hover
+.artist-photo.keyboard-photo img {
+    transform:
+        scale(1.03);
+}
+
+
+/* =========================================================
+   ARTIST INFORMATION
+========================================================= */
+
+.artist-info {
+    padding:
+        18px 20px 20px;
+}
+
+.academy-label {
+    color: #b05bbd;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 5px;
+}
+
+.artist-info h2 {
+    font-family: Georgia, serif;
+
+    font-size: 25px;
+
+    color: #70347f;
+
+    margin:
+        0 0 7px;
+}
+
+
+/* =========================================================
+   ARTIST SPECIALITY
+========================================================= */
+
+.artist-speciality {
+    display: inline-block;
+
+    padding:
+        5px 11px;
+
+    border-radius: 15px;
+
+    background: #fbeafa;
+
+    color: #91459e;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   ARTIST DESCRIPTION
+========================================================= */
+
+.artist-description {
+    color: #6d5a72;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    margin-bottom: 14px;
+}
+
+
+/* =========================================================
+   ARTIST AUDIO
+========================================================= */
+
+.artist-audio {
+    padding: 12px;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fbeafa,
+            #f2e5ff
+        );
+}
+
+.artist-audio h3 {
+    font-family: Georgia, serif;
+
+    color: #783d88;
+
+    font-size: 15px;
+
+    margin-bottom: 7px;
+}
+
+.artist-audio audio {
+    width: 100%;
+
+    height: 35px;
+}
+
+
+/* =========================================================
+   SECOND ROW SPECIAL LABEL
+========================================================= */
+
+.second-row-title {
+    width: 92%;
+
+    max-width: 1250px;
+
+    margin:
+        10px auto -20px;
+
+    text-align: center;
+
+    font-family: Georgia, serif;
+
+    font-size: 28px;
+
+    color: #783d88;
+}
+
+.second-row-title span {
+    color: #c45bbd;
+}
+
+
+/* =========================================================
+   STORY SECTION
+========================================================= */
+
+.story-section {
+    width: 88%;
+
+    max-width: 1000px;
+
+    margin:
+        0 auto 70px;
+
+    text-align: center;
+}
+
+.story-section .label {
+    color: #b05bbd;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.story-section h2 {
+    font-family: Georgia, serif;
+
+    color: #783d88;
+
+    font-size: 38px;
+
+    margin:
+        12px 0 20px;
+}
+
+.story-section > p {
+    color: #6d5a72;
+
+    font-size: 16px;
+
+    line-height: 1.9;
+
+    max-width: 850px;
+
+    margin:
+        12px auto;
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
+
+.highlights {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+
+    margin-top: 35px;
+}
+
+.highlight-card {
+    padding:
+        28px 20px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.90);
+
+    box-shadow:
+        0 8px 25px
+        rgba(142,90,169,0.10);
+
+    transition:
+        0.3s ease;
+}
+
+.highlight-card:hover {
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 14px 30px
+        rgba(142,90,169,0.16);
+}
+
+.highlight-icon {
+    font-size: 32px;
+
+    margin-bottom: 12px;
+}
+
+.highlight-card h3 {
+    font-family: Georgia, serif;
+
+    color: #843e91;
+
+    font-size: 21px;
+
+    margin-bottom: 8px;
+}
+
+.highlight-card p {
+    color: #765d7d;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   BOOK A LIVE SHOW
+   Place this section just above BACK HOME
+========================================================= */
+
+.live-show-section {
+    width: 92%;
+
+    max-width: 1150px;
+
+    margin:
+        0 auto 35px;
+
+    padding:
+        55px 30px;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff4fb,
+            #f2e7ff,
+            #fff8fc
+        );
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(142,90,169,0.12);
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Decorative music notes */
+
+.live-show-section::before {
+    content: "♫";
+
+    position: absolute;
+
+    top: 15px;
+
+    left: 35px;
+
+    font-size: 55px;
+
+    color:
+        rgba(196,91,189,0.10);
+
+    transform:
+        rotate(-15deg);
+}
+
+.live-show-section::after {
+    content: "♪";
+
+    position: absolute;
+
+    right: 35px;
+
+    bottom: 10px;
+
+    font-size: 60px;
+
+    color:
+        rgba(142,90,169,0.10);
+
+    transform:
+        rotate(15deg);
+}
+
+
+/* Main content */
+
+.live-show-content {
+    max-width: 780px;
+
+    margin: auto;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* Microphone icon */
+
+.live-show-icon {
+    width: 75px;
+
+    height: 75px;
+
+    margin:
+        0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fbeafa,
+            #e9ddff
+        );
+
+    font-size: 34px;
+
+    box-shadow:
+        0 8px 22px
+        rgba(142,90,169,0.12);
+}
+
+
+/* Academy label */
+
+.live-show-label {
+    color: #b05bbd;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 10px;
+}
+
+
+/* Main heading */
+
+.live-show-section h2 {
+    font-family: Georgia, serif;
+
+    color: #783d88;
+
+    font-size: 38px;
+
+    line-height: 1.3;
+
+    margin-bottom: 10px;
+}
+
+.live-show-section h2 span {
+    color: #c45bbd;
+}
+
+
+/* Decorative line */
+
+.live-show-line {
+    width: 80px;
+
+    height: 4px;
+
+    margin:
+        15px auto 20px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d98adf,
+            #8e5aa9
+        );
+}
+
+
+/* Description */
+
+.live-show-section p {
+    max-width: 720px;
+
+    margin:
+        0 auto 15px;
+
+    color: #765d7d;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+
+/* Tagline */
+
+.live-show-tagline {
+    font-family: Georgia, serif;
+
+    color: #783d88 !important;
+
+    font-size: 15px !important;
+
+    font-weight: 700;
+
+    margin:
+        15px auto 25px !important;
+}
+
+
+/* Booking button */
+
+.live-show-btn {
+    display: inline-block;
+
+    padding:
+        14px 32px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #c45bbd,
+            #8e5aa9
+        );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 8px 22px
+        rgba(142,90,169,0.25);
+
+    transition:
+        0.3s ease;
+}
+
+.live-show-btn:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 13px 30px
+        rgba(142,90,169,0.32);
+}
+
+
+/* =========================================================
+   BACK HOME
+========================================================= */
+
+.back-home-container {
+    text-align: center;
+
+    margin:
+        20px auto 60px;
+}
+
+.back-home-btn {
+    display: inline-block;
+
+    padding:
+        14px 34px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #d98adf,
+            #8e5aa9
+        );
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    box-shadow:
+        0 8px 20px
+        rgba(142,90,169,0.25);
+
+    transition:
+        0.3s ease;
+}
+
+.back-home-btn:hover {
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0 12px 28px
+        rgba(142,90,169,0.35);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    text-align: center;
+
+    padding:
+        30px 20px;
+
+    background: #783d88;
+
+    color: white;
+}
+
+footer h3 {
+    font-family: Georgia, serif;
+
+    margin-bottom: 8px;
+}
+
+footer p {
+    font-size: 13px;
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .artists-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        width: 92%;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+
+    header h1 {
+        font-size: 38px;
+    }
+
+
+    .performance-card {
+        grid-template-columns: 1fr;
+
+        width: 94%;
+    }
+
+
+    .performance-photo {
+        min-height: auto;
+
+        height: auto;
+    }
+
+
+    .performance-photo img {
+        height: auto;
+
+        object-fit: contain;
+    }
+
+
+    .performance-content {
+        padding:
+            38px 25px;
+    }
+
+
+    .performance-content h2 {
+        font-size: 30px;
+    }
+
+
+    .highlights {
+        grid-template-columns: 1fr;
+    }
+
+
+    .story-section {
+        width: 92%;
+    }
+
+
+    .story-section h2 {
+        font-size: 30px;
+    }
+
+
+    /* LIVE SHOW */
+
+    .live-show-section {
+        width: 92%;
+
+        padding:
+            45px 22px;
+    }
+
+
+    .live-show-section h2 {
+        font-size: 31px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .artists-grid {
+        grid-template-columns: 1fr;
+
+        width: 90%;
+    }
+
+
+    .artist-photo {
+        height: 280px;
+    }
+
+
+    .artist-photo.teena-photo {
+        height: 280px;
+    }
+
+
+    .artist-photo.swetha-photo {
+        height: 280px;
+    }
+
+
+    .artist-photo.danusha-veena-photo {
+        height: 280px;
+    }
+
+
+    .artist-photo.keyboard-photo {
+        height: 280px;
+    }
+
+
+    .second-row-title {
+        font-size: 23px;
+    }
+
+
+    header {
+        padding:
+            40px 18px 25px;
+    }
+
+
+    header h1 {
+        font-size: 32px;
+    }
+
+
+    header p {
+        font-size: 14px;
+    }
+
+
+    .performance-content {
+        padding:
+            30px 20px;
+    }
+
+
+    .performance-content h2 {
+        font-size: 27px;
+    }
+
+
+    /* LIVE SHOW MOBILE */
+
+    .live-show-section {
+        width: 92%;
+
+        padding:
+            40px 18px;
+
+        border-radius: 24px;
+    }
+
+
+    .live-show-icon {
+        width: 65px;
+
+        height: 65px;
+
+        font-size: 29px;
+    }
+
+
+    .live-show-label {
+        font-size: 10px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .live-show-section h2 {
+        font-size: 27px;
+    }
+
+
+    .live-show-section p {
+        font-size: 13px;
+    }
+
+
+    .live-show-tagline {
+        font-size: 14px !important;
+    }
+
+
+    .live-show-btn {
+        padding:
+            13px 24px;
+
+        font-size: 13px;
+    }
+
+
+    .back-home-btn {
+        padding:
+            12px 28px;
+
+        font-size: 13px;
+    }
+
+}
+
+</style></head>
+
+
+<body>
+
+
+<!-- =========================================================
+     PAGE HEADER
+========================================================= -->
+
+<header>
+
+    <div class="music-decoration">
+        ♪ ♫ ♪
+    </div>
+
+    <h1>
+        Our <span>Performances</span>
+    </h1>
+
+    <div class="music-line"></div>
+
+    <p>
+        A beautiful space where passion becomes melody,
+        dedication becomes rhythm, and every performance
+        becomes a memory worth keeping.
+    </p>
+
+</header>
+
+
+
+<!-- =========================================================
+     FEATURED PERFORMANCE
+========================================================= -->
+
+<section class="performance-card">
+
+
+    <!-- PHOTO -->
+
+    <div class="performance-photo">
+
+        <img
+            src="ceo of music acdemy(2).png"
+            alt="Guitar Performance at Shahin Music Academy"
+        >
+
+        <div class="photo-label">
+            🎸 Guitar Performance
+        </div>
+
+    </div>
+
+
+    <!-- CONTENT -->
+
+    <div class="performance-content">
+
+        <div class="small-heading">
+            ♪ A MOMENT IN MUSIC
+        </div>
+
+
+        <h2>
+            Meet the Creative Heart of
+            <span>Shahin Music Academy</span>
+        </h2>
+
+
+        <div class="role">
+            ✨ Founder & CEO • Shahin Music Academy
+        </div>
+
+
+        <p>
+
+            At
+            <span class="highlight-text">
+                Shahin Music Academy
+            </span>,
+            music is more than simply learning notes and chords.
+            It is a journey of confidence, creativity,
+            expression and discovery.
+
+        </p>
+
+
+        <p>
+
+            At the heart of this journey is a passionate
+            musical leader whose love for the guitar reflects
+            the spirit of our academy —
+            <span class="highlight-text">
+                dedication, elegance and a deep connection with music.
+            </span>
+
+        </p>
+
+
+        <p>
+
+            With a natural talent for guitar and a strong
+            understanding of musical expression, she brings
+            every melody to life with confidence and emotion.
+            Her performances encourage students to believe
+            that music is not only something we learn,
+            but something we experience.
+
+        </p>
+
+
+        <!-- SPECIALIZATION -->
+
+        <div class="specialization">
+
+            <h3>
+                🎸 Guitar Specialist
+            </h3>
+
+            <p>
+
+                Passionate about guitar performance,
+                rhythm and melody, she brings a graceful
+                and expressive style to every musical moment.
+                Her dedication inspires learners to explore
+                their own musical voice.
+
+            </p>
+
+        </div>
+
+
+        <!-- SKILLS -->
+
+        <div class="skills">
+
+            <span class="skill">
+                🎸 Guitar
+            </span>
+
+            <span class="skill">
+                🎵 Melody
+            </span>
+
+            <span class="skill">
+                🎶 Rhythm
+            </span>
+
+            <span class="skill">
+                ✨ Performance
+            </span>
+
+            <span class="skill">
+                💗 Musical Expression
+            </span>
+
+        </div>
+
+
+        <!-- AUDIO -->
+
+        <div class="audio-box">
+
+            <h3>
+                🎵 Listen to the Performance
+            </h3>
+
+            <p>
+                Take a moment, press play and experience
+                the beauty of this guitar melody.
+            </p>
+
+            <audio controls>
+
+                <source
+                    src="guitar music(1).mpeg"
+                    type="audio/mpeg"
+                >
+
+                Your browser does not support
+                the audio element.
+
+            </audio>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ARTISTS
+     FIRST ROW + SECOND ROW
+========================================================= -->
+
+<section class="artists-grid">
+
+
+    <!-- =====================================================
+         FIRST ARTIST - HASEENA
+    ====================================================== -->
+
+    <div class="artist-card">
+
+        <div class="artist-photo">
+
+            <img
+                src="student .png"
+                alt="Haseena - Violin Specialist"
+            >
+
+        </div>
+
+
+        <div class="artist-info">
+
+            <div class="academy-label">
+                ♪ SHAHIN MUSIC ACADEMY
+            </div>
+
+            <h2>
+                HASEENA
+            </h2>
+
+            <div class="artist-speciality">
+                🎻 Violin Specialist
+            </div>
+
+            <p class="artist-description">
+
+                A passionate performer who brings
+                emotion, elegance and beautiful melodies
+                through the violin.
+
+            </p>
+
+
+            <div class="artist-audio">
+
+                <h3>
+                    🎻 Listen to Violin
+                </h3>
+
+                <audio controls>
+
+                    <source
+                        src="delosound-classical-strings-violin-music-427640.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Your browser does not support
+                    the audio element.
+
+                </audio>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         SECOND ARTIST - TEENA
+    ====================================================== -->
+
+    <div class="artist-card">
+
+        <div class="artist-photo teena-photo">
+
+            <img
+                src="teena flute.png"
+                alt="Teena - Flute Specialist"
+            >
+
+        </div>
+
+
+        <div class="artist-info">
+
+            <div class="academy-label">
+                ♪ SHAHIN MUSIC ACADEMY
+            </div>
+
+            <h2>
+                TEENA
+            </h2>
+
+            <div class="artist-speciality">
+                🎶 Flute Specialist
+            </div>
+
+            <p class="artist-description">
+
+                A graceful performer who creates
+                peaceful and expressive melodies
+                through the flute.
+
+            </p>
+
+
+            <div class="artist-audio">
+
+                <h3>
+                    🎶 Listen to Flute
+                </h3>
+
+                <audio controls>
+
+                   
+
+                    <source
+                        src="alaminhossain1989-relaxing-krishna-flute-music-deep-sleep-relaxing-music-292793.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Your browser does not support
+                    the audio element.
+
+                </audio>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+<!-- =====================================================
+     THIRD ARTIST - SWETHA
+====================================================== -->
+
+<div class="artist-card">
+
+    <div class="artist-photo">
+
+        <img
+            src="swetha piano.png"
+            alt="Swetha - Piano Specialist"
+        >
+
+    </div>
+
+    <div class="artist-info">
+
+        <div class="academy-label">
+            ♪ SHAHIN MUSIC ACADEMY
+        </div>
+
+        <h2>
+            SWETHA
+        </h2>
+
+        <div class="artist-speciality">
+            🎹 Piano Specialist
+        </div>
+
+        <p class="artist-description">
+            A talented piano performer who brings
+            emotion, elegance and beautiful melodies
+            to every musical performance.
+        </p>
+
+        <div class="artist-audio">
+
+            <h3>
+                🎹 Listen to Piano
+            </h3>
+
+            <audio controls>
+
+                <source
+                    src="sigmamusicart-emotional-piano-music-256262 (1).mp3"
+                    type="audio/mpeg"
+                >
+
+                Your browser does not support
+                the audio element.
+
+            </audio>
+
+        </div>
+
+    </div>
+
+</div>
+    <!-- =====================================================
+     SECOND ROW - DANUSHA
+     VEENA PERFORMER
+====================================================== -->
+
+<div class="artist-card">
+
+    <!-- PHOTO -->
+    <div class="artist-photo danusha-veena-photo">
+
+        <img
+            src="danusha veena.png"
+            alt="Danusha - Veena Specialist"
+        >
+
+    </div>
+
+
+    <!-- ARTIST INFORMATION -->
+    <div class="artist-info">
+
+        <div class="academy-label">
+            ♪ SHAHIN MUSIC ACADEMY
+        </div>
+
+
+        <h2>
+            DANUSHA
+        </h2>
+
+
+        <div class="artist-speciality">
+            🎵 Veena Specialist
+        </div>
+
+
+        <p class="artist-description">
+
+            A graceful Veena performer who brings
+            traditional Indian melodies to life
+            with elegance, emotion and beautiful
+            musical expression.
+
+        </p>
+
+
+        <!-- AUDIO -->
+        <div class="artist-audio">
+
+            <h3>
+                🎵 Listen to Veena
+            </h3>
+
+
+            <audio controls>
+
+                <source
+                    src="saseendran-folk-raga-charukesi-veena-68-382484.mp3"
+                    type="audio/mpeg"
+                >
+
+                Your browser does not support
+                the audio element.
+
+            </audio>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+    <!-- =====================================================
+     SECOND ROW - MOUKTHIKA
+     COLUMN 2 - KEYBOARD PERFORMANCE
+====================================================== -->
+
+<div class="artist-card">
+
+    <div class="artist-photo keyboard-photo">
+        <img
+            src="moukthika 1.png"
+            alt="Moukthika - Keyboard Performance"
+        >
+    </div>
+
+    <div class="artist-info">
+
+        <div class="academy-label">
+            ♪ SHAHIN MUSIC ACADEMY
+        </div>
+
+        <h2>
+            MOUKTHIKA
+        </h2>
+
+        <div class="artist-speciality">
+            🎹 Keyboard Specialist
+        </div>
+
+
+        <p class="artist-description">
+            A talented performer who brings beautiful melodies
+            to life through expressive keyboard performances.
+            Her music blends rhythm, harmony and emotion into
+            every memorable performance.
+        </p>
+
+        <div class="artist-audio">
+
+            <h3>
+                🎹 Listen to Keyboard Performance
+            </h3>
+
+            <audio controls>
+                <source
+                    src="sigmamusicart-emotional-piano-music-256262 (1).mp3"
+                    type="audio/mpeg"
+                >
+
+                Your browser does not support
+                the audio element.
+            </audio>
+
+        </div>
+
+    </div>
+
+</div>
+    <!-- =====================================================
+         SECOND ROW - RAKSHITHA
+    ====================================================== -->
+
+    <div class="artist-card">
+
+        <div class="artist-photo">
+
+            <img
+                src="rakshitha.png"
+                alt="Rakshitha - Shahin Music Academy Artist"
+            >
+
+        </div>
+
+
+        <div class="artist-info">
+
+            <div class="academy-label">
+                ♪ SHAHIN MUSIC ACADEMY
+            </div>
+
+            <h2>
+                RAKSHITHA
+            </h2>
+
+            <div class="artist-speciality">
+                🎼 Music Performer
+            </div>
+
+            <p class="artist-description">
+
+                A dedicated performer who expresses
+                creativity, passion and musical energy
+                through every performance.
+
+            </p>
+
+
+            <div class="artist-audio">
+
+                <h3>
+                    🎼 Listen to Performance
+                </h3>
+
+                <audio controls>
+
+                    <source
+                        src="rakshita voice.mp3"
+                        type="audio/mpeg"
+                    >
+
+                    Your browser does not support
+                    the audio element.
+
+                </audio>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     MUSICAL JOURNEY
+========================================================= -->
+
+<section class="story-section">
+
+    <div class="label">
+        OUR MUSICAL JOURNEY
+    </div>
+
+
+    <h2>
+        Where Every Performance Tells a Story
+    </h2>
+
+
+    <p>
+
+        Every performance at Shahin Music Academy begins
+        with a dream. A first chord, a first melody, a
+        first moment of courage — and slowly, that small
+        beginning grows into something beautiful.
+
+    </p>
+
+
+    <p>
+
+        Our performances celebrate the joy of learning,
+        the confidence of standing before an audience and
+        the magic that happens when passion meets practice.
+        Every note becomes a memory, and every performer
+        becomes a part of our academy's musical story.
+
+    </p>
+
+
+    <!-- HIGHLIGHTS -->
+
+    <div class="highlights">
+
+
+        <div class="highlight-card">
+
+            <div class="highlight-icon">
+                🎸
+            </div>
+
+            <h3>
+                Passion
+            </h3>
+
+            <p>
+
+                We believe beautiful music begins with
+                genuine love and passion for the art.
+
+            </p>
+
+        </div>
+
+
+        <div class="highlight-card">
+
+            <div class="highlight-icon">
+                🎤
+            </div>
+
+            <h3>
+                Expression
+            </h3>
+
+            <p>
+
+                Every artist has a unique voice,
+                and every performance gives that voice
+                a chance to be heard.
+
+            </p>
+
+        </div>
+
+
+        <div class="highlight-card">
+
+            <div class="highlight-icon">
+                ✨
+            </div>
+
+            <h3>
+                Memories
+            </h3>
+
+            <p>
+
+                The most beautiful performances become
+                memories that remain long after the
+                final note has faded.
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<section class="live-show-section">
+
+    <div class="live-show-content">
+
+        <div class="live-show-icon">
+            🎤
+        </div>
+
+        <div class="live-show-label">
+            SHAHIN MUSIC ACADEMY
+        </div>
+
+        <h2>
+            Book a Live Show with
+            <span>Our Team</span>
+        </h2>
+
+        <div class="live-show-line"></div>
+
+        <p>
+            Make your special occasion unforgettable with
+            the talented performers of Shahin Music Academy.
+            Our team is ready to bring beautiful music,
+            energy and memorable moments to your event.
+        </p>
+
+        <p class="live-show-tagline">
+            ✨ Your Event • Our Music • A Beautiful Memory ✨
+        </p>
+
+        <a
+            href="contact.html#performanceForm"
+            class="live-show-btn"
+        >
+            🎵 Book a Live Performance
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     BACK HOME
+========================================================= -->
+
+<div class="back-home-container">
+
+    <a
+        href="index.html"
+        class="back-home-btn"
+    >
+        ← Back to Home
+    </a>
+
+</div>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <h3>
+        ♫ Shahin Music Academy
+    </h3>
+
+    <p>
+        Where Passion Becomes Music & Dreams Become Melody
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

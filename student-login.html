@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Login | Rakshitha Music Academy</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: 'Montserrat', sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(100, 40, 150, 0.35), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(120, 20, 70, 0.3), transparent 35%),
+        #08070a;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Music Symbols */
+    .music-symbol {
+      position: absolute;
+      color: rgba(214, 184, 106, 0.18);
+      font-size: 45px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .symbol1 {
+      top: 12%;
+      left: 8%;
+    }
+
+    .symbol2 {
+      top: 70%;
+      left: 12%;
+      animation-delay: 1s;
+    }
+
+    .symbol3 {
+      top: 18%;
+      right: 10%;
+      animation-delay: 2s;
+    }
+
+    .symbol4 {
+      bottom: 12%;
+      right: 12%;
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-20px) rotate(8deg);
+      }
+    }
+
+    .login-container {
+      width: 100%;
+      max-width: 450px;
+      padding: 25px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .login-box {
+      background: rgba(20, 15, 28, 0.94);
+      border: 1px solid rgba(214, 184, 106, 0.35);
+      border-radius: 24px;
+      padding: 45px 40px;
+      box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.65),
+        0 0 40px rgba(91, 39, 130, 0.2);
+      backdrop-filter: blur(15px);
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo-icon {
+      font-size: 42px;
+      color: #d6b86a;
+      margin-bottom: 8px;
+    }
+
+    .logo h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      line-height: 0.9;
+      color: #d6b86a;
+      letter-spacing: 1px;
+    }
+
+    .logo h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      color: #fff9ed;
+      margin-top: 5px;
+      letter-spacing: 2px;
+    }
+
+    .login-title {
+      text-align: center;
+      margin-bottom: 8px;
+      font-size: 25px;
+      font-weight: 600;
+    }
+
+    .login-subtitle {
+      text-align: center;
+      color: #aaa;
+      font-size: 13px;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: #ddd;
+      font-weight: 500;
+    }
+
+    .input-box {
+      position: relative;
+    }
+
+    .input-box span {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      color: #d6b86a;
+    }
+
+    .input-box input {
+      width: 100%;
+      padding: 14px 15px 14px 45px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.06);
+      color: #fff;
+      outline: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .input-box input:focus {
+      border-color: #d6b86a;
+      box-shadow: 0 0 12px rgba(214,184,106,0.15);
+    }
+
+    .input-box input::placeholder {
+      color: #777;
+    }
+
+    .login-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 5px 0 25px;
+      font-size: 12px;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #aaa;
+    }
+
+    .remember input {
+      accent-color: #d6b86a;
+    }
+
+    .forgot {
+      color: #d6b86a;
+      text-decoration: none;
+    }
+
+    .forgot:hover {
+      text-decoration: underline;
+    }
+
+    .login-btn {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #d6b86a, #a98738);
+      color: #100d08;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .login-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(214,184,106,0.25);
+    }
+
+    .register-text {
+      text-align: center;
+      margin-top: 25px;
+      color: #999;
+      font-size: 13px;
+    }
+
+    .register-text a {
+      color: #d6b86a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .register-text a:hover {
+      text-decoration: underline;
+    }
+
+    .back-home {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #aaa;
+      text-decoration: none;
+      font-size: 13px;
+      transition: 0.3s;
+    }
+
+    .back-home:hover {
+      color: #d6b86a;
+    }
+
+    #message {
+      display: none;
+      margin-top: 20px;
+      padding: 13px;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .success {
+      background: rgba(50, 180, 100, 0.12);
+      border: 1px solid rgba(50, 180, 100, 0.4);
+      color: #75e09a;
+    }
+
+    .error {
+      background: rgba(220, 60, 60, 0.12);
+      border: 1px solid rgba(220, 60, 60, 0.4);
+      color: #ff8c8c;
+    }
+
+    @media (max-width: 500px) {
+      .login-container {
+        padding: 15px;
+      }
+
+      .login-box {
+        padding: 35px 25px;
+      }
+
+      .logo h1 {
+        font-size: 32px;
+      }
+
+      .logo h2 {
+        font-size: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="music-symbol symbol1">♪</div>
+  <div class="music-symbol symbol2">♫</div>
+  <div class="music-symbol symbol3">♬</div>
+  <div class="music-symbol symbol4">♪</div>
+
+  <div class="login-container">
+
+    <div class="login-box">
+
+      <div class="logo">
+        <div class="logo-icon">♫</div>
+        <h1>Rakshitha</h1>
+        <h2>Melody House</h2>
+      </div>
+
+      <h3 class="login-title">Student Login</h3>
+
+      <p class="login-subtitle">
+        Welcome back! Login to access your academy account.
+      </p>
+
+      <form id="loginForm">
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+
+          <div class="input-box">
+            <span>✉</span>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email"
+              required
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+
+          <div class="input-box">
+            <span>🔒</span>
+            <input
+              type="password"
+              id="password"
+              placeholder="Enter your password"
+              required
+            >
+          </div>
+        </div>
+
+        <div class="login-options">
+
+          <label class="remember">
+            <input type="checkbox">
+            Remember me
+          </label>
+
+          <a href="#" class="forgot" onclick="forgotPassword(event)">
+            Forgot Password?
+          </a>
+
+        </div>
+
+        <button type="submit" class="login-btn">
+          Login to Academy
+        </button>
+
+        <div id="message"></div>
+
+      </form>
+
+      <p class="register-text">
+        Don't have an account?
+        <a href="register.html">Register Now</a>
+      </p>
+
+      <a href="index.html" class="back-home">
+        ← Back to Home
+      </a>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const message = document.getElementById("message");
+
+      if (email === "" || password === "") {
+
+        message.style.display = "block";
+        message.className = "error";
+        message.innerHTML = "Please enter your email and password.";
+
+        return;
+      }
+
+      message.style.display = "block";
+      message.className = "success";
+      message.innerHTML =
+        "✓ Login successful! Welcome to Rakshitha Melody House.";
+
+      setTimeout(function() {
+        window.location.href = "index.html";
+      }, 2000);
+
+    });
+
+
+    function forgotPassword(event) {
+
+      event.preventDefault();
+
+      const message = document.getElementById("message");
+
+      message.style.display = "block";
+      message.className = "success";
+      message.innerHTML =
+        "Password reset instructions will be sent to your registered email.";
+
+    }
+
+  </script>
+
+</body>
+</html>

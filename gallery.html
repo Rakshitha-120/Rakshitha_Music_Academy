@@ -1,0 +1,3533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Gallery | Rakshitha Music Academy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#09050e;
+    color:#fff;
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+
+    --bg:#09050e;
+    --bg2:#110819;
+
+    --purple:#2b123d;
+    --purple2:#452060;
+
+    --gold:#d8b66e;
+    --gold-light:#efd493;
+
+    --white:#fff;
+
+    --text:#ddd5e3;
+    --muted:#9b90a3;
+
+    --border:rgba(216,182,110,.18);
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container{
+    width:min(1180px,90%);
+    margin:auto;
+}
+
+
+/* =========================================================
+   FLOATING MUSIC NOTES
+========================================================= */
+
+.music-layer{
+
+    position:fixed;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+    overflow:hidden;
+
+    z-index:2;
+}
+
+.music-note{
+
+    position:absolute;
+
+    bottom:-70px;
+
+    color:rgba(216,182,110,.20);
+
+    font-family:Georgia,serif;
+
+    animation-name:musicFloat;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+
+    text-shadow:
+        0 0 10px rgba(216,182,110,.12);
+}
+
+@keyframes musicFloat{
+
+    0%{
+        transform:
+            translate3d(0,0,0)
+            rotate(0deg);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:.15;
+    }
+
+    30%{
+        opacity:.35;
+    }
+
+    70%{
+        opacity:.25;
+    }
+
+    100%{
+
+        transform:
+            translate3d(
+                var(--drift),
+                -115vh,
+                0
+            )
+            rotate(25deg);
+
+        opacity:0;
+    }
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:82px;
+
+    z-index:1000;
+
+    background:rgba(9,5,14,.94);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid
+        rgba(216,182,110,.12);
+}
+
+.nav-inner{
+
+    height:100%;
+
+    width:min(1280px,92%);
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+
+/* =========================================================
+   MUSIC LOGO
+========================================================= */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    flex-shrink:0;
+}
+
+.music-logo{
+
+    width:58px;
+    height:50px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    transition:.4s;
+}
+
+.music-logo svg{
+
+    width:58px;
+    height:50px;
+
+    overflow:visible;
+}
+
+.logo-note{
+
+    fill:var(--gold);
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(216,182,110,.28)
+        );
+}
+
+.logo-line{
+
+    fill:none;
+
+    stroke:var(--gold);
+
+    stroke-width:1.4;
+
+    opacity:.72;
+}
+
+.logo-line-soft{
+
+    fill:none;
+
+    stroke:#8f6e3d;
+
+    stroke-width:1;
+
+    opacity:.45;
+}
+
+.logo-wave{
+
+    fill:none;
+
+    stroke:var(--gold-light);
+
+    stroke-width:1.5;
+
+    stroke-linecap:round;
+
+    opacity:.8;
+}
+
+.logo:hover .music-logo{
+
+    transform:
+        translateY(-2px)
+        scale(1.06);
+}
+
+.logo:hover .logo-note{
+
+    filter:
+        drop-shadow(
+            0 0 13px
+            rgba(216,182,110,.55)
+        );
+}
+
+.logo-text{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.logo-main{
+
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:23px;
+
+    font-weight:600;
+
+    line-height:1;
+}
+
+.logo-sub{
+
+    color:#a79cac;
+
+    font-size:7px;
+
+    letter-spacing:3.5px;
+
+    margin-top:7px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.nav-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.nav-menu a{
+
+    color:#d0c7d6;
+
+    font-size:11px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+    white-space:nowrap;
+}
+
+.nav-menu a:hover{
+
+    color:var(--gold);
+}
+
+
+/* =========================================================
+   STUDENT LOGIN BUTTON
+========================================================= */
+
+.login-link{
+
+    padding:11px 20px !important;
+
+    border:
+        1px solid
+        rgba(216,182,110,.55);
+
+    border-radius:50px;
+
+    color:var(--gold) !important;
+
+    transition:.3s;
+}
+
+.login-link:hover{
+
+    background:var(--gold);
+
+    color:#15091d !important;
+
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.gallery-hero{
+
+    min-height:72vh;
+
+    position:relative;
+
+    z-index:5;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:
+        150px 0
+        90px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(92,44,126,.36),
+            transparent 42%
+        ),
+
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(68,26,92,.22),
+            transparent 32%
+        );
+}
+
+.hero-content{
+
+    max-width:850px;
+
+    position:relative;
+
+    z-index:10;
+}
+
+.hero-kicker{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    color:var(--gold);
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    font-weight:600;
+
+    margin-bottom:24px;
+}
+
+.hero-kicker::before,
+.hero-kicker::after{
+
+    content:"";
+
+    width:42px;
+
+    height:1px;
+
+    background:var(--gold);
+}
+
+.hero-content h1{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:
+        clamp(
+            52px,
+            7vw,
+            82px
+        );
+
+    line-height:1.05;
+
+    font-weight:600;
+}
+
+.hero-content h1 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.hero-description{
+
+    max-width:680px;
+
+    margin:28px auto 0;
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    line-height:1.9;
+}
+
+
+/* =========================================================
+   GALLERY INTRO
+========================================================= */
+
+.gallery-section{
+
+    position:relative;
+
+    z-index:5;
+
+    padding:100px 0 120px;
+
+    background:#0d0613;
+}
+
+.section-heading{
+
+    text-align:center;
+
+    max-width:720px;
+
+    margin:0 auto 55px;
+}
+
+.section-label{
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+}
+
+.section-heading h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:48px;
+
+    line-height:1.15;
+}
+
+.section-heading h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.section-heading p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    margin-top:17px;
+}
+
+
+/* =========================================================
+   FILTER BUTTONS
+========================================================= */
+
+.filter-wrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-bottom:45px;
+}
+
+.filter-btn{
+
+    padding:11px 20px;
+
+    border-radius:50px;
+
+    border:
+        1px solid
+        rgba(216,182,110,.22);
+
+    background:
+        rgba(216,182,110,.04);
+
+    color:#bdb2c4;
+
+    font-size:10px;
+
+    letter-spacing:.5px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.filter-btn:hover{
+
+    color:var(--gold);
+
+    border-color:
+        rgba(216,182,110,.55);
+
+    transform:translateY(-2px);
+}
+
+.filter-btn.active{
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-light)
+        );
+
+    color:#160a1d;
+
+    border-color:var(--gold);
+
+    font-weight:700;
+}
+
+
+/* =========================================================
+   GALLERY GRID
+========================================================= */
+
+.gallery-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:22px;
+}
+
+
+/* =========================================================
+   GALLERY CARD
+========================================================= */
+
+.gallery-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #21102d,
+            #100719
+        );
+
+    border:
+        1px solid
+        rgba(216,182,110,.13);
+
+    transition:
+        transform .45s,
+        border-color .45s,
+        box-shadow .45s;
+
+    cursor:pointer;
+}
+
+.gallery-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:
+        rgba(216,182,110,.42);
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.35);
+}
+
+.gallery-image{
+
+    height:300px;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.gallery-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:
+        transform .7s,
+        filter .7s;
+}
+
+.gallery-card:hover
+.gallery-image img{
+
+    transform:scale(1.08);
+
+    filter:
+        brightness(.72);
+}
+
+
+/* =========================================================
+   IMAGE OVERLAY
+========================================================= */
+
+.gallery-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 25%,
+            rgba(8,3,13,.88)
+        );
+
+    opacity:0;
+
+    transition:.4s;
+}
+
+.gallery-card:hover
+.gallery-overlay{
+
+    opacity:1;
+}
+
+.view-btn{
+
+    padding:12px 22px;
+
+    border-radius:50px;
+
+    border:
+        1px solid
+        rgba(216,182,110,.65);
+
+    background:
+        rgba(9,5,14,.72);
+
+    color:var(--gold-light);
+
+    font-size:10px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.view-btn:hover{
+
+    background:var(--gold);
+
+    color:#15091d;
+
+    transform:translateY(-2px);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.gallery-content{
+
+    padding:22px 22px 24px;
+}
+
+.gallery-category{
+
+    color:var(--gold);
+
+    font-size:8px;
+
+    letter-spacing:2.5px;
+
+    font-weight:600;
+
+    margin-bottom:9px;
+}
+
+.gallery-content h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:22px;
+
+    margin-bottom:8px;
+}
+
+.gallery-content p{
+
+    color:#918699;
+
+    font-size:11px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   FEATURED GALLERY
+========================================================= */
+
+.featured-section{
+
+    padding:110px 0;
+
+    background:#09050e;
+}
+
+.featured-card{
+
+    display:grid;
+
+    grid-template-columns:
+        1.15fr 1fr;
+
+    min-height:480px;
+
+    overflow:hidden;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #24112f,
+            #100719
+        );
+
+    border:
+        1px solid
+        rgba(216,182,110,.18);
+}
+
+.featured-image{
+
+    min-height:480px;
+
+    overflow:hidden;
+}
+
+.featured-image img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.7s;
+}
+
+.featured-card:hover
+.featured-image img{
+
+    transform:scale(1.04);
+}
+
+.featured-content{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    padding:60px;
+}
+
+.featured-content .section-label{
+
+    margin-bottom:16px;
+}
+
+.featured-content h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:46px;
+
+    line-height:1.15;
+
+    margin-bottom:20px;
+}
+
+.featured-content h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.featured-content p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    margin-bottom:28px;
+}
+
+.featured-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    margin-bottom:30px;
+}
+
+.featured-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:#cfc5d4;
+
+    font-size:11px;
+}
+
+.featured-icon{
+
+    width:28px;
+    height:28px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:var(--gold);
+
+    border:
+        1px solid
+        rgba(216,182,110,.25);
+
+    font-size:11px;
+}
+
+.primary-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    width:max-content;
+
+    padding:14px 26px;
+
+    border:none;
+
+    border-radius:50px;
+
+    color:#12091a;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-light)
+        );
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:
+        0 10px 30px
+        rgba(216,182,110,.12);
+}
+
+.primary-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(216,182,110,.25);
+}
+
+
+/* =========================================================
+   MOMENTS SECTION
+========================================================= */
+
+.moments-section{
+
+    padding:100px 0;
+
+    background:#0d0613;
+}
+
+.moments-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+.moment-card{
+
+    padding:30px 22px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1a0b25,
+            #100719
+        );
+
+    border:
+        1px solid
+        rgba(216,182,110,.13);
+
+    transition:.35s;
+}
+
+.moment-card:hover{
+
+    transform:translateY(-7px);
+
+    border-color:
+        rgba(216,182,110,.4);
+}
+
+.moment-icon{
+
+    width:62px;
+    height:62px;
+
+    margin:0 auto 20px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:var(--gold);
+
+    font-size:25px;
+
+    border:
+        1px solid
+        rgba(216,182,110,.28);
+
+    background:
+        rgba(216,182,110,.04);
+}
+
+.moment-card h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:20px;
+
+    margin-bottom:9px;
+}
+
+.moment-card p{
+
+    color:#918699;
+
+    font-size:10px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
+
+.cta{
+
+    padding:110px 0;
+
+    text-align:center;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(94,43,125,.38),
+            transparent 60%
+        ),
+
+        #170a20;
+}
+
+.cta h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:52px;
+
+    line-height:1.15;
+}
+
+.cta h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.cta p{
+
+    max-width:600px;
+
+    margin:20px auto 30px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+.cta .primary-btn{
+
+    margin:auto;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    padding:55px 0 30px;
+
+    background:#07030b;
+
+    border-top:
+        1px solid
+        rgba(216,182,110,.12);
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr;
+
+    gap:50px;
+
+    padding-bottom:40px;
+}
+
+.footer-brand h2{
+
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:25px;
+}
+
+.footer-brand p{
+
+    color:#817687;
+
+    font-size:11px;
+
+    line-height:1.8;
+
+    max-width:320px;
+
+    margin-top:14px;
+}
+
+.footer-column h3{
+
+    font-size:11px;
+
+    color:#eee7f0;
+
+    letter-spacing:1px;
+
+    margin-bottom:18px;
+}
+
+.footer-column a{
+
+    display:block;
+
+    color:#817687;
+
+    font-size:11px;
+
+    margin-bottom:11px;
+
+    transition:.3s;
+}
+
+.footer-column a:hover{
+
+    color:var(--gold);
+}
+
+.footer-bottom{
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.05);
+
+    padding-top:22px;
+
+    text-align:center;
+
+    color:#655c6c;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:5000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(4,2,8,.80);
+
+    backdrop-filter:blur(14px);
+}
+
+.modal.active{
+
+    display:flex;
+}
+
+.modal-box{
+
+    width:min(520px,100%);
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            #21102d,
+            #0e0615
+        );
+
+    border:
+        1px solid
+        rgba(216,182,110,.35);
+
+    box-shadow:
+        0 35px 100px
+        rgba(0,0,0,.7);
+
+    animation:
+        modalIn .35s ease;
+}
+
+@keyframes modalIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px) scale(.97);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.close-modal{
+
+    position:absolute;
+
+    top:15px;
+    right:18px;
+
+    width:35px;
+    height:35px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(216,182,110,.3);
+
+    background:
+        rgba(216,182,110,.06);
+
+    color:var(--gold);
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.close-modal:hover{
+
+    background:var(--gold);
+
+    color:#15091d;
+}
+
+.modal-kicker{
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+}
+
+.modal-box h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:34px;
+
+    margin-bottom:8px;
+}
+
+.modal-box h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.modal-description{
+
+    color:#978b9f;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.form-group{
+
+    margin-bottom:16px;
+}
+
+.form-row{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:14px;
+}
+
+.form-group label{
+
+    display:block;
+
+    color:#cfc5d4;
+
+    font-size:11px;
+
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+
+    width:100%;
+
+    padding:13px 15px;
+
+    border-radius:12px;
+
+    border:
+        1px solid
+        rgba(216,182,110,.20);
+
+    outline:none;
+
+    background:
+        rgba(255,255,255,.045);
+
+    color:#fff;
+
+    font-size:12px;
+
+    transition:.3s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+
+    color:#74697b;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+
+    border-color:var(--gold);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(216,182,110,.06);
+}
+
+.form-group textarea{
+
+    min-height:100px;
+
+    resize:vertical;
+}
+
+.form-group select option{
+
+    background:#170b20;
+
+    color:#fff;
+}
+
+.form-submit{
+
+    width:100%;
+}
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+
+.success-message{
+
+    display:none;
+
+    text-align:center;
+
+    padding:35px 10px 20px;
+}
+
+.success-icon{
+
+    width:68px;
+    height:68px;
+
+    margin:0 auto 18px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        var(--gold);
+
+    color:var(--gold);
+
+    font-size:28px;
+
+    box-shadow:
+        0 0 30px
+        rgba(216,182,110,.08);
+}
+
+.success-message h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:29px;
+
+    margin-bottom:10px;
+}
+
+.success-message p{
+
+    color:#968a9e;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+.success-close{
+
+    margin-top:22px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1050px){
+
+    .nav-menu{
+        gap:12px;
+    }
+
+    .nav-menu a{
+        font-size:9px;
+    }
+
+    .gallery-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .moments-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .featured-card{
+        grid-template-columns:1fr;
+    }
+
+    .featured-image{
+        min-height:400px;
+    }
+}
+
+
+@media(max-width:900px){
+
+    .nav-menu{
+        display:none;
+    }
+
+    .gallery-hero{
+        min-height:65vh;
+    }
+}
+
+
+@media(max-width:650px){
+
+    .container{
+        width:90%;
+    }
+
+    .navbar{
+        height:72px;
+    }
+
+    .nav-inner{
+        width:90%;
+    }
+
+    .music-logo{
+        width:48px;
+        height:43px;
+    }
+
+    .music-logo svg{
+        width:48px;
+        height:43px;
+    }
+
+    .logo-main{
+        font-size:20px;
+    }
+
+    .logo-sub{
+        font-size:6px;
+        letter-spacing:2.8px;
+    }
+
+    .gallery-hero{
+        padding-top:120px;
+    }
+
+    .hero-content h1{
+        font-size:47px;
+    }
+
+    .hero-description{
+        font-size:13px;
+    }
+
+    .section-heading h2{
+        font-size:38px;
+    }
+
+    .gallery-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-image{
+        height:270px;
+    }
+
+    .featured-image{
+        min-height:300px;
+    }
+
+    .featured-content{
+        padding:35px 25px;
+    }
+
+    .featured-content h2{
+        font-size:36px;
+    }
+
+    .moments-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cta h2{
+        font-size:39px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .modal-box{
+        padding:28px 20px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     FLOATING MUSIC
+========================================================= -->
+
+<div class="music-layer" id="musicLayer"></div>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="navbar">
+
+<div class="nav-inner">
+
+
+<a href="index.html" class="logo">
+
+<div class="music-logo">
+
+<svg viewBox="0 0 100 80"
+xmlns="http://www.w3.org/2000/svg">
+
+<path
+class="logo-line-soft"
+d="M5 27 C30 20,70 34,95 25"/>
+
+<path
+class="logo-line"
+d="M5 34 C30 27,70 41,95 32"/>
+
+<path
+class="logo-line-soft"
+d="M5 41 C30 34,70 48,95 39"/>
+
+<path
+class="logo-note"
+d="
+M64 17
+L75 14
+L75 46
+C75 53 69 58 62 58
+C56 58 52 55 52 51
+C52 46 57 42 63 42
+C65 42 67 42 69 43
+L69 23
+L64 24
+Z
+"/>
+
+<path
+class="logo-note"
+d="
+M34 31
+L43 29
+L43 51
+C43 56 39 59 34 59
+C30 59 27 56 27 53
+C27 49 31 46 35 46
+C37 46 38 46 39 47
+L39 35
+L34 36
+Z
+"/>
+
+<path
+class="logo-wave"
+d="M9 55
+C18 48,25 65,34 57
+C43 49,51 66,60 58
+C69 50,77 65,91 54"/>
+
+</svg>
+
+</div>
+
+
+<div class="logo-text">
+
+<div class="logo-main">
+Rakshitha
+</div>
+
+<span class="logo-sub">
+MUSIC ACADEMY
+</span>
+
+</div>
+
+</a>
+
+
+<!-- NAVIGATION -->
+
+<nav class="nav-menu">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="courses.html">
+Courses
+</a>
+
+<a href="events.html">
+Events
+</a>
+
+<a href="instructions.html">
+Instructions
+</a>
+
+<a href="admissions.html">
+Admissions
+</a>
+
+<a href="gallery.html">
+Gallery
+</a>
+
+<!-- SEPARATE CONTACT PAGE -->
+
+<a href="contact.html">
+Contact
+</a>
+
+<a
+href="javascript:void(0)"
+class="login-link"
+onclick="openModal('loginModal')">
+
+Student Login
+
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="gallery-hero">
+
+<div class="hero-content">
+
+<div class="hero-kicker">
+MOMENTS IN MUSIC
+</div>
+
+<h1>
+
+Our
+
+<span>
+Musical Gallery.
+</span>
+
+</h1>
+
+<p class="hero-description">
+
+Explore the memorable moments, performances,
+creative sessions and musical experiences
+at Rakshitha Music Academy.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     GALLERY
+========================================================= -->
+
+<section class="gallery-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="section-label">
+EXPLORE OUR WORLD
+</div>
+
+<h2>
+
+Where Music Becomes
+
+<span>
+Memories.
+</span>
+
+</h2>
+
+<p>
+
+Every photograph tells a story of learning,
+performance, creativity and passion.
+Take a look inside the musical world of
+Rakshitha Music Academy.
+
+</p>
+
+</div>
+
+
+<!-- FILTER -->
+
+<div class="filter-wrapper">
+
+<button
+class="filter-btn active"
+data-filter="all">
+
+All Moments
+
+</button>
+
+<button
+class="filter-btn"
+data-filter="performance">
+
+Performances
+
+</button>
+
+<button
+class="filter-btn"
+data-filter="learning">
+
+Learning
+
+</button>
+
+<button
+class="filter-btn"
+data-filter="events">
+
+Events
+
+</button>
+
+<button
+class="filter-btn"
+data-filter="studio">
+
+Studio
+
+</button>
+
+</div>
+
+
+<!-- GALLERY GRID -->
+
+<div class="gallery-grid" id="galleryGrid">
+
+
+<!-- CARD 1 -->
+
+<div
+class="gallery-card"
+data-category="performance">
+
+<div class="gallery-image">
+
+<img
+src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=85"
+alt="Live music performance">
+
+<div class="gallery-overlay">
+
+<button
+class="view-btn"
+onclick="openGalleryForm('Live Performance')">
+
+View Details →
+
+</button>
+
+</div>
+
+</div>
+
+<div class="gallery-content">
+
+<div class="gallery-category">
+PERFORMANCES
+</div>
+
+<h3>
+Live Music Performance
+</h3>
+
+<p>
+Students showcase their talent
+with confidence on stage.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CARD 2 -->
+
+<div
+class="gallery-card"
+data-category="learning">
+
+<div class="gallery-image">
+
+<img
+src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=1200&q=85"
+alt="Piano music learning">
+
+<div class="gallery-overlay">
+
+<button
+class="view-btn"
+onclick="openGalleryForm('Piano Learning Session')">
+
+View Details →
+
+</button>
+
+</div>
+
+</div>
+
+<div class="gallery-content">
+
+<div class="gallery-category">
+LEARNING
+</div>
+
+<h3>
+Piano Learning Session
+</h3>
+
+<p>
+Focused practice sessions designed
+to build strong musical foundations.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CARD 3 -->
+
+<div
+class="gallery-card"
+data-category="learning">
+
+<div class="gallery-image">
+
+<img
+src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1200&q=85"
+alt="Guitar learning">
+
+<div class="gallery-overlay">
+
+<button
+class="view-btn"
+onclick="openGalleryForm('Guitar Training')">
+
+View Details →
+
+</button>
+
+</div>
+
+</div>
+
+<div class="gallery-content">
+
+<div class="gallery-category">
+LEARNING
+</div>
+
+<h3>
+Guitar Training
+</h3>
+
+<p>
+Practical guitar sessions focused
+on technique, rhythm and creativity.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CARD 4 -->
+
+<div
+class="gallery-card"
+data-category="events">
+
+<div class="gallery-image">
+
+<img
+src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=85"
+alt="Music academy event">
+
+<div class="gallery-overlay">
+
+<button
+class="view-btn"
+onclick="openGalleryForm('Academy Event')">
+
+View Details →
+
+</button>
+
+</div>
+
+</div>
+
+<div class="gallery-content">
+
+<div class="gallery-category">
+EVENTS
+</div>
+
+<h3>
+Academy Musical Event
+</h3>
+
+<p>
+A celebration where students,
+teachers and music lovers come together.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CARD 5 -->
+
+<div
+class="gallery-card"
+data-category="studio">
+
+<div class="gallery-image">
+
+<img
+src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=85"
+alt="Music production studio">
+
+<div class="gallery-overlay">
+
+<button
+class="view-btn"
+onclick="openGalleryForm('Music Production Studio')">
+
+View Details →
+
+</button>
+
+</div>
+
+</div>
+
+<div class="gallery-content">
+
+<div class="gallery-category">
+STUDIO
+</div>
+
+<h3>
+Music Production Studio
+</h3>
+
+<p>
+Creative sessions exploring recording,
+production and modern music technology.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CARD 6 -->
+
+<div
+class="gallery-card"
+data-category="performance">
+
+<div class="gallery-image">
+
+<img
+src="https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1200&q=85"
+alt="Concert performance">
+
+<div class="gallery-overlay">
+
+<button
+class="view-btn"
+onclick="openGalleryForm('Concert Performance')">
+
+View Details →
+
+</button>
+
+</div>
+
+</div>
+
+<div class="gallery-content">
+
+<div class="gallery-category">
+PERFORMANCES
+</div>
+
+<h3>
+Concert Night
+</h3>
+
+<p>
+A beautiful evening filled with
+music, energy and unforgettable moments.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CARD 7 -->
+
+<div
+class="gallery-card"
+data-category="learning">
+
+<div class="gallery-image">
+
+<img
+src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1200&q=85"
+alt="Recording music">
+
+<div class="gallery-overlay">
+
+<button
+class="view-btn"
+onclick="openGalleryForm('Recording Session')">
+
+View Details →
+
+</button>
+
+</div>
+
+</div>
+
+<div class="gallery-content">
+
+<div class="gallery-category">
+LEARNING
+</div>
+
+<h3>
+Recording Session
+</h3>
+
+<p>
+Students experience the exciting
+process of recording their music.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CARD 8 -->
+
+<div
+class="gallery-card"
+data-category="events">
+
+<div class="gallery-image">
+
+<img
+src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=85"
+alt="Outdoor music event">
+
+<div class="gallery-overlay">
+
+<button
+class="view-btn"
+onclick="openGalleryForm('Outdoor Music Event')">
+
+View Details →
+
+</button>
+
+</div>
+
+</div>
+
+<div class="gallery-content">
+
+<div class="gallery-category">
+EVENTS
+</div>
+
+<h3>
+Outdoor Music Celebration
+</h3>
+
+<p>
+Music, friendship and joyful memories
+created beyond the classroom.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- CARD 9 -->
+
+<div
+class="gallery-card"
+data-category="studio">
+
+<div class="gallery-image">
+
+<img
+src="https://images.unsplash.com/photo-1598387993281-cecf8b71a8f8?auto=format&fit=crop&w=1200&q=85"
+alt="Professional recording studio">
+
+<div class="gallery-overlay">
+
+<button
+class="view-btn"
+onclick="openGalleryForm('Professional Studio')">
+
+View Details →
+
+</button>
+
+</div>
+
+</div>
+
+<div class="gallery-content">
+
+<div class="gallery-category">
+STUDIO
+</div>
+
+<h3>
+Creative Studio
+</h3>
+
+<p>
+A professional environment for
+recording, practice and music creation.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FEATURED MOMENT
+========================================================= -->
+
+<section class="featured-section">
+
+<div class="container">
+
+<div class="featured-card">
+
+<div class="featured-image">
+
+<img
+src="https://images.unsplash.com/photo-1501612780327-45045538702b?auto=format&fit=crop&w=1400&q=85"
+alt="Musicians performing together">
+
+</div>
+
+
+<div class="featured-content">
+
+<div class="section-label">
+THE ACADEMY EXPERIENCE
+</div>
+
+<h2>
+
+More Than Learning.
+
+<span>
+It's a Journey.
+</span>
+
+</h2>
+
+<p>
+
+At Rakshitha Music Academy, every lesson,
+practice session and performance becomes
+part of a student's musical journey.
+
+</p>
+
+
+<div class="featured-list">
+
+<div class="featured-item">
+
+<div class="featured-icon">
+♪
+</div>
+
+Music Learning
+
+</div>
+
+
+<div class="featured-item">
+
+<div class="featured-icon">
+♫
+</div>
+
+Live Performances
+
+</div>
+
+
+<div class="featured-item">
+
+<div class="featured-icon">
+♬
+</div>
+
+Creative Experiences
+
+</div>
+
+
+<div class="featured-item">
+
+<div class="featured-icon">
+★
+</div>
+
+Confidence Building
+
+</div>
+
+</div>
+
+
+<button
+class="primary-btn"
+onclick="openGalleryForm('Academy Experience')">
+
+Know More →
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     MOMENTS
+========================================================= -->
+
+<section class="moments-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="section-label">
+OUR SPECIAL MOMENTS
+</div>
+
+<h2>
+
+Music Creates
+
+<span>
+Connections.
+</span>
+
+</h2>
+
+<p>
+
+From the first note to the stage,
+every moment is meaningful.
+
+</p>
+
+</div>
+
+
+<div class="moments-grid">
+
+
+<div class="moment-card">
+
+<div class="moment-icon">
+♪
+</div>
+
+<h3>
+Practice
+</h3>
+
+<p>
+Consistent practice helps students
+grow their musical confidence.
+</p>
+
+</div>
+
+
+<div class="moment-card">
+
+<div class="moment-icon">
+♫
+</div>
+
+<h3>
+Performance
+</h3>
+
+<p>
+Students get opportunities to
+share their talent with others.
+</p>
+
+</div>
+
+
+<div class="moment-card">
+
+<div class="moment-icon">
+♬
+</div>
+
+<h3>
+Creativity
+</h3>
+
+<p>
+Explore new sounds, ideas and
+ways of expressing yourself.
+</p>
+
+</div>
+
+
+<div class="moment-card">
+
+<div class="moment-icon">
+★
+</div>
+
+<h3>
+Community
+</h3>
+
+<p>
+Learn, perform and grow together
+with a supportive music community.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+
+Create Your Own
+
+<span>
+Musical Story.
+</span>
+
+</h2>
+
+<p>
+
+Join Rakshitha Music Academy and become
+part of the moments you see in our gallery.
+
+</p>
+
+<button
+class="primary-btn"
+onclick="window.location.href='admissions.html'">
+
+Join Academy →
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div class="footer-brand">
+
+<h2>
+Rakshitha
+</h2>
+
+<p>
+
+A creative music academy dedicated
+to helping students discover their
+musical voice.
+
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+ACADEMY
+</h3>
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="courses.html">
+Courses
+</a>
+
+<a href="events.html">
+Events
+</a>
+
+<a href="gallery.html">
+Gallery
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+SUPPORT
+</h3>
+
+<a href="instructions.html">
+Instructions
+</a>
+
+<a href="admissions.html">
+Admissions
+</a>
+
+<!-- SEPARATE CONTACT PAGE -->
+
+<a href="contact.html">
+Contact
+</a>
+
+<a
+href="javascript:void(0)"
+onclick="openModal('loginModal')">
+
+Student Login
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 Rakshitha Music Academy.
+All Rights Reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- =========================================================
+     GALLERY FORM MODAL
+========================================================= -->
+
+<div
+class="modal"
+id="galleryModal">
+
+<div class="modal-box">
+
+<button
+class="close-modal"
+onclick="closeModal('galleryModal')">
+
+×
+
+</button>
+
+
+<div id="galleryFormContainer">
+
+<div class="modal-kicker">
+GALLERY INTEREST
+</div>
+
+<h2>
+
+Explore
+
+<span>
+The Moment
+</span>
+
+</h2>
+
+<p class="modal-description">
+
+Interested in this academy experience?
+Fill in your details and our team will
+contact you with more information.
+
+</p>
+
+
+<form
+id="galleryForm"
+onsubmit="submitGalleryForm(event)">
+
+
+<div class="form-row">
+
+
+<div class="form-group">
+
+<label>
+Your Name
+</label>
+
+<input
+type="text"
+id="galleryName"
+placeholder="Enter your name"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Phone Number
+</label>
+
+<input
+type="tel"
+id="galleryPhone"
+placeholder="Enter phone number"
+required>
+
+</div>
+
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Email Address
+</label>
+
+<input
+type="email"
+id="galleryEmail"
+placeholder="Enter email address"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Interested In
+</label>
+
+<select
+id="galleryInterest"
+required>
+
+<option value="">
+Select an option
+</option>
+
+<option>
+Music Classes
+</option>
+
+<option>
+Live Performances
+</option>
+
+<option>
+Academy Events
+</option>
+
+<option>
+Music Production
+</option>
+
+<option>
+General Information
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Message
+</label>
+
+<textarea
+id="galleryMessage"
+placeholder="Tell us what you would like to know"></textarea>
+
+</div>
+
+
+<button
+type="submit"
+class="primary-btn form-submit">
+
+Submit Request →
+
+</button>
+
+
+</form>
+
+</div>
+
+
+<!-- SUCCESS -->
+
+<div
+class="success-message"
+id="gallerySuccess">
+
+<div class="success-icon">
+✓
+</div>
+
+<h3>
+Request Received!
+</h3>
+
+<p>
+
+Thank you for your interest in
+Rakshitha Music Academy.
+Our team will contact you soon.
+
+</p>
+
+<button
+class="primary-btn success-close"
+onclick="closeModal('galleryModal')">
+
+Close
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     STUDENT LOGIN MODAL
+========================================================= -->
+
+<div
+class="modal"
+id="loginModal">
+
+<div class="modal-box">
+
+<button
+class="close-modal"
+onclick="closeModal('loginModal')">
+
+×
+
+</button>
+
+
+<div id="loginFormContainer">
+
+<div class="modal-kicker">
+STUDENT PORTAL
+</div>
+
+<h2>
+
+Student
+
+<span>
+Login
+</span>
+
+</h2>
+
+<p class="modal-description">
+
+Login to access your student dashboard,
+courses and academy updates.
+
+</p>
+
+
+<form
+id="loginForm"
+onsubmit="loginStudent(event)">
+
+
+<div class="form-group">
+
+<label>
+Email / Student ID
+</label>
+
+<input
+type="text"
+id="loginUser"
+placeholder="Enter email or student ID"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Password
+</label>
+
+<input
+type="password"
+id="loginPassword"
+placeholder="Enter password"
+required>
+
+</div>
+
+
+<button
+type="submit"
+class="primary-btn form-submit">
+
+Login →
+
+</button>
+
+</form>
+
+</div>
+
+
+<div
+class="success-message"
+id="loginSuccess">
+
+<div class="success-icon">
+✓
+</div>
+
+<h3>
+Login Submitted!
+</h3>
+
+<p>
+
+Your student login request has been
+received successfully.
+
+</p>
+
+<button
+class="primary-btn success-close"
+onclick="closeModal('loginModal')">
+
+Close
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script>
+
+/* =========================================================
+   FLOATING MUSIC
+========================================================= */
+
+const musicLayer =
+document.getElementById("musicLayer");
+
+const symbols = [
+    "♪",
+    "♫",
+    "♬",
+    "♩",
+    "𝄞"
+];
+
+
+function createMusicNote(){
+
+    const note =
+        document.createElement("span");
+
+    note.className =
+        "music-note";
+
+    note.textContent =
+        symbols[
+            Math.floor(
+                Math.random() *
+                symbols.length
+            )
+        ];
+
+    note.style.left =
+        Math.random() * 100 + "vw";
+
+    note.style.fontSize =
+        (16 + Math.random() * 24) + "px";
+
+    const duration =
+        8 + Math.random() * 8;
+
+    note.style.animationDuration =
+        duration + "s";
+
+    note.style.setProperty(
+        "--drift",
+        (Math.random() * 160 - 80) + "px"
+    );
+
+    musicLayer.appendChild(note);
+
+    setTimeout(
+        function(){
+
+            note.remove();
+
+        },
+        duration * 1000
+    );
+}
+
+
+for(let i = 0; i < 15; i++){
+
+    setTimeout(
+        createMusicNote,
+        i * 400
+    );
+
+}
+
+
+setInterval(
+    createMusicNote,
+    900
+);
+
+
+/* =========================================================
+   GALLERY FILTER
+========================================================= */
+
+const filterButtons =
+document.querySelectorAll(".filter-btn");
+
+const galleryCards =
+document.querySelectorAll(".gallery-card");
+
+
+filterButtons.forEach(
+    function(button){
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                filterButtons.forEach(
+                    function(btn){
+
+                        btn.classList.remove(
+                            "active"
+                        );
+
+                    }
+                );
+
+                button.classList.add(
+                    "active"
+                );
+
+                const filter =
+                    button.getAttribute(
+                        "data-filter"
+                    );
+
+
+                galleryCards.forEach(
+                    function(card){
+
+                        const category =
+                            card.getAttribute(
+                                "data-category"
+                            );
+
+
+                        if(
+                            filter === "all" ||
+                            category === filter
+                        ){
+
+                            card.style.display =
+                                "block";
+
+                        }
+                        else{
+
+                            card.style.display =
+                                "none";
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   OPEN MODAL
+========================================================= */
+
+function openModal(id){
+
+    const modal =
+        document.getElementById(id);
+
+    if(!modal) return;
+
+    modal.classList.add("active");
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
+
+function closeModal(id){
+
+    const modal =
+        document.getElementById(id);
+
+    if(!modal) return;
+
+    modal.classList.remove("active");
+
+    document.body.style.overflow =
+        "";
+}
+
+
+/* =========================================================
+   OPEN GALLERY FORM
+========================================================= */
+
+function openGalleryForm(title){
+
+    const modal =
+        document.getElementById(
+            "galleryModal"
+        );
+
+    const interest =
+        document.getElementById(
+            "galleryInterest"
+        );
+
+    const formContainer =
+        document.getElementById(
+            "galleryFormContainer"
+        );
+
+    const success =
+        document.getElementById(
+            "gallerySuccess"
+        );
+
+
+    if(!modal) return;
+
+
+    formContainer.style.display =
+        "block";
+
+    success.style.display =
+        "none";
+
+
+    const modalTitle =
+        document.querySelector(
+            "#galleryModal .modal-box h2"
+        );
+
+
+    if(modalTitle){
+
+        modalTitle.innerHTML =
+            "Explore <span>" +
+            title +
+            "</span>";
+
+    }
+
+
+    if(interest){
+
+        interest.value = "";
+
+    }
+
+
+    modal.classList.add("active");
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+
+/* =========================================================
+   GALLERY FORM SUBMIT
+========================================================= */
+
+function submitGalleryForm(event){
+
+    event.preventDefault();
+
+
+    const form =
+        document.getElementById(
+            "galleryForm"
+        );
+
+    const formContainer =
+        document.getElementById(
+            "galleryFormContainer"
+        );
+
+    const success =
+        document.getElementById(
+            "gallerySuccess"
+        );
+
+
+    if(!form) return;
+
+
+    form.reset();
+
+
+    formContainer.style.display =
+        "none";
+
+    success.style.display =
+        "block";
+}
+
+
+/* =========================================================
+   STUDENT LOGIN
+========================================================= */
+
+function loginStudent(event){
+
+    event.preventDefault();
+
+
+    const username =
+        document.getElementById(
+            "loginUser"
+        ).value;
+
+    const password =
+        document.getElementById(
+            "loginPassword"
+        ).value;
+
+
+    if(
+        username.trim() === "" ||
+        password.trim() === ""
+    ){
+
+        alert(
+            "Please enter your login details."
+        );
+
+        return;
+    }
+
+
+    document.getElementById(
+        "loginFormContainer"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "loginSuccess"
+    ).style.display = "block";
+}
+
+
+/* =========================================================
+   MODAL OUTSIDE CLICK
+========================================================= */
+
+document
+.querySelectorAll(".modal")
+.forEach(
+    function(modal){
+
+        modal.addEventListener(
+            "click",
+            function(event){
+
+                if(
+                    event.target === modal
+                ){
+
+                    closeModal(
+                        modal.id
+                    );
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   ESCAPE KEY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            document
+            .querySelectorAll(
+                ".modal.active"
+            )
+            .forEach(
+                function(modal){
+
+                    closeModal(
+                        modal.id
+                    );
+
+                }
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>

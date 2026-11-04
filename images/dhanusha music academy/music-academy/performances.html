@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concerts & Live Performances | Dhanu Music Academy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- NAVIGATION HEADER WITH ROYAL 'D' LOGO -->
+    <header class="royal-header">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">
+                <div class="logo-icon-royal">
+                    <span class="logo-d-letter">D</span>
+                    <i class="fa-solid fa-music logo-note-mini"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">DHANU <span class="gold-text">MUSIC ACADEMY</span></span>
+                    <span class="logo-subtitle">ROYAL CONSERVATORY</span>
+                </div>
+            </a>
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="courses.html" class="nav-link">Courses</a></li>
+                    <li><a href="piano.html" class="nav-link">Virtual Piano 🎹</a></li>
+                    <li><a href="performances.html" class="nav-link active">Performances</a></li>
+                    <li><a href="faculty.html" class="nav-link">Maestros</a></li>
+                    <li><a href="admissions.html" class="nav-link">Admissions & Fees</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <a href="admissions.html" class="btn-royal-gold">
+                    <span>Book Audition</span>
+                    <i class="fa-solid fa-crown"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <div class="container text-center">
+            <div class="section-badge"><i class="fa-solid fa-film"></i> GRAND THEATER</div>
+            <h1 class="page-title">Symphony & <span class="gold-text">Live Concerts</span></h1>
+            <p class="page-subtitle">Watch the official live stage performance by Founding Directors: Dhanusha, Meghana & Sony.</p>
+        </div>
+    </section>
+
+    <section style="padding: 60px 0;">
+        <div class="container">
+            <!-- Native Video Player (Starts at 7 seconds) -->
+            <div style="border-radius: 20px; overflow: hidden; border: 2px solid var(--border-gold); box-shadow: 0 20px 50px rgba(0,0,0,0.85); background: #000;">
+                <video id="nativeConcertVideo" controls width="100%" style="display: block; max-height: 580px; width: 100%;">
+                    <source src="assets/videos/concert-video.mp4#t=7" type="video/mp4">
+                    <source src="assets/concert-video.mp4#t=7" type="video/mp4">
+                    Your browser does not support HTML5 video.
+                </video>
+            </div>
+            
+            <div style="margin-top: 25px; text-align: center;">
+                <span class="royal-badge"><i class="fa-solid fa-circle"></i> ANNUAL GALA LIVE CONCERT</span>
+                <h3 style="font-size: 1.8rem; color: #fff; margin-top: 6px;">Dhanu Music Academy: Grand Live Stage Debut</h3>
+                <p style="color: #a0a5b5; max-width: 650px; margin: 6px auto 0;">Live concert recital featuring Founding Directors: Dhanusha, Meghana & Sony.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="royal-footer">
+        <div class="container"><p>© 2026 Dhanu Music Academy. Created with 💖 by <strong>Dhanusha</strong>.</p></div>
+    </footer>
+
+    <!-- FLOATING AUDIO PLAYER -->
+    <div class="floating-audio-player">
+        <div class="player-content">
+            <div class="track-info">
+                <img src="images/dhanusha-maestro.jpg" alt="Cover" class="track-art">
+                <div>
+                    <span class="track-title" id="playerTrackTitle">Telugu Melody Track</span>
+                    <span class="track-artist" id="playerTrackArtist">Dhanu Music Academy Band</span>
+                </div>
+            </div>
+            <div class="player-controls">
+                <button class="play-main-btn" id="playPauseBtn"><i class="fa-solid fa-play"></i></button>
+            </div>
+            <div class="audio-visualizer-wave" id="visualizerWave"><span class="bar"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.7">
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

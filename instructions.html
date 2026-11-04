@@ -1,0 +1,2385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Instructions | Rakshitha Music Academy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#08050c;
+    color:#fff;
+    font-family:"DM Sans",sans-serif;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+select,
+textarea{
+    font-family:inherit;
+}
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root{
+    --bg:#08050c;
+    --bg-soft:#100a17;
+    --card:#15101c;
+    --card2:#1b1324;
+
+    --gold:#d8b56a;
+    --gold-light:#efd899;
+
+    --white:#ffffff;
+    --text:#ddd6e3;
+    --muted:#95899e;
+
+    --border:rgba(216,181,106,.18);
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container{
+    width:min(1160px,90%);
+    margin:auto;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:82px;
+
+    z-index:1000;
+
+    background:rgba(8,5,12,.94);
+    backdrop-filter:blur(18px);
+
+    border-bottom:1px solid rgba(216,181,106,.12);
+}
+
+.nav-inner{
+    width:min(1280px,92%);
+    height:100%;
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+
+/* LOGO */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:11px;
+}
+
+.logo-symbol{
+    width:48px;
+    height:48px;
+
+    border:1px solid rgba(216,181,106,.4);
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:var(--gold);
+    font-family:Georgia,serif;
+    font-size:25px;
+
+    background:rgba(216,181,106,.04);
+}
+
+.logo-text{
+    display:flex;
+    flex-direction:column;
+}
+
+.logo-title{
+    color:var(--gold);
+    font-family:"Playfair Display",serif;
+    font-size:21px;
+    font-weight:600;
+    line-height:1;
+}
+
+.logo-subtitle{
+    color:#8f8497;
+    font-size:7px;
+    letter-spacing:3px;
+    margin-top:6px;
+}
+
+
+/* NAV LINKS */
+
+.nav-menu{
+    display:flex;
+    align-items:center;
+    gap:21px;
+}
+
+.nav-menu a{
+    color:#c8c0ce;
+    font-size:11px;
+    font-weight:500;
+
+    transition:.3s;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active{
+    color:var(--gold);
+}
+
+.login-btn{
+    border:1px solid rgba(216,181,106,.45);
+    border-radius:30px;
+
+    padding:10px 18px;
+
+    color:var(--gold)!important;
+}
+
+.login-btn:hover{
+    background:var(--gold);
+    color:#100714!important;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:78vh;
+
+    padding:
+    150px 0 90px;
+
+    display:flex;
+    align-items:center;
+
+    position:relative;
+    overflow:hidden;
+
+    background:
+    radial-gradient(
+        circle at 80% 30%,
+        rgba(93,45,125,.30),
+        transparent 38%
+    ),
+
+    radial-gradient(
+        circle at 15% 80%,
+        rgba(77,35,103,.20),
+        transparent 35%
+    );
+}
+
+
+/* MUSIC STAFF DECORATION */
+
+.hero::before{
+    content:"";
+    position:absolute;
+
+    right:-100px;
+    top:50%;
+
+    width:520px;
+    height:200px;
+
+    background:
+    repeating-linear-gradient(
+        to bottom,
+        rgba(216,181,106,.12) 0px,
+        rgba(216,181,106,.12) 1px,
+        transparent 1px,
+        transparent 27px
+    );
+
+    transform:rotate(-8deg);
+}
+
+.hero::after{
+    content:"♫";
+
+    position:absolute;
+
+    right:150px;
+    top:30%;
+
+    font-family:Georgia,serif;
+    font-size:190px;
+
+    color:rgba(216,181,106,.07);
+}
+
+
+.hero-content{
+    max-width:760px;
+    position:relative;
+    z-index:2;
+}
+
+.hero-label{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+
+    color:var(--gold);
+
+    font-size:10px;
+    font-weight:600;
+    letter-spacing:3px;
+
+    margin-bottom:22px;
+}
+
+.hero-label::before{
+    content:"";
+    width:38px;
+    height:1px;
+    background:var(--gold);
+}
+
+.hero h1{
+    font-family:"Playfair Display",serif;
+
+    font-size:
+    clamp(50px,7vw,82px);
+
+    line-height:1.05;
+
+    font-weight:600;
+
+    letter-spacing:-1px;
+}
+
+.hero h1 span{
+    color:var(--gold);
+    font-style:italic;
+}
+
+.hero-description{
+    max-width:650px;
+
+    color:var(--muted);
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    margin-top:25px;
+}
+
+
+/* =========================
+   SECTION COMMON
+========================= */
+
+section{
+    position:relative;
+}
+
+.section{
+    padding:100px 0;
+}
+
+.section-heading{
+    max-width:700px;
+    margin:0 auto 55px;
+    text-align:center;
+}
+
+.section-label{
+    color:var(--gold);
+
+    font-size:9px;
+    letter-spacing:3px;
+    font-weight:600;
+
+    margin-bottom:13px;
+}
+
+.section-heading h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:46px;
+    line-height:1.15;
+
+    font-weight:600;
+}
+
+.section-heading h2 span{
+    color:var(--gold);
+    font-style:italic;
+}
+
+.section-heading p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.8;
+
+    margin-top:15px;
+}
+
+
+/* =========================
+   LEARNING STEPS
+========================= */
+
+.learning{
+    background:#0d0812;
+}
+
+.steps{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.step{
+    padding:32px 27px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #191020,
+        #100914
+    );
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    transition:.35s;
+}
+
+.step:hover{
+    transform:translateY(-7px);
+
+    border-color:rgba(216,181,106,.42);
+
+    box-shadow:
+    0 25px 55px rgba(0,0,0,.35);
+}
+
+.step-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:24px;
+}
+
+.step-number{
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:18px;
+}
+
+.step-symbol{
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid rgba(216,181,106,.22);
+
+    color:var(--gold);
+
+    font-size:16px;
+}
+
+.step h3{
+    font-family:"Playfair Display",serif;
+
+    font-size:24px;
+
+    margin-bottom:10px;
+}
+
+.step p{
+    color:#90849a;
+
+    font-size:12px;
+
+    line-height:1.8;
+}
+
+
+/* =========================
+   GUIDELINES
+========================= */
+
+.guidelines{
+    background:#08050c;
+}
+
+.guideline-layout{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    align-items:start;
+}
+
+.guideline-title h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:46px;
+
+    line-height:1.15;
+
+    margin-bottom:18px;
+}
+
+.guideline-title h2 span{
+    color:var(--gold);
+    font-style:italic;
+}
+
+.guideline-title p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.9;
+}
+
+.guideline-list{
+    display:flex;
+    flex-direction:column;
+    gap:13px;
+}
+
+.guideline{
+    display:flex;
+    gap:15px;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.025);
+
+    border:1px solid rgba(216,181,106,.12);
+
+    transition:.3s;
+}
+
+.guideline:hover{
+    border-color:rgba(216,181,106,.38);
+
+    transform:translateX(5px);
+}
+
+.check{
+    flex-shrink:0;
+
+    width:30px;
+    height:30px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:var(--gold);
+
+    border:1px solid rgba(216,181,106,.3);
+
+    font-size:12px;
+}
+
+.guideline h4{
+    font-size:13px;
+
+    margin-bottom:4px;
+
+    color:#eee8f1;
+}
+
+.guideline p{
+    color:#817586;
+
+    font-size:11px;
+
+    line-height:1.6;
+}
+
+
+/* =========================
+   PRACTICE
+========================= */
+
+.practice{
+    background:
+    linear-gradient(
+        145deg,
+        #160b1e,
+        #0c0711
+    );
+}
+
+.practice-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.practice-card{
+    text-align:center;
+
+    padding:35px 20px;
+
+    border:1px solid rgba(216,181,106,.14);
+
+    background:rgba(255,255,255,.025);
+
+    border-radius:17px;
+
+    transition:.35s;
+}
+
+.practice-card:hover{
+    transform:translateY(-6px);
+
+    border-color:rgba(216,181,106,.38);
+}
+
+.practice-icon{
+    font-size:25px;
+
+    color:var(--gold);
+
+    margin-bottom:14px;
+}
+
+.practice-card h3{
+    font-family:"Playfair Display",serif;
+
+    font-size:21px;
+
+    margin-bottom:8px;
+}
+
+.practice-card p{
+    color:#83788b;
+
+    font-size:11px;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   DO / DON'T
+========================= */
+
+.dos{
+    background:#08050c;
+}
+
+.dos-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+}
+
+.dos-card{
+    padding:35px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(216,181,106,.15);
+
+    background:#120b18;
+}
+
+.dos-card h3{
+    font-family:"Playfair Display",serif;
+
+    font-size:27px;
+
+    margin-bottom:20px;
+}
+
+.dos-card h3 span{
+    color:var(--gold);
+}
+
+.dos-list{
+    display:flex;
+    flex-direction:column;
+    gap:13px;
+}
+
+.dos-item{
+    display:flex;
+    gap:12px;
+
+    color:#a89dac;
+
+    font-size:12px;
+}
+
+.dos-item strong{
+    color:var(--gold);
+}
+
+
+/* =========================
+   FAQ
+========================= */
+
+.faq{
+    background:#0d0812;
+}
+
+.faq-list{
+    max-width:850px;
+    margin:auto;
+
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.faq-item{
+    border:1px solid rgba(216,181,106,.14);
+
+    border-radius:14px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.025);
+}
+
+.faq-question{
+    width:100%;
+
+    padding:20px 22px;
+
+    border:none;
+    background:none;
+
+    color:#eee8f0;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    text-align:left;
+
+    cursor:pointer;
+
+    font-size:12px;
+    font-weight:600;
+}
+
+.faq-question span{
+    color:var(--gold);
+
+    font-size:19px;
+
+    transition:.3s;
+}
+
+.faq-item.active .faq-question span{
+    transform:rotate(45deg);
+}
+
+.faq-answer{
+    max-height:0;
+
+    overflow:hidden;
+
+    transition:max-height .35s ease;
+}
+
+.faq-answer p{
+    padding:0 22px 20px;
+
+    color:#887d91;
+
+    font-size:11px;
+
+    line-height:1.8;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    padding:105px 0;
+
+    text-align:center;
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(91,43,122,.35),
+        transparent 60%
+    ),
+    #160a1e;
+}
+
+.cta h2{
+    max-width:750px;
+
+    margin:auto;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:50px;
+
+    line-height:1.15;
+}
+
+.cta h2 span{
+    color:var(--gold);
+    font-style:italic;
+}
+
+.cta p{
+    max-width:580px;
+
+    margin:18px auto 28px;
+
+    color:var(--muted);
+
+    font-size:13px;
+}
+
+.btn{
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:14px 27px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:
+    linear-gradient(
+        135deg,
+        var(--gold),
+        var(--gold-light)
+    );
+
+    color:#13091a;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 12px 30px rgba(216,181,106,.22);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#06030a;
+
+    border-top:1px solid rgba(216,181,106,.12);
+
+    padding:55px 0 25px;
+}
+
+.footer-grid{
+    display:grid;
+
+    grid-template-columns:1.5fr 1fr 1fr;
+
+    gap:50px;
+
+    padding-bottom:40px;
+}
+
+.footer-brand h2{
+    font-family:"Playfair Display",serif;
+
+    color:var(--gold);
+
+    font-size:25px;
+}
+
+.footer-brand p{
+    color:#766b7d;
+
+    font-size:11px;
+
+    max-width:320px;
+
+    line-height:1.8;
+
+    margin-top:12px;
+}
+
+.footer-column h3{
+    color:#eee8f0;
+
+    font-size:11px;
+
+    letter-spacing:1px;
+
+    margin-bottom:17px;
+}
+
+.footer-column a{
+    display:block;
+
+    color:#776c7e;
+
+    font-size:11px;
+
+    margin-bottom:10px;
+
+    transition:.3s;
+}
+
+.footer-column a:hover{
+    color:var(--gold);
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.05);
+
+    padding-top:20px;
+
+    text-align:center;
+
+    color:#5f5665;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+}
+
+
+/* =========================
+   LOGIN MODAL
+========================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+
+    z-index:5000;
+
+    display:none;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(3,2,6,.82);
+
+    backdrop-filter:blur(12px);
+}
+
+.modal.active{
+    display:flex;
+}
+
+.modal-box{
+    width:min(470px,100%);
+
+    padding:35px;
+
+    border-radius:22px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #20102b,
+        #0e0714
+    );
+
+    border:1px solid rgba(216,181,106,.3);
+
+    box-shadow:0 30px 90px rgba(0,0,0,.7);
+
+    position:relative;
+}
+
+.close{
+    position:absolute;
+
+    top:14px;
+    right:16px;
+
+    width:34px;
+    height:34px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(216,181,106,.25);
+
+    background:rgba(216,181,106,.05);
+
+    color:var(--gold);
+
+    cursor:pointer;
+
+    font-size:20px;
+}
+
+.modal-label{
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+}
+
+.modal-box h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:34px;
+
+    margin-bottom:8px;
+}
+
+.modal-box h2 span{
+    color:var(--gold);
+    font-style:italic;
+}
+
+.modal-text{
+    color:#918599;
+
+    font-size:12px;
+
+    margin-bottom:24px;
+}
+
+.form-group{
+    margin-bottom:15px;
+}
+
+.form-group label{
+    display:block;
+
+    color:#cfc6d5;
+
+    font-size:11px;
+
+    margin-bottom:6px;
+}
+
+.form-group input,
+.form-group select{
+    width:100%;
+
+    padding:12px 14px;
+
+    border-radius:10px;
+
+    border:1px solid rgba(216,181,106,.18);
+
+    background:rgba(255,255,255,.045);
+
+    color:#fff;
+
+    outline:none;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    border-color:var(--gold);
+}
+
+.form-group select option{
+    background:#180b20;
+}
+
+.form-submit{
+    width:100%;
+    margin-top:5px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1050px){
+
+    .nav-menu{
+        gap:12px;
+    }
+
+    .nav-menu a{
+        font-size:9px;
+    }
+
+    .steps{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .practice-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+
+@media(max-width:850px){
+
+    .nav-menu{
+        display:none;
+    }
+
+    .hero{
+        min-height:75vh;
+        padding:140px 0 80px;
+    }
+
+    .hero::before,
+    .hero::after{
+        display:none;
+    }
+
+    .guideline-layout{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+
+    .dos-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+
+@media(max-width:600px){
+
+    .navbar{
+        height:72px;
+    }
+
+    .logo-symbol{
+        width:42px;
+        height:42px;
+        font-size:22px;
+    }
+
+    .logo-title{
+        font-size:19px;
+    }
+
+    .hero{
+        padding:120px 0 70px;
+    }
+
+    .hero h1{
+        font-size:46px;
+    }
+
+    .hero-description{
+        font-size:13px;
+    }
+
+    .section{
+        padding:75px 0;
+    }
+
+    .section-heading h2,
+    .guideline-title h2{
+        font-size:37px;
+    }
+
+    .steps{
+        grid-template-columns:1fr;
+    }
+
+    .practice-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .dos-card{
+        padding:27px 22px;
+    }
+
+    .cta{
+        padding:80px 0;
+    }
+
+    .cta h2{
+        font-size:38px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+    .modal-box{
+        padding:30px 20px;
+    }
+}
+
+
+@media(max-width:400px){
+
+    .practice-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+<div class="nav-inner">
+
+<a href="index.html" class="logo">
+
+<div class="logo-symbol">♫</div>
+
+<div class="logo-text">
+
+<div class="logo-title">
+Rakshitha
+</div>
+
+<div class="logo-subtitle">
+MUSIC ACADEMY
+</div>
+
+</div>
+
+</a>
+
+
+<nav class="nav-menu">
+
+<a href="index.html">Home</a>
+
+<a href="about.html">About</a>
+
+<a href="courses.html">Courses</a>
+
+<a href="events.html">Events</a>
+
+<a href="instructions.html" class="active">
+Instructions
+</a>
+
+<a href="admissions.html">Admissions</a>
+
+<a href="gallery.html">Gallery</a>
+
+<a href="index.html#contact">Contact</a>
+
+<a href="#" class="login-btn"
+onclick="openLogin(event)">
+Student Login
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="hero-content">
+
+<div class="hero-label">
+ACADEMY GUIDELINES
+</div>
+
+<h1>
+
+Learn Music With
+
+<span>
+Passion & Discipline.
+</span>
+
+</h1>
+
+<p class="hero-description">
+
+At Rakshitha Music Academy, learning music is more than attending classes.
+Regular practice, discipline, respect and a positive attitude help every
+student grow with confidence and enjoy their musical journey.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     LEARNING STEPS
+========================= -->
+
+<section class="section learning">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="section-label">
+START YOUR JOURNEY
+</div>
+
+<h2>
+Simple Steps For
+<span>Better Learning.</span>
+</h2>
+
+<p>
+Follow these basic instructions to make every class productive,
+comfortable and enjoyable.
+</p>
+
+</div>
+
+
+<div class="steps">
+
+
+<div class="step">
+
+<div class="step-top">
+
+<div class="step-number">
+01
+</div>
+
+<div class="step-symbol">
+♪ 
+</div>
+
+</div>
+
+<h3>
+Attend Regularly
+</h3>
+
+<p>
+Attend your classes regularly and arrive on time.
+Consistent attendance helps you understand every lesson
+and maintain steady progress.
+</p>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="step-top">
+
+<div class="step-number">
+02
+</div>
+
+<div class="step-symbol">
+♫
+</div>
+
+</div>
+
+<h3>
+Practice Daily
+</h3>
+
+<p>
+Spend some time practicing every day.
+Regular practice improves your confidence, technique,
+rhythm and musical understanding.
+</p>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="step-top">
+
+<div class="step-number">
+03
+</div>
+
+<div class="step-symbol">
+♬
+</div>
+
+</div>
+
+<h3>
+Listen Carefully
+</h3>
+
+<p>
+Pay attention to your instructor during demonstrations.
+Listen carefully and ask questions whenever something
+is not clear.
+</p>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="step-top">
+
+<div class="step-number">
+04
+</div>
+
+<div class="step-symbol">
+♩
+</div>
+
+</div>
+
+<h3>
+Bring Materials
+</h3>
+
+<p>
+Bring your required notebooks, music materials and
+instrument whenever your course requires them.
+</p>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="step-top">
+
+<div class="step-number">
+05
+</div>
+
+<div class="step-symbol">
+𝄞
+</div>
+
+</div>
+
+<h3>
+Follow Guidance
+</h3>
+
+<p>
+Follow the practice methods and instructions provided
+by your music instructor to develop your skills correctly.
+</p>
+
+</div>
+
+
+
+<div class="step">
+
+<div class="step-top">
+
+<div class="step-number">
+06
+</div>
+
+<div class="step-symbol">
+♪ 
+</div>
+
+</div>
+
+<h3>
+Enjoy Learning
+</h3>
+
+<p>
+Music takes time and patience.
+Enjoy the process, celebrate your improvement and
+keep developing your musical skills.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     GUIDELINES
+========================= -->
+
+<section class="section guidelines">
+
+<div class="container">
+
+<div class="guideline-layout">
+
+
+<div class="guideline-title">
+
+<div class="section-label">
+ACADEMY RULES
+</div>
+
+<h2>
+
+Create A
+
+<span>
+Positive Learning Environment.
+</span>
+
+</h2>
+
+<p>
+
+A respectful and organized environment allows students
+and instructors to focus better on music learning.
+
+</p>
+
+</div>
+
+
+
+<div class="guideline-list">
+
+
+<div class="guideline">
+
+<div class="check">✓</div>
+
+<div>
+
+<h4>
+Be On Time
+</h4>
+
+<p>
+Arrive a few minutes before your scheduled class.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="guideline">
+
+<div class="check">✓</div>
+
+<div>
+
+<h4>
+Respect Instructors
+</h4>
+
+<p>
+Listen to instructors and follow classroom guidance.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="guideline">
+
+<div class="check">✓</div>
+
+<div>
+
+<h4>
+Respect Fellow Students
+</h4>
+
+<p>
+Maintain a friendly and supportive learning environment.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="guideline">
+
+<div class="check">✓</div>
+
+<div>
+
+<h4>
+Take Care Of Instruments
+</h4>
+
+<p>
+Handle academy instruments and equipment carefully.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="guideline">
+
+<div class="check">✓</div>
+
+<div>
+
+<h4>
+Keep The Classroom Clean
+</h4>
+
+<p>
+Keep your learning space neat and organized.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="guideline">
+
+<div class="check">✓</div>
+
+<div>
+
+<h4>
+Keep Phones Silent
+</h4>
+
+<p>
+Avoid unnecessary distractions during music sessions.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     PRACTICE ROUTINE
+========================= -->
+
+<section class="section practice">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="section-label">
+DAILY PRACTICE
+</div>
+
+<h2>
+Build A
+<span>Musical Habit.</span>
+</h2>
+
+<p>
+A simple practice routine can help you become more confident
+and comfortable with your instrument or voice.
+</p>
+
+</div>
+
+
+<div class="practice-grid">
+
+
+<div class="practice-card">
+
+<div class="practice-icon">
+♪ 
+</div>
+
+<h3>
+Warm Up
+</h3>
+
+<p>
+Start with simple vocal or instrumental warm-up exercises.
+</p>
+
+</div>
+
+
+
+<div class="practice-card">
+
+<div class="practice-icon">
+♫
+</div>
+
+<h3>
+Technique
+</h3>
+
+<p>
+Practice scales, chords, rhythm and other basic exercises.
+</p>
+
+</div>
+
+
+
+<div class="practice-card">
+
+<div class="practice-icon">
+♬
+</div>
+
+<h3>
+Song Practice
+</h3>
+
+<p>
+Apply the techniques you learned by practicing songs.
+</p>
+
+</div>
+
+
+
+<div class="practice-card">
+
+<div class="practice-icon">
+𝄞
+</div>
+
+<h3>
+Review
+</h3>
+
+<p>
+Review your lesson and identify areas you want to improve.
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     DO AND DON'T
+========================= -->
+
+<section class="section dos">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="section-label">
+STUDENT GUIDE
+</div>
+
+<h2>
+Do's & <span>Don'ts.</span>
+</h2>
+
+<p>
+A few simple habits can make your learning experience better.
+</p>
+
+</div>
+
+
+<div class="dos-grid">
+
+
+<div class="dos-card">
+
+<h3>
+<span>Do</span> These Things
+</h3>
+
+<div class="dos-list">
+
+<div class="dos-item">
+<strong>✓</strong>
+Practice consistently.
+</div>
+
+<div class="dos-item">
+<strong>✓</strong>
+Ask questions when you need help.
+</div>
+
+<div class="dos-item">
+<strong>✓</strong>
+Listen carefully to demonstrations.
+</div>
+
+<div class="dos-item">
+<strong>✓</strong>
+Keep your instrument in good condition.
+</div>
+
+<div class="dos-item">
+<strong>✓</strong>
+Respect everyone in the academy.
+</div>
+
+</div>
+
+</div>
+
+
+
+<div class="dos-card">
+
+<h3>
+<span>Don't</span> Forget
+</h3>
+
+<div class="dos-list">
+
+<div class="dos-item">
+<strong>×</strong>
+Do not disturb other students.
+</div>
+
+<div class="dos-item">
+<strong>×</strong>
+Do not skip practice regularly.
+</div>
+
+<div class="dos-item">
+<strong>×</strong>
+Do not misuse academy equipment.
+</div>
+
+<div class="dos-item">
+<strong>×</strong>
+Do not use phones unnecessarily in class.
+</div>
+
+<div class="dos-item">
+<strong>×</strong>
+Do not hesitate to ask for guidance.
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     FAQ
+========================= -->
+
+<section class="section faq">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="section-label">
+COMMON QUESTIONS
+</div>
+
+<h2>
+Need More <span>Guidance?</span>
+</h2>
+
+<p>
+Here are some common questions students may have.
+</p>
+
+</div>
+
+
+<div class="faq-list">
+
+
+<div class="faq-item">
+
+<button class="faq-question"
+onclick="toggleFaq(this)">
+
+How often should I practice?
+
+<span>+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+Try to practice consistently every day.
+The exact practice time can depend on your course,
+skill level and instructor's recommendations.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="faq-item">
+
+<button class="faq-question"
+onclick="toggleFaq(this)">
+
+Can beginners join the academy?
+
+<span>+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+Yes. Beginners can start from the basics.
+You do not need previous musical experience to begin learning.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="faq-item">
+
+<button class="faq-question"
+onclick="toggleFaq(this)">
+
+Should I bring my own instrument?
+
+<span>+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+Students can bring their own instrument when appropriate.
+Your instructor can guide you about the requirements for your course.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="faq-item">
+
+<button class="faq-question"
+onclick="toggleFaq(this)">
+
+What if I miss a class?
+
+<span>+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+Inform the academy or instructor as early as possible.
+Follow the instructor's guidance regarding the missed lesson.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="faq-item">
+
+<button class="faq-question"
+onclick="toggleFaq(this)">
+
+Can I ask questions during class?
+
+<span>+</span>
+
+</button>
+
+<div class="faq-answer">
+
+<p>
+Absolutely. Questions are an important part of learning.
+Students are encouraged to ask whenever they need clarification.
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+
+Ready To Begin Your
+
+<span>
+Musical Journey?
+</span>
+
+</h2>
+
+<p>
+
+Choose a course, follow the academy guidelines and
+take your first step towards becoming a confident musician.
+
+</p>
+
+<a href="admissions.html" class="btn">
+Join The Academy →
+</a>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div class="footer-brand">
+
+<h2>
+Rakshitha
+</h2>
+
+<p>
+Rakshitha Music Academy is dedicated to helping students
+discover their musical abilities through learning,
+practice and performance.
+</p>
+
+</div>
+
+
+
+<div class="footer-column">
+
+<h3>
+ACADEMY
+</h3>
+
+<a href="index.html">Home</a>
+
+<a href="about.html">About</a>
+
+<a href="courses.html">Courses</a>
+
+<a href="events.html">Events</a>
+
+<a href="gallery.html">Gallery</a>
+
+</div>
+
+
+
+<div class="footer-column">
+
+<h3>
+SUPPORT
+</h3>
+
+<a href="instructions.html">
+Instructions
+</a>
+
+<a href="admissions.html">
+Admissions
+</a>
+
+<a href="index.html#contact">
+Contact
+</a>
+
+<a href="#" onclick="openLogin(event)">
+Student Login
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 Rakshitha Music Academy.
+All Rights Reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+
+
+<!-- =========================
+     LOGIN MODAL
+========================= -->
+
+<div class="modal" id="loginModal">
+
+<div class="modal-box">
+
+<button class="close"
+onclick="closeLogin()">
+×
+</button>
+
+<div class="modal-label">
+STUDENT PORTAL
+</div>
+
+<h2>
+Student <span>Login</span>
+</h2>
+
+<p class="modal-text">
+Login to access your student account and academy updates.
+</p>
+
+
+<form onsubmit="loginStudent(event)">
+
+<div class="form-group">
+
+<label>
+Email / Student ID
+</label>
+
+<input
+type="text"
+id="username"
+placeholder="Enter email or student ID"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Password
+</label>
+
+<input
+type="password"
+id="password"
+placeholder="Enter password"
+required>
+
+</div>
+
+
+<button class="btn form-submit">
+Login →
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =========================
+   LOGIN
+========================= */
+
+function openLogin(event){
+
+    if(event){
+        event.preventDefault();
+    }
+
+    document
+    .getElementById("loginModal")
+    .classList.add("active");
+
+    document.body.style.overflow="hidden";
+}
+
+
+function closeLogin(){
+
+    document
+    .getElementById("loginModal")
+    .classList.remove("active");
+
+    document.body.style.overflow="auto";
+}
+
+
+function loginStudent(event){
+
+    event.preventDefault();
+
+    const username =
+    document.getElementById("username").value.trim();
+
+    const password =
+    document.getElementById("password").value.trim();
+
+    if(username === "" || password === ""){
+        alert("Please enter your login details.");
+        return;
+    }
+
+    alert("Student login submitted successfully!");
+
+}
+
+
+/* =========================
+   FAQ
+========================= */
+
+function toggleFaq(button){
+
+    const item =
+    button.parentElement;
+
+    const answer =
+    item.querySelector(".faq-answer");
+
+    const isActive =
+    item.classList.contains("active");
+
+
+    document
+    .querySelectorAll(".faq-item")
+    .forEach(function(other){
+
+        other.classList.remove("active");
+
+        const otherAnswer =
+        other.querySelector(".faq-answer");
+
+        otherAnswer.style.maxHeight = null;
+
+    });
+
+
+    if(!isActive){
+
+        item.classList.add("active");
+
+        answer.style.maxHeight =
+        answer.scrollHeight + "px";
+
+    }
+
+}
+
+
+/* =========================
+   CLOSE MODAL OUTSIDE
+========================= */
+
+document
+.getElementById("loginModal")
+.addEventListener("click",function(event){
+
+    if(event.target === this){
+        closeLogin();
+    }
+
+});
+
+
+/* =========================
+   ESCAPE KEY
+========================= */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+        closeLogin();
+    }
+
+});
+
+</script>
+
+</body>
+</html>

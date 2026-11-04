@@ -1,0 +1,3183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admissions | Rakshitha Music Academy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ==================================================
+   RESET
+================================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#09050e;
+    color:#fff;
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button,
+input,
+textarea,
+select{
+    font-family:inherit;
+}
+
+
+/* ==================================================
+   VARIABLES
+================================================== */
+
+:root{
+
+    --bg:#09050e;
+    --bg2:#110819;
+
+    --purple:#2b123d;
+    --purple2:#452060;
+
+    --gold:#d8b66e;
+    --gold-light:#efd493;
+
+    --white:#fff;
+
+    --text:#ddd5e3;
+    --muted:#9b90a3;
+
+    --border:rgba(216,182,110,.18);
+}
+
+
+/* ==================================================
+   CONTAINER
+================================================== */
+
+.container{
+    width:min(1180px,90%);
+    margin:auto;
+}
+
+
+/* ==================================================
+   FLOATING MUSIC
+================================================== */
+
+.music-layer{
+
+    position:fixed;
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+    overflow:hidden;
+
+    z-index:2;
+}
+
+.music-note{
+
+    position:absolute;
+    bottom:-70px;
+
+    color:rgba(216,182,110,.20);
+
+    font-family:Georgia,serif;
+
+    animation-name:musicFloat;
+    animation-timing-function:linear;
+    animation-fill-mode:forwards;
+
+    text-shadow:
+        0 0 10px rgba(216,182,110,.12);
+}
+
+@keyframes musicFloat{
+
+    0%{
+        transform:
+            translate3d(0,0,0)
+            rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:.15;
+    }
+
+    30%{
+        opacity:.35;
+    }
+
+    70%{
+        opacity:.25;
+    }
+
+    100%{
+
+        transform:
+            translate3d(
+                var(--drift),
+                -115vh,
+                0
+            )
+            rotate(25deg);
+
+        opacity:0;
+    }
+}
+
+
+/* ==================================================
+   NAVBAR
+================================================== */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:82px;
+
+    z-index:1000;
+
+    background:rgba(9,5,14,.94);
+
+    backdrop-filter:blur(18px);
+
+    border-bottom:
+        1px solid
+        rgba(216,182,110,.12);
+}
+
+.nav-inner{
+
+    height:100%;
+
+    width:min(1280px,92%);
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+
+/* ==================================================
+   EXACT SAME LOGO
+================================================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    flex-shrink:0;
+}
+
+.music-logo{
+
+    width:58px;
+    height:50px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.4s;
+}
+
+.music-logo svg{
+
+    width:58px;
+    height:50px;
+
+    overflow:visible;
+}
+
+.logo-note{
+
+    fill:var(--gold);
+
+    filter:
+        drop-shadow(
+            0 0 7px
+            rgba(216,182,110,.28)
+        );
+}
+
+.logo-line{
+
+    fill:none;
+
+    stroke:var(--gold);
+
+    stroke-width:1.4;
+
+    opacity:.72;
+}
+
+.logo-line-soft{
+
+    fill:none;
+
+    stroke:#8f6e3d;
+
+    stroke-width:1;
+
+    opacity:.45;
+}
+
+.logo-wave{
+
+    fill:none;
+
+    stroke:var(--gold-light);
+
+    stroke-width:1.5;
+
+    stroke-linecap:round;
+
+    opacity:.8;
+}
+
+.logo:hover .music-logo{
+
+    transform:
+        translateY(-2px)
+        scale(1.06);
+}
+
+.logo:hover .logo-note{
+
+    filter:
+        drop-shadow(
+            0 0 13px
+            rgba(216,182,110,.55)
+        );
+}
+
+.logo-text{
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.logo-main{
+
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:23px;
+
+    font-weight:600;
+
+    line-height:1;
+}
+
+.logo-sub{
+
+    color:#a79cac;
+
+    font-size:7px;
+
+    letter-spacing:3.5px;
+
+    margin-top:7px;
+}
+
+
+/* ==================================================
+   NAV MENU
+================================================== */
+
+.nav-menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+}
+
+.nav-menu a{
+
+    color:#d0c7d6;
+
+    font-size:11px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+    white-space:nowrap;
+}
+
+.nav-menu a:hover{
+
+    color:var(--gold);
+}
+
+.login-link{
+
+    padding:11px 20px !important;
+
+    border:
+        1px solid
+        rgba(216,182,110,.55);
+
+    border-radius:50px;
+
+    color:var(--gold) !important;
+}
+
+.login-link:hover{
+
+    background:var(--gold);
+
+    color:#15091d !important;
+}
+
+
+/* ==================================================
+   HERO
+================================================== */
+
+.admission-hero{
+
+    min-height:72vh;
+
+    position:relative;
+
+    z-index:5;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:
+        150px 0
+        90px;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(92,44,126,.36),
+            transparent 42%
+        ),
+
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(68,26,92,.22),
+            transparent 32%
+        );
+}
+
+.hero-content{
+
+    max-width:850px;
+
+    position:relative;
+
+    z-index:10;
+}
+
+.hero-kicker{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    color:var(--gold);
+
+    font-size:10px;
+
+    letter-spacing:3px;
+
+    font-weight:600;
+
+    margin-bottom:24px;
+}
+
+.hero-kicker::before,
+.hero-kicker::after{
+
+    content:"";
+
+    width:42px;
+
+    height:1px;
+
+    background:var(--gold);
+}
+
+.hero-content h1{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:
+        clamp(
+            50px,
+            7vw,
+            80px
+        );
+
+    line-height:1.05;
+
+    font-weight:600;
+}
+
+.hero-content h1 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.hero-description{
+
+    max-width:650px;
+
+    margin:28px auto 0;
+
+    color:var(--muted);
+
+    font-size:15px;
+
+    line-height:1.9;
+}
+
+
+/* ==================================================
+   ADMISSION SECTION
+================================================== */
+
+.admission-section{
+
+    position:relative;
+
+    z-index:5;
+
+    padding:100px 0 120px;
+
+    background:#0d0613;
+}
+
+.admission-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1.2fr;
+
+    gap:45px;
+
+    align-items:start;
+}
+
+
+/* ==================================================
+   LEFT INFORMATION
+================================================== */
+
+.admission-info{
+
+    padding:20px 10px;
+}
+
+.section-label{
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+}
+
+.admission-info h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:48px;
+
+    line-height:1.15;
+
+    margin-bottom:20px;
+}
+
+.admission-info h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.admission-info > p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    max-width:480px;
+
+    margin-bottom:35px;
+}
+
+
+/* ==================================================
+   BENEFITS
+================================================== */
+
+.benefit{
+
+    display:flex;
+
+    gap:18px;
+
+    margin-bottom:25px;
+
+    padding:20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(43,18,61,.55),
+            rgba(16,7,25,.6)
+        );
+
+    border:
+        1px solid
+        rgba(216,182,110,.12);
+
+    border-radius:16px;
+
+    transition:.35s;
+}
+
+.benefit:hover{
+
+    transform:translateX(6px);
+
+    border-color:
+        rgba(216,182,110,.35);
+}
+
+.benefit-number{
+
+    min-width:42px;
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    color:var(--gold);
+
+    border:
+        1px solid
+        rgba(216,182,110,.35);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:16px;
+}
+
+.benefit h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:19px;
+
+    margin-bottom:5px;
+}
+
+.benefit p{
+
+    color:#918699;
+
+    font-size:11px;
+
+    line-height:1.7;
+}
+
+
+/* ==================================================
+   FORM CARD
+================================================== */
+
+.admission-form-card{
+
+    padding:38px;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #21102d,
+            #0e0615
+        );
+
+    border:
+        1px solid
+        rgba(216,182,110,.25);
+
+    box-shadow:
+        0 30px 80px
+        rgba(0,0,0,.35);
+}
+
+.form-kicker{
+
+    color:var(--gold);
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    margin-bottom:10px;
+}
+
+.admission-form-card h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:34px;
+
+    margin-bottom:8px;
+}
+
+.admission-form-card h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.form-description{
+
+    color:#978b9f;
+
+    font-size:12px;
+
+    line-height:1.7;
+
+    margin-bottom:25px;
+}
+
+.form-group{
+
+    margin-bottom:16px;
+}
+
+.form-row{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:14px;
+}
+
+.form-group label{
+
+    display:block;
+
+    color:#cfc5d4;
+
+    font-size:11px;
+
+    margin-bottom:7px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+
+    width:100%;
+
+    padding:13px 15px;
+
+    border-radius:12px;
+
+    border:
+        1px solid
+        rgba(216,182,110,.20);
+
+    outline:none;
+
+    background:
+        rgba(255,255,255,.045);
+
+    color:#fff;
+
+    font-size:12px;
+
+    transition:.3s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+
+    color:#74697b;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+
+    border-color:var(--gold);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(216,182,110,.06);
+}
+
+.form-group textarea{
+
+    min-height:105px;
+
+    resize:vertical;
+}
+
+.form-group select option{
+
+    background:#170b20;
+
+    color:#fff;
+}
+
+.primary-btn{
+
+    width:100%;
+
+    padding:15px 27px;
+
+    border:none;
+
+    border-radius:50px;
+
+    color:#12091a;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--gold-light)
+        );
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.7px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    box-shadow:
+        0 10px 30px
+        rgba(216,182,110,.12);
+}
+
+.primary-btn:hover{
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(216,182,110,.25);
+}
+
+
+/* ==================================================
+   SUCCESS
+================================================== */
+
+.success-message{
+
+    display:none;
+
+    text-align:center;
+
+    padding:35px 10px;
+}
+
+.success-icon{
+
+    width:65px;
+    height:65px;
+
+    margin:0 auto 18px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        var(--gold);
+
+    color:var(--gold);
+
+    font-size:28px;
+}
+
+.success-message h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:28px;
+
+    margin-bottom:10px;
+}
+
+.success-message p{
+
+    color:#968a9e;
+
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+
+/* ==================================================
+   PROCESS
+================================================== */
+
+.process-section{
+
+    padding:100px 0;
+
+    background:#09050e;
+}
+
+.section-heading{
+
+    text-align:center;
+
+    max-width:700px;
+
+    margin:0 auto 55px;
+}
+
+.section-heading h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:48px;
+
+    line-height:1.15;
+}
+
+.section-heading h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.section-heading p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    margin-top:17px;
+}
+
+.process-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+}
+
+.process-card{
+
+    padding:32px 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1a0b25,
+            #100719
+        );
+
+    border:
+        1px solid
+        rgba(216,182,110,.13);
+
+    transition:.35s;
+}
+
+.process-card:hover{
+
+    transform:translateY(-7px);
+
+    border-color:
+        rgba(216,182,110,.4);
+}
+
+.process-number{
+
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:30px;
+
+    margin-bottom:18px;
+}
+
+.process-card h3{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:21px;
+
+    margin-bottom:10px;
+}
+
+.process-card p{
+
+    color:#918699;
+
+    font-size:11px;
+
+    line-height:1.8;
+}
+
+
+/* ==================================================
+   CTA
+================================================== */
+
+.cta{
+
+    padding:100px 0;
+
+    text-align:center;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(94,43,125,.38),
+            transparent 60%
+        ),
+
+        #170a20;
+}
+
+.cta h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:52px;
+
+    line-height:1.15;
+}
+
+.cta h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.cta p{
+
+    max-width:600px;
+
+    margin:20px auto 30px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.8;
+}
+
+.cta .primary-btn{
+
+    width:auto;
+
+    min-width:180px;
+}
+
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+footer{
+
+    padding:55px 0 30px;
+
+    background:#07030b;
+
+    border-top:
+        1px solid
+        rgba(216,182,110,.12);
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        1.5fr 1fr 1fr;
+
+    gap:50px;
+
+    padding-bottom:40px;
+}
+
+.footer-brand h2{
+
+    color:var(--gold);
+
+    font-family:"Playfair Display",serif;
+
+    font-size:25px;
+}
+
+.footer-brand p{
+
+    color:#817687;
+
+    font-size:11px;
+
+    line-height:1.8;
+
+    max-width:320px;
+
+    margin-top:14px;
+}
+
+.footer-column h3{
+
+    font-size:11px;
+
+    color:#eee7f0;
+
+    letter-spacing:1px;
+
+    margin-bottom:18px;
+}
+
+.footer-column a{
+
+    display:block;
+
+    color:#817687;
+
+    font-size:11px;
+
+    margin-bottom:11px;
+
+    transition:.3s;
+}
+
+.footer-column a:hover{
+
+    color:var(--gold);
+}
+
+.footer-bottom{
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.05);
+
+    padding-top:22px;
+
+    text-align:center;
+
+    color:#655c6c;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+}
+
+
+/* ==================================================
+   MODAL
+================================================== */
+
+.modal{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:5000;
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    background:
+        rgba(4,2,8,.82);
+
+    backdrop-filter:blur(14px);
+
+    overflow-y:auto;
+}
+
+.modal.active{
+
+    display:flex;
+}
+
+.modal-box{
+
+    width:min(500px,100%);
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    position:relative;
+
+    background:
+        linear-gradient(
+            145deg,
+            #21102d,
+            #0e0615
+        );
+
+    border:
+        1px solid
+        rgba(216,182,110,.35);
+
+    box-shadow:
+        0 35px 100px
+        rgba(0,0,0,.7);
+}
+
+.close-modal{
+
+    position:absolute;
+
+    top:15px;
+    right:18px;
+
+    width:35px;
+    height:35px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(216,182,110,.3);
+
+    background:rgba(216,182,110,.06);
+
+    color:var(--gold);
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.close-modal:hover{
+
+    background:var(--gold);
+
+    color:#12091a;
+
+    transform:rotate(90deg);
+}
+
+.modal-box h2{
+
+    font-family:"Playfair Display",serif;
+
+    font-size:34px;
+
+    margin-bottom:8px;
+}
+
+.modal-box h2 span{
+
+    color:var(--gold);
+
+    font-style:italic;
+}
+
+.modal-switch{
+
+    text-align:center;
+
+    margin-top:20px;
+
+    color:#8e8295;
+
+    font-size:11px;
+
+    line-height:1.7;
+}
+
+.modal-switch button{
+
+    border:none;
+
+    background:none;
+
+    color:var(--gold);
+
+    cursor:pointer;
+
+    font-weight:700;
+
+    font-size:11px;
+}
+
+.modal-switch button:hover{
+
+    text-decoration:underline;
+}
+
+
+/* ==================================================
+   MODAL SUCCESS
+================================================== */
+
+.modal-success{
+
+    display:none;
+
+    text-align:center;
+
+    padding:20px 5px;
+}
+
+.modal-success .success-icon{
+
+    margin-bottom:15px;
+}
+
+
+/* ==================================================
+   RESPONSIVE
+================================================== */
+
+@media(max-width:1000px){
+
+    .nav-menu{
+        gap:11px;
+    }
+
+    .nav-menu a{
+        font-size:9px;
+    }
+
+    .admission-grid{
+        grid-template-columns:1fr;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:900px){
+
+    .nav-menu{
+        display:none;
+    }
+
+    .admission-hero{
+        min-height:65vh;
+    }
+}
+
+@media(max-width:600px){
+
+    .container{
+        width:90%;
+    }
+
+    .navbar{
+        height:72px;
+    }
+
+    .nav-inner{
+        width:90%;
+    }
+
+    .music-logo{
+        width:48px;
+        height:43px;
+    }
+
+    .music-logo svg{
+        width:48px;
+        height:43px;
+    }
+
+    .logo-main{
+        font-size:20px;
+    }
+
+    .logo-sub{
+        font-size:6px;
+        letter-spacing:2.8px;
+    }
+
+    .admission-hero{
+        padding-top:120px;
+    }
+
+    .hero-content h1{
+        font-size:48px;
+    }
+
+    .hero-description{
+        font-size:13px;
+    }
+
+    .admission-info h2{
+        font-size:38px;
+    }
+
+    .admission-form-card{
+        padding:25px 18px;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .section-heading h2{
+        font-size:38px;
+    }
+
+    .process-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cta h2{
+        font-size:39px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .modal-box{
+        padding:28px 20px;
+    }
+
+    .modal-box h2{
+        font-size:30px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     FLOATING MUSIC
+================================================== -->
+
+<div class="music-layer" id="musicLayer"></div>
+
+
+<!-- ==================================================
+     NAVBAR
+================================================== -->
+
+<header class="navbar">
+
+<div class="nav-inner">
+
+
+<!-- EXACT SAME LOGO -->
+
+<a href="index.html" class="logo">
+
+<div class="music-logo">
+
+<svg viewBox="0 0 100 80"
+xmlns="http://www.w3.org/2000/svg">
+
+<path
+class="logo-line-soft"
+d="M5 27 C30 20,70 34,95 25"/>
+
+<path
+class="logo-line"
+d="M5 34 C30 27,70 41,95 32"/>
+
+<path
+class="logo-line-soft"
+d="M5 41 C30 34,70 48,95 39"/>
+
+<path
+class="logo-note"
+d="
+M64 17
+L75 14
+L75 46
+C75 53 69 58 62 58
+C56 58 52 55 52 51
+C52 46 57 42 63 42
+C65 42 67 42 69 43
+L69 23
+L64 24
+Z
+"/>
+
+<path
+class="logo-note"
+d="
+M34 31
+L43 29
+L43 51
+C43 56 39 59 34 59
+C30 59 27 56 27 53
+C27 49 31 46 35 46
+C37 46 38 46 39 47
+L39 35
+L34 36
+Z
+"/>
+
+<path
+class="logo-wave"
+d="M9 55
+C18 48,25 65,34 57
+C43 49,51 66,60 58
+C69 50,77 65,91 54"/>
+
+</svg>
+
+</div>
+
+
+<div class="logo-text">
+
+<div class="logo-main">
+Rakshitha
+</div>
+
+<span class="logo-sub">
+MUSIC ACADEMY
+</span>
+
+</div>
+
+</a>
+
+
+<nav class="nav-menu">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="courses.html">
+Courses
+</a>
+
+<a href="events.html">
+Events
+</a>
+
+<a href="instructions.html">
+Instructions
+</a>
+
+<a href="admissions.html">
+Admissions
+</a>
+
+<a href="gallery.html">
+Gallery
+</a>
+
+<a href="index.html#contact">
+Contact
+</a>
+
+<a
+href="javascript:void(0)"
+class="login-link"
+onclick="openModal('loginModal')">
+
+Student Login
+
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- ==================================================
+     HERO
+================================================== -->
+
+<section class="admission-hero">
+
+<div class="hero-content">
+
+<div class="hero-kicker">
+BEGIN YOUR MUSICAL JOURNEY
+</div>
+
+<h1>
+
+Join
+
+<span>
+Rakshitha Music Academy.
+</span>
+
+</h1>
+
+<p class="hero-description">
+
+Your musical journey starts with one simple step.
+Complete the admission form and become a part
+of our creative learning community.
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     ADMISSION SECTION
+================================================== -->
+
+<section class="admission-section" id="admissionSection">
+
+<div class="container">
+
+<div class="admission-grid">
+
+
+<!-- LEFT -->
+
+<div class="admission-info">
+
+<div class="section-label">
+WHY JOIN US
+</div>
+
+<h2>
+
+Learn Music.
+
+<span>
+Live Music.</span>
+
+</h2>
+
+<p>
+
+At Rakshitha Music Academy, we believe
+music is more than learning an instrument.
+It is a journey of creativity, confidence
+and self-expression.
+
+</p>
+
+
+<div class="benefit">
+
+<div class="benefit-number">
+01
+</div>
+
+<div>
+
+<h3>
+Expert Guidance
+</h3>
+
+<p>
+Learn with structured guidance and
+practical training from experienced
+music instructors.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="benefit">
+
+<div class="benefit-number">
+02
+</div>
+
+<div>
+
+<h3>
+Practical Learning
+</h3>
+
+<p>
+Practice your instrument and develop
+real musical skills through hands-on
+learning.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="benefit">
+
+<div class="benefit-number">
+03
+</div>
+
+<div>
+
+<h3>
+Performance Opportunities
+</h3>
+
+<p>
+Build confidence and showcase your
+talent through academy performances
+and events.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="benefit">
+
+<div class="benefit-number">
+04
+</div>
+
+<div>
+
+<h3>
+Creative Community
+</h3>
+
+<p>
+Connect with fellow learners and grow
+together in a positive musical environment.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FORM -->
+
+<div class="admission-form-card">
+
+<div id="formContainer">
+
+<div class="form-kicker">
+ACADEMY ADMISSION
+</div>
+
+<h2>
+Start Your <span>Journey</span>
+</h2>
+
+<p class="form-description">
+
+Fill in your details below and our academy
+team will contact you regarding your admission.
+
+</p>
+
+
+<form
+id="admissionForm"
+onsubmit="submitAdmission(event)">
+
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label>
+Student Name
+</label>
+
+<input
+type="text"
+id="studentName"
+placeholder="Enter student name"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Age
+</label>
+
+<input
+type="number"
+id="studentAge"
+placeholder="Enter age"
+min="5"
+max="100"
+required>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Parent / Guardian Name
+</label>
+
+<input
+type="text"
+id="parentName"
+placeholder="Enter parent or guardian name"
+required>
+
+</div>
+
+
+<div class="form-row">
+
+<div class="form-group">
+
+<label>
+Email Address
+</label>
+
+<input
+type="email"
+id="email"
+placeholder="Enter email address"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Phone Number
+</label>
+
+<input
+type="tel"
+id="phone"
+placeholder="Enter phone number"
+pattern="[0-9]{10}"
+maxlength="10"
+required>
+
+</div>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Select Course
+</label>
+
+<select
+id="course"
+required>
+
+<option value="">
+Choose your course
+</option>
+
+<option>Vocal / Singing</option>
+<option>Guitar</option>
+<option>Piano</option>
+<option>Drums</option>
+<option>Violin</option>
+<option>Keyboard</option>
+<option>Music Production</option>
+<option>Music Theory</option>
+<option>Music Performance</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Preferred Learning Mode
+</label>
+
+<select
+id="mode"
+required>
+
+<option value="">
+Select learning mode
+</option>
+
+<option>Offline Classes</option>
+<option>Online Classes</option>
+<option>Hybrid</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Previous Music Experience
+</label>
+
+<select
+id="experience"
+required>
+
+<option value="">
+Select experience
+</option>
+
+<option>Complete Beginner</option>
+<option>Some Experience</option>
+<option>Intermediate</option>
+<option>Advanced</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Message
+</label>
+
+<textarea
+id="message"
+placeholder="Tell us about your musical interests or goals"></textarea>
+
+</div>
+
+
+<button
+type="submit"
+class="primary-btn">
+
+Submit Admission →
+
+</button>
+
+</form>
+
+</div>
+
+
+<!-- ADMISSION SUCCESS -->
+
+<div
+class="success-message"
+id="admissionSuccess">
+
+<div class="success-icon">
+✓
+</div>
+
+<h3>
+Application Received!
+</h3>
+
+<p>
+
+Thank you for choosing Rakshitha Music Academy.
+Your admission request has been submitted
+successfully. Our team will contact you soon.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     ADMISSION PROCESS
+================================================== -->
+
+<section class="process-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<div class="section-label">
+ADMISSION PROCESS
+</div>
+
+<h2>
+
+Simple Steps.
+
+<span>
+Beautiful Journey.</span>
+
+</h2>
+
+<p>
+
+Joining Rakshitha Music Academy is simple.
+Follow these four steps to begin learning music.
+
+</p>
+
+</div>
+
+
+<div class="process-grid">
+
+
+<div class="process-card">
+
+<div class="process-number">
+01
+</div>
+
+<h3>
+Submit Application
+</h3>
+
+<p>
+
+Fill in the admission form with your
+basic details and select your preferred course.
+
+</p>
+
+</div>
+
+
+<div class="process-card">
+
+<div class="process-number">
+02
+</div>
+
+<h3>
+Counselling
+</h3>
+
+<p>
+
+Our team will contact you and understand
+your interests, goals and learning level.
+
+</p>
+
+</div>
+
+
+<div class="process-card">
+
+<div class="process-number">
+03
+</div>
+
+<h3>
+Choose Your Course
+</h3>
+
+<p>
+
+Select the music course and learning
+schedule that works best for you.
+
+</p>
+
+</div>
+
+
+<div class="process-card">
+
+<div class="process-number">
+04
+</div>
+
+<h3>
+Begin Learning
+</h3>
+
+<p>
+
+Complete the admission process and
+start your musical journey with us.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     CTA
+================================================== -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+
+Your Music.
+
+<span>
+Your Journey.</span>
+
+</h2>
+
+<p>
+
+Take the first step today and discover
+the musician within you.
+
+</p>
+
+<button
+class="primary-btn"
+onclick="scrollToAdmission()">
+
+Apply Now →
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     FOOTER
+================================================== -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+
+<div class="footer-brand">
+
+<h2>
+Rakshitha
+</h2>
+
+<p>
+
+A creative music academy dedicated
+to helping students discover their
+musical voice.
+
+</p>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+ACADEMY
+</h3>
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About
+</a>
+
+<a href="courses.html">
+Courses
+</a>
+
+<a href="events.html">
+Events
+</a>
+
+<a href="gallery.html">
+Gallery
+</a>
+
+</div>
+
+
+<div class="footer-column">
+
+<h3>
+SUPPORT
+</h3>
+
+<a href="instructions.html">
+Instructions
+</a>
+
+<a href="admissions.html">
+Admissions
+</a>
+
+<a href="index.html#contact">
+Contact
+</a>
+
+<a
+href="javascript:void(0)"
+onclick="openModal('loginModal')">
+
+Student Login
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<div class="footer-bottom">
+
+© 2026 Rakshitha Music Academy.
+All Rights Reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- ==================================================
+     STUDENT LOGIN MODAL
+================================================== -->
+
+<div
+class="modal"
+id="loginModal">
+
+<div class="modal-box">
+
+<button
+class="close-modal"
+onclick="closeModal('loginModal')">
+
+×
+
+</button>
+
+<div id="loginContainer">
+
+<div class="form-kicker">
+STUDENT PORTAL
+</div>
+
+<h2>
+Student <span>Login</span>
+</h2>
+
+<p class="form-description">
+
+Login to access your student dashboard,
+courses and academy updates.
+
+</p>
+
+
+<form
+id="loginForm"
+onsubmit="loginStudent(event)">
+
+<div class="form-group">
+
+<label>
+Email / Student ID
+</label>
+
+<input
+type="text"
+id="loginUser"
+placeholder="Enter email or student ID"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Password
+</label>
+
+<input
+type="password"
+id="loginPassword"
+placeholder="Enter password"
+required>
+
+</div>
+
+
+<button
+type="submit"
+class="primary-btn">
+
+Login →
+
+</button>
+
+</form>
+
+
+<!-- REGISTER BUTTON -->
+
+<div class="modal-switch">
+
+Don't have a student account?
+
+<button
+type="button"
+onclick="openRegister()">
+
+Register Now
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- LOGIN SUCCESS -->
+
+<div
+class="modal-success"
+id="loginSuccess">
+
+<div class="success-icon">
+✓
+</div>
+
+<h3>
+Login Successful!
+</h3>
+
+<p>
+Welcome to Rakshitha Music Academy.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     REGISTER MODAL
+================================================== -->
+
+<div
+class="modal"
+id="registerModal">
+
+<div class="modal-box">
+
+<button
+class="close-modal"
+onclick="closeModal('registerModal')">
+
+×
+
+</button>
+
+<div id="registerContainer">
+
+<div class="form-kicker">
+STUDENT REGISTRATION
+</div>
+
+<h2>
+Create Your <span>Account</span>
+</h2>
+
+<p class="form-description">
+
+Register as a student to access your
+Rakshitha Music Academy account.
+
+</p>
+
+
+<form
+id="registerForm"
+onsubmit="registerStudent(event)">
+
+
+<div class="form-group">
+
+<label>
+Full Name
+</label>
+
+<input
+type="text"
+id="registerName"
+placeholder="Enter your full name"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Email Address
+</label>
+
+<input
+type="email"
+id="registerEmail"
+placeholder="Enter email address"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Phone Number
+</label>
+
+<input
+type="tel"
+id="registerPhone"
+placeholder="Enter 10-digit phone number"
+pattern="[0-9]{10}"
+maxlength="10"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Choose Course
+</label>
+
+<select
+id="registerCourse"
+required>
+
+<option value="">
+Select your course
+</option>
+
+<option>Vocal / Singing</option>
+<option>Guitar</option>
+<option>Piano</option>
+<option>Drums</option>
+<option>Violin</option>
+<option>Keyboard</option>
+<option>Music Production</option>
+<option>Music Theory</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Create Password
+</label>
+
+<input
+type="password"
+id="registerPassword"
+placeholder="Create password"
+minlength="6"
+required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Confirm Password
+</label>
+
+<input
+type="password"
+id="confirmPassword"
+placeholder="Confirm password"
+minlength="6"
+required>
+
+</div>
+
+
+<button
+type="submit"
+class="primary-btn">
+
+Create Account →
+
+</button>
+
+</form>
+
+
+<div class="modal-switch">
+
+Already have an account?
+
+<button
+type="button"
+onclick="openLoginFromRegister()">
+
+Login Now
+
+</button>
+
+</div>
+
+</div>
+
+
+<!-- REGISTER SUCCESS -->
+
+<div
+class="modal-success"
+id="registerSuccess">
+
+<div class="success-icon">
+✓
+</div>
+
+<h3>
+Registration Successful!
+</h3>
+
+<p>
+
+Your student account has been created
+successfully. You can now login to your
+student portal.
+
+</p>
+
+<br>
+
+<button
+class="primary-btn"
+onclick="openLoginFromSuccess()">
+
+Go To Login →
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+
+/* ==================================================
+   FLOATING MUSIC
+================================================== */
+
+const musicLayer =
+document.getElementById("musicLayer");
+
+const symbols = [
+    "♪",
+    "♫",
+    "♬",
+    "♩",
+    "𝄞"
+];
+
+function createMusicNote(){
+
+    const note =
+        document.createElement("span");
+
+    note.className =
+        "music-note";
+
+    note.textContent =
+        symbols[
+            Math.floor(
+                Math.random() *
+                symbols.length
+            )
+        ];
+
+    note.style.left =
+        Math.random() * 100 + "vw";
+
+    note.style.fontSize =
+        (16 + Math.random() * 24) + "px";
+
+    const duration =
+        8 + Math.random() * 8;
+
+    note.style.animationDuration =
+        duration + "s";
+
+    note.style.setProperty(
+        "--drift",
+        (Math.random() * 160 - 80) + "px"
+    );
+
+    musicLayer.appendChild(note);
+
+    setTimeout(
+        function(){
+
+            note.remove();
+
+        },
+        duration * 1000
+    );
+}
+
+for(let i = 0; i < 15; i++){
+
+    setTimeout(
+        createMusicNote,
+        i * 400
+    );
+}
+
+setInterval(
+    createMusicNote,
+    900
+);
+
+
+/* ==================================================
+   ADMISSION SUBMIT
+================================================== */
+
+function submitAdmission(event){
+
+    event.preventDefault();
+
+    const form =
+        document.getElementById(
+            "admissionForm"
+        );
+
+    const success =
+        document.getElementById(
+            "admissionSuccess"
+        );
+
+    if(!form || !success){
+
+        return;
+
+    }
+
+    form.style.display =
+        "none";
+
+    const description =
+        document.querySelector(
+            ".admission-form-card .form-description"
+        );
+
+    if(description){
+
+        description.style.display =
+            "none";
+
+    }
+
+    success.style.display =
+        "block";
+
+    success.scrollIntoView({
+        behavior:"smooth",
+        block:"center"
+    });
+
+}
+
+
+/* ==================================================
+   APPLY NOW
+================================================== */
+
+function scrollToAdmission(){
+
+    const section =
+        document.getElementById(
+            "admissionSection"
+        );
+
+    if(section){
+
+        section.scrollIntoView({
+            behavior:"smooth",
+            block:"start"
+        });
+
+    }
+
+}
+
+
+/* ==================================================
+   OPEN MODAL
+================================================== */
+
+function openModal(id){
+
+    const modal =
+        document.getElementById(id);
+
+    if(!modal){
+
+        return;
+
+    }
+
+    modal.classList.add("active");
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+/* ==================================================
+   CLOSE MODAL
+================================================== */
+
+function closeModal(id){
+
+    const modal =
+        document.getElementById(id);
+
+    if(!modal){
+
+        return;
+
+    }
+
+    modal.classList.remove("active");
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/* ==================================================
+   OPEN REGISTER
+================================================== */
+
+function openRegister(){
+
+    closeModal("loginModal");
+
+    resetRegisterForm();
+
+    openModal("registerModal");
+
+}
+
+
+/* ==================================================
+   OPEN LOGIN FROM REGISTER
+================================================== */
+
+function openLoginFromRegister(){
+
+    closeModal("registerModal");
+
+    resetLoginForm();
+
+    openModal("loginModal");
+
+}
+
+
+/* ==================================================
+   LOGIN
+================================================== */
+
+function loginStudent(event){
+
+    event.preventDefault();
+
+    const username =
+        document.getElementById(
+            "loginUser"
+        ).value.trim();
+
+    const password =
+        document.getElementById(
+            "loginPassword"
+        ).value.trim();
+
+    if(
+        username === "" ||
+        password === ""
+    ){
+
+        alert(
+            "Please enter your login details."
+        );
+
+        return;
+
+    }
+
+
+    const loginContainer =
+        document.getElementById(
+            "loginContainer"
+        );
+
+    const loginSuccess =
+        document.getElementById(
+            "loginSuccess"
+        );
+
+
+    loginContainer.style.display =
+        "none";
+
+    loginSuccess.style.display =
+        "block";
+
+}
+
+
+/* ==================================================
+   REGISTER STUDENT
+================================================== */
+
+function registerStudent(event){
+
+    event.preventDefault();
+
+
+    const name =
+        document.getElementById(
+            "registerName"
+        ).value.trim();
+
+    const email =
+        document.getElementById(
+            "registerEmail"
+        ).value.trim();
+
+    const phone =
+        document.getElementById(
+            "registerPhone"
+        ).value.trim();
+
+    const course =
+        document.getElementById(
+            "registerCourse"
+        ).value;
+
+    const password =
+        document.getElementById(
+            "registerPassword"
+        ).value;
+
+    const confirmPassword =
+        document.getElementById(
+            "confirmPassword"
+        ).value;
+
+
+    if(
+        name === "" ||
+        email === "" ||
+        phone === "" ||
+        course === "" ||
+        password === "" ||
+        confirmPassword === ""
+    ){
+
+        alert(
+            "Please fill in all registration details."
+        );
+
+        return;
+
+    }
+
+
+    if(password !== confirmPassword){
+
+        alert(
+            "Passwords do not match. Please try again."
+        );
+
+        return;
+
+    }
+
+
+    if(password.length < 6){
+
+        alert(
+            "Password must contain at least 6 characters."
+        );
+
+        return;
+
+    }
+
+
+    if(!/^[0-9]{10}$/.test(phone)){
+
+        alert(
+            "Please enter a valid 10-digit phone number."
+        );
+
+        return;
+
+    }
+
+
+    const registerContainer =
+        document.getElementById(
+            "registerContainer"
+        );
+
+    const registerSuccess =
+        document.getElementById(
+            "registerSuccess"
+        );
+
+
+    registerContainer.style.display =
+        "none";
+
+    registerSuccess.style.display =
+        "block";
+
+}
+
+
+/* ==================================================
+   GO TO LOGIN AFTER REGISTER
+================================================== */
+
+function openLoginFromSuccess(){
+
+    closeModal("registerModal");
+
+    resetLoginForm();
+
+    openModal("loginModal");
+
+}
+
+
+/* ==================================================
+   RESET LOGIN FORM
+================================================== */
+
+function resetLoginForm(){
+
+    const form =
+        document.getElementById(
+            "loginForm"
+        );
+
+    const container =
+        document.getElementById(
+            "loginContainer"
+        );
+
+    const success =
+        document.getElementById(
+            "loginSuccess"
+        );
+
+    if(form){
+
+        form.reset();
+
+    }
+
+    if(container){
+
+        container.style.display =
+            "block";
+
+    }
+
+    if(success){
+
+        success.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* ==================================================
+   RESET REGISTER FORM
+================================================== */
+
+function resetRegisterForm(){
+
+    const form =
+        document.getElementById(
+            "registerForm"
+        );
+
+    const container =
+        document.getElementById(
+            "registerContainer"
+        );
+
+    const success =
+        document.getElementById(
+            "registerSuccess"
+        );
+
+    if(form){
+
+        form.reset();
+
+    }
+
+    if(container){
+
+        container.style.display =
+            "block";
+
+    }
+
+    if(success){
+
+        success.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* ==================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+================================================== */
+
+document
+.querySelectorAll(".modal")
+.forEach(function(modal){
+
+    modal.addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target === modal
+            ){
+
+                closeModal(modal.id);
+
+            }
+
+        }
+    );
+
+});
+
+
+/* ==================================================
+   ESCAPE KEY
+================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            document
+            .querySelectorAll(
+                ".modal.active"
+            )
+            .forEach(
+                function(modal){
+
+                    closeModal(
+                        modal.id
+                    );
+
+                }
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+
+</html>

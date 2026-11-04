@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>About Us - Shahin Music Academy</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVBAR
+===================================================== -->
+
+<header class="navbar">
+
+    <a
+        href="index.html"
+        class="logo"
+    >
+
+        <div class="logo-symbol">
+            ♫
+        </div>
+
+        <div class="logo-text">
+
+            <span>
+                Shahin
+            </span>
+
+            <small>
+                MUSIC ACADEMY
+            </small>
+
+        </div>
+
+    </a>
+
+
+    <nav>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a
+            href="about.html"
+            class="active"
+        >
+            About Us
+        </a>
+
+        <a href="index.html">
+            Courses
+        </a>
+
+        <a href="index.html">
+            Instruments
+        </a>
+
+        <a href="index.html">
+            Gallery
+        </a>
+
+        <a href="index.html">
+            Testimonials
+        </a>
+
+        <a href="index.html">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <a
+        href="index.html"
+        class="enroll-button"
+    >
+        Enroll Now
+    </a>
+
+</header>
+
+
+
+<!-- =====================================================
+     ABOUT PAGE
+===================================================== -->
+
+<main class="about-page">
+
+
+    <section class="about-hero">
+
+
+        <!-- LEFT SIDE - TEXT -->
+
+        <div class="about-text">
+
+            <span class="section-label">
+                OUR STORY
+            </span>
+
+
+            <h1>
+                About Shahin
+                <span>Music Academy</span>
+            </h1>
+
+
+            <p class="about-intro">
+
+                Music is more than just sound.
+                It is emotion, expression,
+                creativity and a beautiful
+                journey of the soul.
+
+            </p>
+
+
+            <p>
+
+                At Shahin Music Academy,
+                we believe that every person
+                has a unique musical voice.
+
+                Our academy provides a
+                welcoming environment where
+                students can learn, practice
+                and grow their musical talents
+                with confidence.
+
+            </p>
+
+
+            <p>
+
+                From learning instruments to
+                developing vocal skills, our
+                goal is to make music education
+                enjoyable, inspiring and
+                meaningful for every student.
+
+            </p>
+
+
+            <p class="goddess-text">
+
+                Goddess Saraswati is traditionally
+                associated with knowledge,
+                wisdom, music and the arts.
+
+                Her presence with the veena
+                represents the beauty of music
+                and the harmony between knowledge
+                and creativity.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- RIGHT SIDE - IMAGE -->
+
+        <div class="about-image-box">
+
+            <div class="about-image-frame">
+
+                <img
+                    src="saraswati-devi.png"
+                    alt="Goddess Saraswati playing Veena"
+                    class="saraswati-image"
+                >
+
+            </div>
+
+            <p class="image-caption">
+                Goddess Saraswati — Symbol of
+                Music, Knowledge and Creativity
+            </p>
+
+        </div>
+
+
+    </section>
+
+<!-- =========================
+     LORD KRISHNA - MUSIC INSPIRATION
+========================= -->
+<section class="krishna-section">
+    <div class="krishna-container">
+
+        <!-- LEFT: TEXT -->
+        <div class="krishna-content">
+
+            <p class="section-tag">OUR MUSICAL INSPIRATION</p>
+
+            <h2>
+                Music, Devotion & 
+                <span>Lord Krishna</span>
+            </h2>
+
+            <p>
+                At <strong>Shahin Music Academy</strong>, we believe that
+                music is more than just learning notes and instruments.
+                It is a beautiful journey of devotion, expression and
+                connection with the soul.
+            </p>
+
+            <p>
+                Lord Krishna is one of the greatest inspirations in the
+                world of music. His divine flute represents the power of
+                music to spread love, peace and harmony.
+            </p>
+
+            <p>
+                Just as Krishna's flute touched the hearts of everyone
+                who heard it, our goal at Shahin Music Academy is to help
+                every student discover the beauty and joy of music.
+            </p>
+
+            <div class="krishna-quote">
+                <span>♪</span>
+                <p>
+                    "Let music become the language of your heart,
+                    bringing peace, devotion and joy."
+                </p>
+            </div>
+
+            <a href="courses.html" class="krishna-btn">
+                Explore Our Music Courses
+            </a>
+
+        </div>
+
+        <!-- RIGHT: LORD KRISHNA IMAGE -->
+        <div class="krishna-image">
+            <img 
+                src="images/lord kirshna.png"
+                alt="Lord Krishna playing the flute"
+            >
+        </div>
+
+    </div>
+</section>
+
+
+
+    <!-- =================================================
+         ACADEMY STATISTICS
+    ================================================== -->
+
+    <section class="academy-stats">
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎵
+            </div>
+
+            <h2>
+                10+
+            </h2>
+
+            <p>
+                Branches
+            </p>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎤
+            </div>
+
+            <h2>
+                50+
+            </h2>
+
+            <p>
+                Live Concerts
+            </p>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎓
+            </div>
+
+            <h2>
+                1,000+
+            </h2>
+
+            <p>
+                Students Trained
+            </p>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon">
+                🎼
+            </div>
+
+            <h2>
+                15+
+            </h2>
+
+            <p>
+                Years of Musical Journey
+            </p>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         BACK TO HOME
+    ================================================== -->
+
+    <div class="back-home-container">
+
+        <a
+            href="index.html"
+            class="back-home-button"
+        >
+            ← Back to Home
+        </a>
+
+    </div>
+
+
+</main>
+
+
+
+</body>
+
+</html>

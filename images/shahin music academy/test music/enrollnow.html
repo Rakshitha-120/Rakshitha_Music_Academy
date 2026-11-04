@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Enroll Now | Shahin Music Academy
+    </title>
+
+
+    <style>
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =====================================================
+           BODY
+        ===================================================== */
+
+        body {
+
+            min-height: 100vh;
+
+            font-family:
+                "Poppins",
+                Arial,
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff5fc,
+                    #f3e6ff,
+                    #ffeef9
+                );
+
+            color: #4d3157;
+
+            display: flex;
+            flex-direction: column;
+
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .page-header {
+
+            text-align: center;
+
+            padding: 45px 20px 25px;
+
+        }
+
+
+        .music-symbol {
+
+            font-size: 38px;
+
+            color: #c45bbd;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .page-header h1 {
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 42px;
+
+            color: #783d88;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .page-header h1 span {
+
+            color: #c45bbd;
+
+        }
+
+
+        .page-header p {
+
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #765d7d;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =====================================================
+           MAIN FORM CONTAINER
+        ===================================================== */
+
+        .enrollment-wrapper {
+
+            width: 92%;
+
+            max-width: 850px;
+
+            margin:
+                20px auto 50px;
+
+            padding: 40px;
+
+            background:
+                rgba(255,255,255,0.96);
+
+            border-radius: 28px;
+
+            box-shadow:
+                0 15px 45px
+                rgba(126,72,145,0.18);
+
+            border:
+                1px solid
+                rgba(196,91,189,0.15);
+
+        }
+
+
+        /* =====================================================
+           FORM TITLE
+        ===================================================== */
+
+        .form-title {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .form-title h2 {
+
+            font-family:
+                Georgia,
+                serif;
+
+            font-size: 28px;
+
+            color: #70347f;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .form-title p {
+
+            color: #806987;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =====================================================
+           FORM ROW
+        ===================================================== */
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 20px;
+
+        }
+
+
+        /* =====================================================
+           FORM GROUP
+        ===================================================== */
+
+        .form-group {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .form-group label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: #70347f;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+        }
+
+
+        /* =====================================================
+           INPUTS
+        ===================================================== */
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+
+            width: 100%;
+
+            padding: 13px 15px;
+
+            border:
+                1px solid
+                #e3c8ea;
+
+            border-radius: 12px;
+
+            background: #fffafd;
+
+            color: #4d3157;
+
+            outline: none;
+
+            font-family:
+                "Poppins",
+                Arial,
+                sans-serif;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+
+            border-color:
+                #c45bbd;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(196,91,189,0.12);
+
+        }
+
+
+        .form-group textarea {
+
+            min-height: 110px;
+
+            resize: vertical;
+
+        }
+
+
+        /* =====================================================
+           SUBMIT BUTTON
+        ===================================================== */
+
+        .submit-btn {
+
+            width: 100%;
+
+            padding: 15px;
+
+            margin-top: 5px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #9146ce,
+                    #e04db6
+                );
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 25px
+                rgba(220,70,210,0.25);
+
+            transition: 0.3s;
+
+        }
+
+
+        .submit-btn:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 12px 30px
+                rgba(220,70,210,0.35);
+
+        }
+
+
+        /* =====================================================
+           SUCCESS MESSAGE
+        ===================================================== */
+
+        .success-message {
+
+            display: none;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            margin-top: 25px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fbeafa,
+                    #f0e5ff
+                );
+
+        }
+
+
+        .success-message.show {
+
+            display: block;
+
+        }
+
+
+        .success-icon {
+
+            width: 65px;
+
+            height: 65px;
+
+            margin:
+                0 auto 15px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #9146ce,
+                    #e04db6
+                );
+
+            color: white;
+
+            font-size: 34px;
+
+            font-weight: bold;
+
+        }
+
+
+        .success-message h2 {
+
+            font-family:
+                Georgia,
+                serif;
+
+            color: #783d88;
+
+            font-size: 25px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .success-message p {
+
+            color: #6d5a72;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =====================================================
+           BACK TO HOME
+        ===================================================== */
+
+        .back-home {
+
+            text-align: center;
+
+            margin-top: 30px;
+
+            padding-top: 22px;
+
+            border-top:
+                1px solid
+                #ead7ef;
+
+        }
+
+
+        .back-home a {
+
+            display: inline-block;
+
+            padding:
+                12px 28px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d98adf,
+                    #8e5aa9
+                );
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            box-shadow:
+                0 6px 18px
+                rgba(142,90,169,0.22);
+
+            transition: 0.3s;
+
+        }
+
+
+        .back-home a:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 10px 25px
+                rgba(142,90,169,0.30);
+
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            margin-top: auto;
+
+            padding: 25px 20px;
+
+            text-align: center;
+
+            background: #783d88;
+
+            color: white;
+
+        }
+
+
+        footer h3 {
+
+            font-family:
+                Georgia,
+                serif;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        footer p {
+
+            font-size: 12px;
+
+            opacity: 0.9;
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            .page-header h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .enrollment-wrapper {
+
+                width: 94%;
+
+                padding:
+                    28px 20px;
+
+            }
+
+
+            .form-row {
+
+                grid-template-columns: 1fr;
+
+                gap: 0;
+
+            }
+
+
+            .form-title h2 {
+
+                font-size: 24px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header class="page-header">
+
+        <div class="music-symbol">
+            ♪ ♫ ♪
+        </div>
+
+        <h1>
+            Shahin <span>Music Academy</span>
+        </h1>
+
+        <p>
+            Begin your musical journey with us.
+            Fill in the details below to become
+            a part of our musical family.
+        </p>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         ENROLLMENT FORM
+    ===================================================== -->
+
+    <main>
+
+        <div class="enrollment-wrapper">
+
+
+            <div class="form-title">
+
+                <h2>
+                    🎵 Enrollment Form
+                </h2>
+
+                <p>
+                    Please provide your details
+                    to complete your enrollment.
+                </p>
+
+            </div>
+
+
+
+            <form
+                id="enrollmentForm"
+                onsubmit="submitEnrollment(event)"
+            >
+
+
+                <!-- NAME + PHONE -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Full Name *
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone Number *
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            placeholder="Enter your phone number"
+                            pattern="[0-9]{10}"
+                            maxlength="10"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EMAIL + AGE -->
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Email Address *
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Enter your email address"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Age *
+                        </label>
+
+                        <input
+                            type="number"
+                            id="age"
+                            placeholder="Enter your age"
+                            min="3"
+                            max="100"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- COURSE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Select Course *
+                    </label>
+
+                    <select id="course" required>
+
+                        <option value="">
+                            -- Choose your course --
+                        </option>
+
+                        <option value="Vocal Music">
+                            🎤 Vocal Music
+                        </option>
+
+                        <option value="Keyboard">
+                            🎹 Keyboard
+                        </option>
+
+                        <option value="Piano">
+                            🎹 Piano
+                        </option>
+
+                        <option value="Violin">
+                            🎻 Violin
+                        </option>
+
+                        <option value="Flute">
+                            🎶 Flute
+                        </option>
+
+                        <option value="Veena">
+                            🎵 Veena
+                        </option>
+
+                        <option value="Guitar">
+                            🎸 Guitar
+                        </option>
+
+                        <option value="Drums">
+                            🥁 Drums
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- LEARNING MODE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Preferred Learning Mode *
+                    </label>
+
+                    <select
+                        id="mode"
+                        required
+                    >
+
+                        <option value="">
+                            -- Select learning mode --
+                        </option>
+
+                        <option value="Offline">
+                            🏫 Offline Classes
+                        </option>
+
+                        <option value="Online">
+                            💻 Online Classes
+                        </option>
+
+                        <option value="Both">
+                            🎵 Online & Offline
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- MESSAGE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Message / Requirements
+                    </label>
+
+                    <textarea
+                        id="message"
+                        placeholder="Tell us about your musical interests or requirements..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!-- SUBMIT -->
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
+                    🎵 SUBMIT ENROLLMENT
+                </button>
+
+
+            </form>
+
+
+
+            <!-- =================================================
+                 SUCCESS MESSAGE
+            ================================================== -->
+
+            <div
+                id="successMessage"
+                class="success-message"
+            >
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <h2>
+                    Enrollment Submitted Successfully!
+                </h2>
+
+                <p>
+                    Thank you for choosing
+                    <strong>Shahin Music Academy</strong>.
+                </p>
+
+                <p>
+                    We have received your enrollment details.
+                    Our team will contact you soon.
+                </p>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 BACK TO HOME
+            ================================================== -->
+
+            <div class="back-home">
+
+                <a href="index.html">
+                    ← Back to Home
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <h3>
+            ♫ Shahin Music Academy
+        </h3>
+
+        <p>
+            Where Passion Meets Music
+        </p>
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ===================================================== -->
+
+    <script>
+
+        function submitEnrollment(event) {
+
+            event.preventDefault();
+
+
+            /* Get form */
+
+            const form =
+                document.getElementById(
+                    "enrollmentForm"
+                );
+
+
+            /* Hide form */
+
+            form.style.display = "none";
+
+
+            /* Show success message */
+
+            const success =
+                document.getElementById(
+                    "successMessage"
+                );
+
+            success.classList.add("show");
+
+
+            /* Scroll to success message */
+
+            success.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

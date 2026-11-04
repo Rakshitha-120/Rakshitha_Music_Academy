@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Gallery | Swetha Music Academy</title><link rel="stylesheet" href="css/style.css"></head>
+<body>
+<header class="navbar"><a class="brand" href="index.html"><span class="brand-mark">SM</span><span>SWETHA<small>MUSIC ACADEMY</small></span></a><button class="menu-btn" onclick="toggleMenu()">☰</button><nav id="nav"><a href="index.html">Home</a><a href="courses.html">Courses</a><a href="mentors.html">Mentors</a><a class="active" href="gallery.html">Gallery</a><a href="events.html">Events</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></header>
+<main class="page"><section class="page-hero"><span class="eyebrow gold">GALLERY / PLAY THE INSTRUMENTS</span><h1>See it. <i>Hear it.</i></h1><p>Click the actual instrument photo or the button to hear its demo. Every card now uses a matching instrument photograph.</p></section>
+<section class="instrument-grid instrument-grid-full">
+<article class="instrument-card" onclick="playInstrument('piano',this)">
+  <img src="https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?auto=format&fit=crop&w=1400&q=95" alt="Grand piano">
+  <div><span>01 / KEYS</span><h2>Piano</h2><button type="button">▶ Hear Piano</button></div>
+</article>
+<article class="instrument-card" onclick="playInstrument('guitar',this)">
+  <img src="https://images.unsplash.com/photo-1588690224648-20426ab6274a?auto=format&fit=crop&w=1400&q=90" alt="Guitar">
+  <div><span>02 / STRINGS</span><h2>Guitar</h2><button type="button">▶ Hear Guitar</button></div>
+</article>
+<article class="instrument-card" onclick="playInstrument('drums',this)">
+  <img src="https://images.unsplash.com/photo-1504653601220-f1a8ece25e4a?auto=format&fit=crop&w=1400&q=90" alt="Drum kit">
+  <div><span>03 / RHYTHM</span><h2>Drums</h2><button type="button">▶ Hear Drums</button></div>
+</article>
+<article class="instrument-card" onclick="playInstrument('violin',this)">
+  <img src="https://images.unsplash.com/photo-1725547827077-28ba45265794?auto=format&fit=crop&w=1400&q=90" alt="Violin">
+  <div><span>04 / STRINGS</span><h2>Violin</h2><button type="button">▶ Hear Violin</button></div>
+</article>
+<article class="instrument-card" onclick="playInstrument('flute',this)">
+  <img src="https://cdn.pixabay.com/photo/2016/03/30/19/39/flute-1291412_960_720.jpg" alt="Flute">
+  <div><span>05 / WIND</span><h2>Flute</h2><button type="button">▶ Hear Flute</button></div>
+</article>
+<article class="instrument-card" onclick="playInstrument('saxophone',this)">
+  <img src="https://images.unsplash.com/photo-1573871669414-010dbf73ca84?auto=format&fit=crop&w=1400&q=90" alt="Saxophone">
+  <div><span>06 / WIND</span><h2>Saxophone</h2><button type="button">▶ Hear Saxophone</button></div>
+</article>
+<article class="instrument-card" onclick="playInstrument('trumpet',this)">
+  <img src="https://cdn.pixabay.com/photo/2020/05/21/14/56/trumpet-5201175_1280.jpg" alt="Trumpet">
+  <div><span>07 / BRASS</span><h2>Trumpet</h2><button type="button">▶ Hear Trumpet</button></div>
+</article>
+<article class="instrument-card" onclick="playInstrument('tabla',this)">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Tabla%2C%20musical%20instrument..JPG?width=1400" alt="Tabla percussion">
+  <div><span>08 / PERCUSSION</span><h2>Tabla</h2><button type="button">▶ Hear Tabla</button></div>
+</article>
+<article class="instrument-card" onclick="playInstrument('keyboard',this)">
+  <img src="https://images.unsplash.com/photo-1598653222000-6b7b7a552625?auto=format&fit=crop&w=1400&q=90" alt="Electronic keyboard">
+  <div><span>09 / KEYS</span><h2>Keyboard</h2><button type="button">▶ Hear Keyboard</button></div>
+</article>
+<article class="instrument-card" onclick="playInstrument('cello',this)">
+  <img src="https://images.unsplash.com/photo-1775143565332-98194669f0b1?auto=format&fit=crop&w=1400&q=90" alt="Cello">
+  <div><span>10 / STRINGS</span><h2>Cello</h2><button type="button">▶ Hear Cello</button></div>
+</article>
+</section><p class="gallery-credit">Tabla photograph: Wikimedia Commons. The image is used from the Commons file page.</p></main><div id="toast" class="toast"></div><footer><div class="brand"><span class="brand-mark">SM</span><span>SWETHA<small>MUSIC ACADEMY</small></span></div><p>Learn · Practice · Perform</p></footer><script src="js/script.js"></script></body></html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Harika Dance Academy</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">💃 Harika Dance Academy</div>
+
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="classes.html">Classes</a></li>
+            <li><a href="instructors.html">Instructors</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+
+        <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+    </nav>
+</header>
+
+<section class="page-banner">
+    <h1>Contact Us</h1>
+    <p>Start your dance journey with us</p>
+</section>
+
+<section class="contact-section">
+
+    <div class="contact-info">
+
+        <h2>Get In Touch</h2>
+
+        <p>
+            Have questions about our classes?
+            Contact Harika Dance Academy today.
+        </p>
+
+        <div class="contact-box">
+            <span>📍</span>
+            <div>
+                <h3>Address</h3>
+                <p>Harika Dance Academy, Andhra Pradesh, India</p>
+            </div>
+        </div>
+
+        <div class="contact-box">
+            <span>📞</span>
+            <div>
+                <h3>Phone</h3>
+                <p>+91 98765 43210</p>
+            </div>
+        </div>
+
+        <div class="contact-box">
+            <span>📧</span>
+            <div>
+                <h3>Email</h3>
+                <p>harikadanceacademy@gmail.com</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="contact-form">
+
+        <h2>Join Our Academy</h2>
+
+        <form id="registrationForm">
+
+            <input type="text" id="name"
+                   placeholder="Your Name">
+
+            <input type="email" id="email"
+                   placeholder="Email Address">
+
+            <input type="tel" id="phone"
+                   placeholder="Phone Number">
+
+            <select id="dance">
+                <option value="">Select Dance Style</option>
+                <option>Bharatanatyam</option>
+                <option>Kuchipudi</option>
+                <option>Western Dance</option>
+                <option>Contemporary</option>
+            </select>
+
+            <textarea id="message"
+                      placeholder="Your Message"></textarea>
+
+            <button type="submit" class="btn">
+                Submit Registration
+            </button>
+
+        </form>
+
+        <p id="formMessage"></p>
+
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Harika Dance Academy. All Rights Reserved.</p>
+</footer>
+
+<script src="javascript/script.js"></script>
+
+</body>
+</html>

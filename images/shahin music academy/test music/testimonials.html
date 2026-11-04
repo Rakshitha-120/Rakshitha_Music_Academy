@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Testimonials | Shahin Music Academy
+    </title>
+
+
+    <style>
+
+        /* =========================================================
+           GLOBAL
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff6fc,
+                    #f4eaff,
+                    #fff9fd
+                );
+
+            color: #6d5a72;
+
+            line-height: 1.6;
+
+            overflow-x: hidden;
+        }
+
+
+
+        /* =========================================================
+           DECORATIVE MUSIC NOTES
+        ========================================================= */
+
+        .music-note {
+
+            position: fixed;
+
+            color: rgba(196,91,189,0.16);
+
+            font-size: 30px;
+
+            pointer-events: none;
+
+            z-index: -1;
+
+            animation:
+                floatNote 6s ease-in-out infinite;
+        }
+
+
+        .note1 {
+
+            top: 18%;
+
+            left: 5%;
+
+            animation-delay: 0s;
+        }
+
+
+        .note2 {
+
+            top: 42%;
+
+            right: 5%;
+
+            animation-delay: 2s;
+        }
+
+
+        .note3 {
+
+            bottom: 20%;
+
+            left: 8%;
+
+            animation-delay: 4s;
+        }
+
+
+        .note4 {
+
+            bottom: 10%;
+
+            right: 9%;
+
+            animation-delay: 1s;
+        }
+
+
+        @keyframes floatNote {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+
+            }
+
+            50% {
+
+                transform:
+                    translateY(-18px)
+                    rotate(8deg);
+
+            }
+
+        }
+
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        nav {
+
+            width: 100%;
+
+            padding: 18px 7%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            background:
+                rgba(255,255,255,0.97);
+
+            box-shadow:
+                0 4px 20px
+                rgba(120,61,136,0.09);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+            text-decoration: none;
+        }
+
+
+        .logo-symbol {
+
+            font-size: 31px;
+
+            color: #c45bbd;
+
+            margin-right: 8px;
+        }
+
+
+        .logo-text {
+
+            font-family: Georgia, serif;
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            color: #783d88;
+
+            letter-spacing: 1px;
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 23px;
+
+            list-style: none;
+        }
+
+
+        .nav-links a {
+
+            text-decoration: none;
+
+            color: #6d5275;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            transition: 0.3s ease;
+        }
+
+
+        .nav-links a:hover,
+        .nav-links a.active {
+
+            color: #c45bbd;
+        }
+
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .testimonial-hero {
+
+            text-align: center;
+
+            padding:
+                75px 20px
+                55px;
+
+            position: relative;
+        }
+
+
+        .hero-notes {
+
+            color: #d98adf;
+
+            font-size: 28px;
+
+            letter-spacing: 12px;
+
+            margin-bottom: 15px;
+        }
+
+
+        .hero-label {
+
+            color: #b05bbd;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .testimonial-hero h1 {
+
+            font-family: Georgia, serif;
+
+            font-size: 55px;
+
+            color: #783d88;
+
+            margin-bottom: 12px;
+        }
+
+
+        .testimonial-hero h1 span {
+
+            color: #c45bbd;
+        }
+
+
+        .hero-line {
+
+            width: 90px;
+
+            height: 4px;
+
+            margin:
+                18px auto;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d98adf,
+                    #8e5aa9
+                );
+        }
+
+
+        .testimonial-hero p {
+
+            max-width: 760px;
+
+            margin: auto;
+
+            color: #765d7d;
+
+            font-size: 16px;
+
+            line-height: 1.9;
+        }
+
+
+
+        /* =========================================================
+           SECTION
+        ========================================================= */
+
+        .section {
+
+            width: 90%;
+
+            max-width: 1150px;
+
+            margin:
+                0 auto 75px;
+        }
+
+
+        .section-heading {
+
+            text-align: center;
+
+            margin-bottom: 45px;
+        }
+
+
+        .section-heading .label {
+
+            color: #b05bbd;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+        }
+
+
+        .section-heading h2 {
+
+            font-family: Georgia, serif;
+
+            color: #783d88;
+
+            font-size: 36px;
+
+            margin-top: 8px;
+        }
+
+
+        .section-heading p {
+
+            max-width: 700px;
+
+            margin:
+                12px auto 0;
+
+            color: #765d7d;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+
+        /* =========================================================
+           TESTIMONIAL GRID
+        ========================================================= */
+
+        .testimonial-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 35px;
+        }
+
+
+
+        /* =========================================================
+           TESTIMONIAL CARD
+        ========================================================= */
+
+        .testimonial-card {
+
+            position: relative;
+
+            background:
+                rgba(255,255,255,0.96);
+
+            border-radius: 30px;
+
+            padding:
+                35px 35px 32px;
+
+            text-align: center;
+
+            box-shadow:
+                0 12px 35px
+                rgba(142,90,169,0.10);
+
+            border:
+                1px solid
+                rgba(196,91,189,0.08);
+
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
+
+            overflow: hidden;
+        }
+
+
+        .testimonial-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 5px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #d98adf,
+                    #8e5aa9,
+                    #c45bbd
+                );
+        }
+
+
+        .testimonial-card:hover {
+
+            transform:
+                translateY(-10px);
+
+            box-shadow:
+                0 22px 45px
+                rgba(142,90,169,0.17);
+        }
+
+
+
+        /* =========================================================
+           QUOTE SYMBOL
+        ========================================================= */
+
+        .quote-symbol {
+
+            position: absolute;
+
+            top: 15px;
+
+            right: 25px;
+
+            font-family: Georgia, serif;
+
+            font-size: 65px;
+
+            color:
+                rgba(196,91,189,0.10);
+
+            line-height: 1;
+        }
+
+
+
+        /* =========================================================
+           PHOTO
+        ========================================================= */
+
+        .student-photo-wrapper {
+
+            position: relative;
+
+            width: 190px;
+
+            height: 190px;
+
+            margin:
+                0 auto 20px;
+        }
+
+
+        .student-photo-wrapper::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: -7px;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d98adf,
+                    #8e5aa9,
+                    #f3b7e7
+                );
+
+            z-index: 0;
+
+            animation:
+                rotateRing 8s linear infinite;
+        }
+
+
+        .student-photo-wrapper::after {
+
+            content: "♫";
+
+            position: absolute;
+
+            bottom: -4px;
+
+            right: 4px;
+
+            width: 43px;
+
+            height: 43px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d98adf,
+                    #8e5aa9
+                );
+
+            color: white;
+
+            font-size: 20px;
+
+            box-shadow:
+                0 5px 15px
+                rgba(142,90,169,0.25);
+
+            z-index: 3;
+        }
+
+
+        @keyframes rotateRing {
+
+            from {
+
+                transform:
+                    rotate(0deg);
+            }
+
+            to {
+
+                transform:
+                    rotate(360deg);
+            }
+        }
+
+
+        .student-photo {
+
+            width: 190px;
+
+            height: 190px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            position: relative;
+
+            z-index: 1;
+
+            border:
+                5px solid
+                white;
+
+            display: block;
+        }
+
+
+
+        /* =========================================================
+           STUDENT BADGE
+        ========================================================= */
+
+        .student-badge {
+
+            display: inline-block;
+
+            padding:
+                5px 13px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0fa,
+                    #f0e7ff
+                );
+
+            color: #a34aa8;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+            margin-bottom: 10px;
+        }
+
+
+
+        /* =========================================================
+           STUDENT NAME
+        ========================================================= */
+
+        .testimonial-card h3 {
+
+            font-family: Georgia, serif;
+
+            color: #783d88;
+
+            font-size: 25px;
+
+            margin-bottom: 3px;
+        }
+
+
+        .student-role {
+
+            color: #b05bbd;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+            margin-bottom: 13px;
+        }
+
+
+
+        /* =========================================================
+           STARS
+        ========================================================= */
+
+        .stars {
+
+            color: #e0a21a;
+
+            font-size: 20px;
+
+            letter-spacing: 3px;
+
+            margin:
+                8px 0 18px;
+
+            text-shadow:
+                0 2px 6px
+                rgba(224,162,26,0.15);
+        }
+
+
+        .rating-text {
+
+            color: #9a7d9e;
+
+            font-size: 11px;
+
+            margin-top: -12px;
+
+            margin-bottom: 15px;
+        }
+
+
+
+        /* =========================================================
+           REVIEW
+        ========================================================= */
+
+        .review {
+
+            position: relative;
+
+            padding:
+                0 12px;
+
+            color: #6d5a72;
+
+            font-size: 14px;
+
+            line-height: 1.9;
+        }
+
+
+        .review::before {
+
+            content: "“";
+
+            font-family: Georgia, serif;
+
+            color: #d98adf;
+
+            font-size: 32px;
+
+            vertical-align: -12px;
+
+            margin-right: 3px;
+        }
+
+
+        .review::after {
+
+            content: "”";
+
+            font-family: Georgia, serif;
+
+            color: #d98adf;
+
+            font-size: 32px;
+
+            vertical-align: -12px;
+
+            margin-left: 3px;
+        }
+
+
+
+        /* =========================================================
+           CARD FOOTER
+        ========================================================= */
+
+        .card-footer {
+
+            margin-top: 22px;
+
+            padding-top: 16px;
+
+            border-top:
+                1px solid
+                #f0e2f2;
+
+            color: #9a7d9e;
+
+            font-size: 11px;
+        }
+
+
+        .card-footer span {
+
+            color: #c45bbd;
+
+            font-weight: 700;
+        }
+
+
+
+        /* =========================================================
+           MUSICAL JOURNEY SECTION
+        ========================================================= */
+
+        .journey-box {
+
+            position: relative;
+
+            padding:
+                50px 35px;
+
+            text-align: center;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff2fa,
+                    #f0e5ff,
+                    #fff8fc
+                );
+
+            box-shadow:
+                0 12px 35px
+                rgba(142,90,169,0.09);
+
+            overflow: hidden;
+        }
+
+
+        .journey-box::before {
+
+            content: "♫";
+
+            position: absolute;
+
+            top: -25px;
+
+            left: 25px;
+
+            font-size: 100px;
+
+            color:
+                rgba(196,91,189,0.08);
+
+            transform:
+                rotate(-15deg);
+        }
+
+
+        .journey-box::after {
+
+            content: "♪";
+
+            position: absolute;
+
+            bottom: -35px;
+
+            right: 30px;
+
+            font-size: 120px;
+
+            color:
+                rgba(142,90,169,0.08);
+
+            transform:
+                rotate(15deg);
+        }
+
+
+        .journey-icon {
+
+            width: 70px;
+
+            height: 70px;
+
+            margin:
+                0 auto 15px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: white;
+
+            font-size: 30px;
+
+            box-shadow:
+                0 8px 20px
+                rgba(142,90,169,0.10);
+        }
+
+
+        .journey-box h2 {
+
+            position: relative;
+
+            font-family: Georgia, serif;
+
+            color: #783d88;
+
+            font-size: 31px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .journey-box p {
+
+            position: relative;
+
+            max-width: 700px;
+
+            margin:
+                0 auto 24px;
+
+            color: #765d7d;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+
+        /* =========================================================
+           ENROLL BUTTON
+        ========================================================= */
+
+        .enroll-btn {
+
+            position: relative;
+
+            display: inline-block;
+
+            padding:
+                14px 35px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #d98adf,
+                    #8e5aa9
+                );
+
+            box-shadow:
+                0 8px 20px
+                rgba(142,90,169,0.22);
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .enroll-btn:hover {
+
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 12px 28px
+                rgba(142,90,169,0.30);
+        }
+
+
+
+        /* =========================================================
+           BACK HOME
+        ========================================================= */
+
+        .back-home {
+
+            text-align: center;
+
+            margin:
+                0 auto 70px;
+        }
+
+
+        .back-home-btn {
+
+            display: inline-block;
+
+            padding:
+                13px 32px;
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #c45bbd,
+                    #8e5aa9
+                );
+
+            box-shadow:
+                0 8px 20px
+                rgba(142,90,169,0.20);
+
+            transition:
+                0.3s ease;
+        }
+
+
+        .back-home-btn:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                0 12px 28px
+                rgba(142,90,169,0.30);
+        }
+
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+
+            text-align: center;
+
+            padding:
+                32px 20px;
+
+            background:
+                #783d88;
+
+            color: white;
+        }
+
+
+        footer h3 {
+
+            font-family: Georgia, serif;
+
+            margin-bottom: 7px;
+
+            font-size: 21px;
+        }
+
+
+        footer p {
+
+            font-size: 13px;
+
+            opacity: 0.9;
+        }
+
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+
+                gap: 13px;
+            }
+
+
+            .testimonial-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+                gap: 22px;
+            }
+
+
+            .testimonial-card {
+
+                padding:
+                    30px 22px;
+            }
+
+        }
+
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+
+                flex-direction: column;
+
+                gap: 12px;
+
+                padding: 15px;
+            }
+
+
+            .nav-links {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 11px;
+            }
+
+
+            .testimonial-hero {
+
+                padding:
+                    55px 18px
+                    40px;
+            }
+
+
+            .testimonial-hero h1 {
+
+                font-size: 39px;
+            }
+
+
+            .testimonial-hero p {
+
+                font-size: 14px;
+            }
+
+
+            .section {
+
+                width: 92%;
+            }
+
+
+            .section-heading h2 {
+
+                font-size: 29px;
+            }
+
+
+            .testimonial-grid {
+
+                grid-template-columns:
+                    1fr;
+
+                gap: 25px;
+            }
+
+
+            .student-photo-wrapper,
+            .student-photo {
+
+                width: 175px;
+
+                height: 175px;
+            }
+
+
+            .journey-box {
+
+                padding:
+                    38px 20px;
+            }
+
+
+            .journey-box h2 {
+
+                font-size: 27px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     DECORATIVE NOTES
+========================================================= -->
+
+<div class="music-note note1">
+    ♪
+</div>
+
+<div class="music-note note2">
+    ♫
+</div>
+
+<div class="music-note note3">
+    ♬
+</div>
+
+<div class="music-note note4">
+    ♪
+</div>
+
+
+
+<!-- =========================================================
+     NAVIGATION
+========================================================= -->
+
+<nav>
+
+    <a
+        href="index.html"
+        class="logo"
+    >
+
+        <span class="logo-symbol">
+            ♫
+        </span>
+
+        <span class="logo-text">
+            SHAHIN MUSIC ACADEMY
+        </span>
+
+    </a>
+
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="about.html">
+                About Us
+            </a>
+        </li>
+
+        <li>
+            <a href="courses.html">
+                Courses
+            </a>
+        </li>
+
+        <li>
+            <a href="instruments.html">
+                Instruments
+            </a>
+        </li>
+
+        <li>
+            <a href="performances.html">
+                Performances
+            </a>
+        </li>
+
+        <li>
+            <a
+                href="testimonials.html"
+                class="active"
+            >
+                Testimonials
+            </a>
+        </li>
+
+        <li>
+            <a href="contact.html">
+                Contact
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="testimonial-hero">
+
+    <div class="hero-notes">
+        ♪ ♫ ♪
+    </div>
+
+
+    <div class="hero-label">
+        STUDENT VOICES • MUSICAL JOURNEYS
+    </div>
+
+
+    <h1>
+        Voices of Our
+        <span>Musicians</span>
+    </h1>
+
+
+    <div class="hero-line"></div>
+
+
+    <p>
+
+        Every student has a unique musical journey.
+
+        From the first note to the first performance,
+        we are proud to be a part of their story.
+
+        Here is what our students have to say
+        about their experience at
+        Shahin Music Academy.
+
+    </p>
+
+</section>
+
+
+
+<!-- =========================================================
+     TESTIMONIALS
+========================================================= -->
+
+<section class="section">
+
+
+    <div class="section-heading">
+
+        <div class="label">
+            WHAT OUR STUDENTS SAY
+        </div>
+
+        <h2>
+            Music That Inspires, Experiences That Stay
+        </h2>
+
+        <p>
+
+            Real experiences from students who are
+            learning, growing and discovering their
+            passion for music.
+
+        </p>
+
+    </div>
+
+
+
+    <div class="testimonial-grid">
+
+
+
+        <!-- =====================================================
+             TESTIMONIAL 1
+        ====================================================== -->
+
+        <div class="testimonial-card">
+
+            <div class="quote-symbol">
+                “
+            </div>
+
+
+            <div class="student-photo-wrapper">
+
+                <img
+                    src="testimonials 1.png"
+                    alt="Student vocalist"
+                    class="student-photo"
+                >
+
+            </div>
+
+
+            <div class="student-badge">
+                🎤 VOCAL STUDENT
+            </div>
+
+
+            <h3>
+                Ananya
+            </h3>
+
+
+            <div class="student-role">
+                Singing & Vocal Training
+            </div>
+
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+
+            <div class="rating-text">
+                5.0 / 5.0 • Highly Recommended
+            </div>
+
+
+            <p class="review">
+
+                Shahin Music Academy has helped me
+                become much more confident with my
+                voice. The learning environment is
+                friendly, encouraging and enjoyable.
+                I love every singing session!
+
+            </p>
+
+
+            <div class="card-footer">
+
+                <span>♪</span>
+                Learning with passion
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             TESTIMONIAL 2
+        ====================================================== -->
+
+        <div class="testimonial-card">
+
+            <div class="quote-symbol">
+                “
+            </div>
+
+
+            <div class="student-photo-wrapper">
+
+                <img
+                    src="testimonials 2.png"
+                    alt="Student flute musician"
+                    class="student-photo"
+                >
+
+            </div>
+
+
+            <div class="student-badge">
+                🎶 INSTRUMENT STUDENT
+            </div>
+
+
+            <h3>
+                Arjun
+            </h3>
+
+
+            <div class="student-role">
+                Flute & Instrumental Music
+            </div>
+
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+
+            <div class="rating-text">
+                5.0 / 5.0 • Highly Recommended
+            </div>
+
+
+            <p class="review">
+
+                I always wanted to learn an
+                instrument, and this academy gave me
+                the perfect place to begin. The
+                guidance is simple to understand and
+                the practice sessions are really useful.
+
+            </p>
+
+
+            <div class="card-footer">
+
+                <span>♫</span>
+                Discovering new melodies
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             TESTIMONIAL 3
+        ====================================================== -->
+
+        <div class="testimonial-card">
+
+            <div class="quote-symbol">
+                “
+            </div>
+
+
+            <div class="student-photo-wrapper">
+
+                <img
+                    src="testimonials 3.png"
+                    alt="Student tabla musician"
+                    class="student-photo"
+                >
+
+            </div>
+
+
+            <div class="student-badge">
+                🥁 RHYTHM STUDENT
+            </div>
+
+
+            <h3>
+                Rohan
+            </h3>
+
+
+            <div class="student-role">
+                Tabla & Rhythm Training
+            </div>
+
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+
+            <div class="rating-text">
+                5.0 / 5.0 • Highly Recommended
+            </div>
+
+
+            <p class="review">
+
+                Learning rhythm here has been an
+                amazing experience. I have improved
+                my timing and confidence, and
+                performing in front of others has
+                become something I genuinely enjoy.
+
+            </p>
+
+
+            <div class="card-footer">
+
+                <span>♪</span>
+                Finding the rhythm within
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =====================================================
+             TESTIMONIAL 4
+        ====================================================== -->
+
+        <div class="testimonial-card">
+
+            <div class="quote-symbol">
+                “
+            </div>
+
+
+            <div class="student-photo-wrapper">
+
+                <img
+                    src="testimonials.png"
+                    alt="Student guitarist"
+                    class="student-photo"
+                >
+
+            </div>
+
+
+            <div class="student-badge">
+                🎸 INSTRUMENT STUDENT
+            </div>
+
+
+            <h3>
+                Karthik
+            </h3>
+
+
+            <div class="student-role">
+                Guitar & Performance Training
+            </div>
+
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+
+            <div class="rating-text">
+                5.0 / 5.0 • Highly Recommended
+            </div>
+
+
+            <p class="review">
+
+                What I enjoy most is that learning
+                music here is not only about lessons.
+                It is also about creativity,
+                performance and having fun while
+                becoming a better musician.
+
+            </p>
+
+
+            <div class="card-footer">
+
+                <span>♫</span>
+                From practice to performance
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MUSICAL JOURNEY
+========================================================= -->
+
+<section class="section">
+
+
+    <div class="journey-box">
+
+
+        <div class="journey-icon">
+            🎵
+        </div>
+
+
+        <h2>
+            Your Musical Story Could Be Next
+        </h2>
+
+
+        <p>
+
+            Every great musician begins with a
+            single note.
+
+            Start your journey with Shahin Music
+            Academy and turn your passion for music
+            into something beautiful.
+
+        </p>
+
+
+        <a
+            href="enroll.html"
+            class="enroll-btn"
+        >
+
+            🎓 Start Your Musical Journey
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     BACK HOME
+========================================================= -->
+
+<div class="back-home">
+
+    <a
+        href="index.html"
+        class="back-home-btn"
+    >
+
+        ← Back to Home
+
+    </a>
+
+</div>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <h3>
+        ♫ Shahin Music Academy
+    </h3>
+
+
+    <p>
+        Where Passion Becomes Music & Dreams Become Melody
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>

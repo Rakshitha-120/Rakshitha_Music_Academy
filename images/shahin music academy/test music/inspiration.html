@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Our Artists | Shahin Music Academy</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           BODY
+        ========================= */
+
+        body {
+            font-family: "Poppins", Arial, sans-serif;
+            background: linear-gradient(135deg, #fff7fc, #f5eaff);
+            color: #3d214d;
+        }
+
+
+        /* =========================
+           PAGE HEADER
+        ========================= */
+
+        header {
+            text-align: center;
+            padding: 55px 20px 35px;
+        }
+
+        header h1 {
+            font-family: Georgia, serif;
+            font-size: 48px;
+            color: #7b3f8c;
+            margin-bottom: 12px;
+        }
+
+        header h1 span {
+            color: #b05bbd;
+        }
+
+        header p {
+            max-width: 750px;
+            margin: auto;
+            font-size: 17px;
+            line-height: 1.8;
+            color: #765d7d;
+        }
+
+        .music-line {
+            width: 100px;
+            height: 3px;
+
+            background: linear-gradient(
+                to right,
+                #d98adf,
+                #8e5aa9
+            );
+
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+
+        /* =========================
+           ARTISTS CONTAINER
+        ========================= */
+
+        .artists-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto 70px;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+        }
+
+
+        /* =========================
+           ARTIST CARD
+        ========================= */
+
+        .artist-card {
+            background: rgba(255, 255, 255, 0.95);
+
+            border-radius: 25px;
+            overflow: hidden;
+
+            box-shadow:
+                0 12px 35px rgba(119, 70, 135, 0.15);
+
+            transition: 0.4s ease;
+        }
+
+        .artist-card:hover {
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 20px 45px rgba(119, 70, 135, 0.25);
+        }
+
+
+        /* =========================
+           ARTIST IMAGE
+           FULL IMAGE - NO CROPPING
+        ========================= */
+
+        .artist-image {
+            width: 100%;
+            height: auto;
+
+            max-height: 520px;
+
+            object-fit: contain;
+            object-position: center;
+
+            display: block;
+
+            background: #fff8fc;
+        }
+
+
+        /* =========================
+           ARTIST CONTENT
+        ========================= */
+
+        .artist-content {
+            padding: 28px;
+            text-align: center;
+        }
+
+        .artist-content h2 {
+            font-family: Georgia, serif;
+            font-size: 28px;
+
+            color: #783d88;
+
+            margin-bottom: 8px;
+        }
+
+        .artist-role {
+            color: #b05bbd;
+
+            font-weight: bold;
+            font-size: 15px;
+
+            margin-bottom: 18px;
+        }
+
+        .artist-content p {
+            color: #6d5a72;
+
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           ACADEMY NOTE
+        ========================= */
+
+        .academy-note {
+            margin-top: 20px;
+
+            padding: 14px 18px;
+
+            background: #fff1fb;
+
+            border-left: 4px solid #c878c9;
+
+            border-radius: 10px;
+
+            text-align: left;
+
+            color: #684d6d;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+        .academy-note strong {
+            color: #843e91;
+        }
+
+
+        /* =========================
+           SINGERS SECTION
+        ========================= */
+
+        .singers-heading {
+            grid-column: 1 / -1;
+
+            text-align: center;
+
+            padding: 35px 25px 10px;
+        }
+
+        .singers-heading h2 {
+            font-family: Georgia, serif;
+
+            font-size: 34px;
+
+            color: #7b3f8c;
+
+            margin-bottom: 15px;
+        }
+
+        .singers-heading h2::after {
+            content: "";
+
+            display: block;
+
+            width: 80px;
+            height: 3px;
+
+            margin: 15px auto;
+
+            background: linear-gradient(
+                to right,
+                #d98adf,
+                #8e5aa9
+            );
+
+            border-radius: 10px;
+        }
+
+        .singers-heading p {
+            max-width: 820px;
+
+            margin: auto;
+
+            color: #765d7d;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+        }
+
+        .singers-heading strong {
+            color: #8e4c9c;
+        }
+
+
+        /* =========================
+           SINGERS GRID
+        ========================= */
+
+        .singers-grid {
+            grid-column: 1 / -1;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 35px;
+        }
+
+        .singer-card {
+            width: 100%;
+        }
+
+        .singer-card .artist-image {
+            width: 100%;
+            height: auto;
+
+            max-height: 500px;
+
+            object-fit: contain;
+            object-position: center;
+
+            background: #fff8fc;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 30px 20px;
+
+            background: #7b3f8c;
+
+            color: white;
+        }
+
+        footer h3 {
+            font-family: Georgia, serif;
+
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            font-size: 14px;
+
+            opacity: 0.9;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+            header h1 {
+                font-size: 36px;
+            }
+
+            .artists-container {
+                grid-template-columns: 1fr;
+
+                width: 92%;
+            }
+
+            .artist-image {
+                width: 100%;
+                height: auto;
+
+                max-height: none;
+
+                object-fit: contain;
+            }
+
+            .singers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .singers-heading h2 {
+                font-size: 28px;
+            }
+
+        }
+
+
+/* =========================================
+   SPB FEATURED ARTIST
+========================================= */
+
+.spb-feature {
+    grid-column: 1 / -1;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 28px;
+    overflow: hidden;
+
+    box-shadow:
+        0 15px 40px rgba(119, 70, 135, 0.16);
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   SPB PHOTO - LEFT
+========================================= */
+
+.spb-photo {
+    width: 100%;
+    min-height: 500px;
+
+    background: #fff8fc;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+}
+
+.spb-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+}
+
+
+/* =========================================
+   SPB CONTENT - RIGHT
+========================================= */
+
+.spb-content {
+    padding: 55px 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffffff,
+            #fff5fc
+        );
+}
+
+.music-symbol {
+    font-size: 42px;
+    color: #b05bbd;
+    margin-bottom: 12px;
+}
+
+.spb-content h2 {
+    font-family: Georgia, serif;
+
+    font-size: 34px;
+
+    color: #783d88;
+
+    margin-bottom: 12px;
+}
+
+.spb-content .artist-role {
+    color: #b05bbd;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    margin-bottom: 25px;
+}
+
+.spb-content p {
+    color: #6d5a72;
+
+    font-size: 15px;
+
+    line-height: 1.9;
+
+    margin-bottom: 16px;
+}
+
+
+/* =========================================
+   SPB NOTE
+========================================= */
+
+.spb-content .academy-note {
+    margin-top: 18px;
+
+    padding: 18px 20px;
+
+    background: #fff1fb;
+
+    border-left: 4px solid #c878c9;
+
+    border-radius: 12px;
+
+    text-align: left;
+
+    color: #684d6d;
+
+    line-height: 1.7;
+}
+
+.spb-content .academy-note strong {
+    color: #843e91;
+
+    font-size: 17px;
+}
+
+
+/* =========================================
+   SPB MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .spb-feature {
+        grid-template-columns: 1fr;
+
+        width: 100%;
+    }
+
+    .spb-photo {
+        min-height: auto;
+
+        height: auto;
+    }
+
+    .spb-photo img {
+        width: 100%;
+        height: auto;
+
+        object-fit: contain;
+    }
+
+    .spb-content {
+        padding: 35px 25px;
+    }
+
+    .spb-content h2 {
+        font-size: 27px;
+    }
+
+}
+
+
+
+
+    /* YOUR EXISTING CSS */
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* ... your other CSS ... */
+
+
+    /* =========================
+       BACK TO HOME BUTTON
+    ========================= */
+
+    .back-home-container {
+        text-align: center;
+        margin: 10px auto 50px;
+    }
+
+    .back-home-btn {
+        display: inline-block;
+        padding: 14px 32px;
+        background: linear-gradient(135deg, #d98adf, #8e5aa9);
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 30px;
+        box-shadow: 0 8px 20px rgba(142, 90, 169, 0.25);
+        transition: all 0.3s ease;
+    }
+
+    .back-home-btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 25px rgba(142, 90, 169, 0.35);
+    }
+
+</style>
+    
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         PAGE INTRO
+    ========================= -->
+
+    <header>
+
+        <h1>Our <span>Artists</span></h1>
+
+        <div class="music-line"></div>
+
+        <p>
+            At Shahin Music Academy, we believe that great music
+            begins with inspiration. We celebrate the artists,
+            musicians and teachers whose dedication, creativity
+            and love for music inspire the next generation of learners.
+        </p>
+
+    </header>
+
+
+
+    <!-- =========================
+         ARTISTS
+    ========================= -->
+
+    <section class="artists-container">
+
+
+        <!-- =========================
+             VEENA SRIVANI
+        ========================= -->
+
+        <div class="artist-card">
+
+            <img
+                src="srivani mam.png"
+                alt="Veena artist"
+                class="artist-image"
+            >
+
+            <div class="artist-content">
+
+                <h2>Veena Srivani</h2>
+
+                <div class="artist-role">
+                    🎵 Veena Artist • Music Educator
+                </div>
+
+                <p>
+                    A dedicated Veena artist who represents the beauty
+                    of Indian classical instrumental music. Her work
+                    demonstrates the elegance, discipline and expressive
+                    power of the Veena.
+                </p>
+
+                <div class="academy-note">
+
+                    <strong>
+                        Inspiration for Shahin Music Academy:
+                    </strong>
+
+                    <br>
+
+                    Her dedication to the Veena inspires our students
+                    to appreciate traditional instruments and develop
+                    patience, practice and musical expression.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             A. R. RAHMAN
+        ========================= -->
+
+        <div class="artist-card">
+
+            <img
+                src="ar rahman.png"
+                alt="A. R. Rahman"
+                class="artist-image"
+            >
+
+            <div class="artist-content">
+
+                <h2>A. R. Rahman</h2>
+
+                <div class="artist-role">
+                    🎹 Composer • Music Producer • Music Director
+                </div>
+
+                <p>
+                    A globally recognized Indian composer and music
+                    producer known for combining Indian musical
+                    traditions with contemporary sounds and innovative
+                    music production.
+                </p>
+
+                <div class="academy-note">
+
+                    <strong>
+                        Inspiration for Shahin Music Academy:
+                    </strong>
+
+                    <br>
+
+                    His creativity encourages our students to explore
+                    composition, technology, experimentation and the
+                    many possibilities of modern music.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             HARIPRASAD CHAURASIA
+        ========================= -->
+
+        <div class="artist-card">
+
+            <img
+                src="Pandit Hariprasad Chaurasia.png"
+                alt="Pandit Hariprasad Chaurasia"
+                class="artist-image"
+            >
+
+            <div class="artist-content">
+
+                <h2>Pandit Hariprasad Chaurasia</h2>
+
+                <div class="artist-role">
+                    🪈 Bansuri Maestro • Indian Classical Musician
+                </div>
+
+                <p>
+                    One of India's celebrated classical flautists,
+                    renowned for bringing the expressive beauty of
+                    the Bansuri to audiences around the world and
+                    for nurturing students through traditional
+                    musical learning.
+                </p>
+
+                <div class="academy-note">
+
+                    <strong>
+                        Inspiration for Shahin Music Academy:
+                    </strong>
+
+                    <br>
+
+                    His journey reminds our students of the importance
+                    of guru-shishya tradition, continuous practice,
+                    discipline and devotion to music.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             FOURTH ARTIST
+        ========================= -->
+
+        <div class="artist-card">
+
+            <img
+                src="madam.png"
+                alt="Indian classical music artist"
+                class="artist-image"
+            >
+
+            <div class="artist-content">
+
+                <h2>Classical Music Artist</h2>
+
+                <div class="artist-role">
+                    🎻 Indian Classical Music
+                </div>
+
+                <p>
+                    A representation of India's rich classical music
+                    tradition, where instrumental technique, rhythm,
+                    melody and cultural heritage come together.
+                </p>
+
+                <div class="academy-note">
+
+                    <strong>
+                        Inspiration for Shahin Music Academy:
+                    </strong>
+
+                    <br>
+
+                    This artist represents the traditional spirit
+                    that we want our students to discover through
+                    learning, practice and performance.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             SINGERS INTRODUCTION
+        ========================= -->
+
+        <div class="singers-heading">
+
+            <h2>
+                🎤 Singers Who Inspire Us
+            </h2>
+
+            <p>
+
+                At <strong>Shahin Music Academy</strong>, we believe
+                that every great singer begins with passion, practice
+                and a love for music. The journeys of these celebrated
+                singers inspire our students to develop their own voice,
+                confidence and musical expression.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================
+             THREE SINGERS
+        ========================= -->
+
+        <div class="singers-grid">
+
+
+            <!-- =========================
+                 ARIJIT SINGH
+            ========================= -->
+
+            <div class="artist-card singer-card">
+
+                <img
+                    src="arjit singh.png"
+                    alt="Arijit Singh"
+                    class="artist-image"
+                >
+
+                <div class="artist-content">
+
+                    <h2>Arijit Singh</h2>
+
+                    <div class="artist-role">
+                        🎤 Playback Singer • Vocalist
+                    </div>
+
+                    <p>
+                        Arijit Singh is celebrated for his soulful voice,
+                        emotional expression and versatility. His musical
+                        journey inspires aspiring singers to connect deeply
+                        with every song they perform.
+                    </p>
+
+                    <div class="academy-note">
+
+                        <strong>
+                            Inspiration for Shahin Music Academy:
+                        </strong>
+
+                        <br>
+
+                        His dedication to music inspires our students
+                        to practice regularly, sing with confidence
+                        and express genuine emotion through their voice.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 K. S. CHITHRA
+            ========================= -->
+
+            <div class="artist-card singer-card">
+
+                <img
+                    src="chitra.png"
+                    alt="K. S. Chithra"
+                    class="artist-image"
+                >
+
+                <div class="artist-content">
+
+                    <h2>K. S. Chithra</h2>
+
+                    <div class="artist-role">
+                        🎤 Playback Singer • Classical Vocalist
+                    </div>
+
+                    <p>
+                        K. S. Chithra is admired for her melodious voice,
+                        expressive singing and versatility across Indian
+                        languages and musical styles.
+                    </p>
+
+                    <div class="academy-note">
+
+                        <strong>
+                            Inspiration for Shahin Music Academy:
+                        </strong>
+
+                        <br>
+
+                        Her musical journey encourages our students
+                        to build strong vocal foundations, respect
+                        classical music and develop their own unique style.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =========================
+                 SHREYA GHOSHAL
+            ========================= -->
+
+            <div class="artist-card singer-card">
+
+                <img
+                    src="shreya ghoshal.png"
+                    alt="Shreya Ghoshal"
+                    class="artist-image"
+                >
+
+                <div class="artist-content">
+
+                    <h2>Shreya Ghoshal</h2>
+
+                    <div class="artist-role">
+                        🎤 Playback Singer • Vocalist
+                    </div>
+
+                    <p>
+                        Shreya Ghoshal is renowned for her melodious voice,
+                        vocal versatility and expressive performances.
+                        Her journey is an inspiration to students who dream
+                        of developing their singing abilities.
+                    </p>
+
+                    <div class="academy-note">
+
+                        <strong>
+                            Inspiration for Shahin Music Academy:
+                        </strong>
+
+                        <br>
+
+                        Her achievements inspire our students to improve
+                        vocal control, musical expression, confidence and
+                        their lifelong love for singing.
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+<div class="singer-card spb-feature">
+
+    <!-- LEFT SIDE : PHOTO -->
+    <div class="spb-photo">
+        <img
+            src="bala sir.png"
+            alt="S. P. Balasubrahmanyam"
+        >
+    </div>
+
+    <!-- RIGHT SIDE : TEXT -->
+    <div class="spb-content">
+
+        <div class="music-symbol">♫</div>
+
+        <h2>S. P. Balasubrahmanyam</h2>
+
+        <div class="artist-role">
+            Legendary Playback Singer
+        </div>
+
+        <p>
+            S. P. Balasubrahmanyam was one of India's most
+            celebrated playback singers. His extraordinary
+            voice touched millions of hearts across generations
+            and languages.
+        </p>
+
+        <p>
+            His contribution to Indian music, playback singing
+            and cinema has made him one of the most respected
+            voices in the history of Indian music.
+        </p>
+
+        <div class="academy-note">
+            <strong>Musical Legacy</strong><br>
+            A timeless voice that continues to inspire
+            singers, musicians and music lovers around the world.
+        </div>
+
+    </div>
+
+</div>
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <h3>
+            🎶 Shahin Music Academy
+        </h3>
+
+        <p>
+            Learn • Practice • Create • Perform
+        </p>
+
+    </footer>
+
+
+<div class="back-home-container">
+    <a href="index.html" class="back-home-btn">
+        ← Back to Home
+    </a>
+</div>
+
+
+</body>
+
+</html>
